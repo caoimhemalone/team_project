@@ -30,7 +30,7 @@
         <EditText
             android:layout_width="234dp"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
+            android:id="@+id/firstNameET"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:hint="Student Number"
