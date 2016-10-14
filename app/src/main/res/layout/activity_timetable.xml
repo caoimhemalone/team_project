@@ -9,4 +9,83 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.liam.studybuddy.Timetable">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="false"
+        android:id="@+id/bodyLayout">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:id="@+id/headingLayout">
+
+            <TextView
+                android:text="Timetable"
+                android:layout_width="wrap_content"
+                android:layout_height="53dp"
+                android:id="@+id/textView3"
+                android:layout_weight="0.37"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/timeTableLayout">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/room" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Date"
+                    android:ems="10"
+                    android:id="@+id/Date" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Time"
+                    android:ems="10"
+                    android:id="@+id/time" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/room_01">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Room 1"
+                    android:ems="10"
+                    android:id="@+id/room_01_ET" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </TableLayout>
+    </LinearLayout>
 </RelativeLayout>
