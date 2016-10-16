@@ -10,4 +10,18 @@
     <string name="password">Password</string>
     <string name="repeatPassword">Repeat Password</string>
     <string name="signup">SignUp</string>
+
+<!-- For Study search spinner-->
+    <string-array name="comp_ss_spinner_array">
+        <item> Course </item>
+        <item> Year </item>
+        <item> Module </item>
+    </string-array>
+    <string-array name="bus_ss_spinner_array">
+        <item> Course </item>
+        <item> Year </item>
+        <item> Module </item>
+    </string-array>
+
+
 </resources>

@@ -65,6 +65,32 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="25dp" />
 
+        <!-- ONLY TEMPORARY WHILE CAOIMHE SORTS OUT GUI SO SHE CAN SEE THE SPINNER -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.06">
+
+            <Button
+                android:text="Time Table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/timetable"
+                android:layout_weight="1"
+                android:onClick="openTT"/>
+
+            <Button
+                android:text="Study Search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/study_search"
+                android:layout_weight="1"
+                android:onClick="openSS"/>
+        </LinearLayout>
+
+        <!-- ONLY TEMPORARY WHILE CAOIMHE SORTS OUT GUI SO SHE CAN SEE THE TIMETABLE -->
+
     </LinearLayout>
 
 </RelativeLayout>

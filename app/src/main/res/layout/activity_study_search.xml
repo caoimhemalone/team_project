@@ -9,4 +9,43 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.liam.studybuddy.StudySearch">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:weightSum="1">
+
+        <TextView
+            android:text="Study Search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ss_text_view"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ss_spinner_bus"
+                android:layout_weight="0.51"
+                style="@style/spinner_style"
+                android:text="School of Business"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ss_spinner_comp"
+                android:layout_weight="0.51"
+                style="@style/spinner_style"
+                android:text="School of Computing"/>
+        </LinearLayout>
+
+    </LinearLayout>
 </RelativeLayout>
