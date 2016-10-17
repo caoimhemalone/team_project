@@ -129,6 +129,45 @@
                     android:id="@+id/textView12"
                     android:textSize="30sp" />
             </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/room_04" >
+
+                <TextView
+                    android:text="Room 4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView4"
+                    android:textSize="30sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/room_05" >
+
+                <TextView
+                    android:text="Room 5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView5"
+                    android:textSize="30sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/room_06">
+
+                <TextView
+                    android:text="room 6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView6"
+                    android:textSize="30sp" />
+            </TableRow>
         </TableLayout>
     </LinearLayout>
 </RelativeLayout>

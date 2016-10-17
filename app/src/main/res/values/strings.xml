@@ -10,6 +10,8 @@
     <string name="password">Password</string>
     <string name="repeatPassword">Repeat Password</string>
     <string name="signup">SignUp</string>
+    <string name="study_search">Study Search</string>
+    <string name="school_comp">School of Computing</string>
 
 <!-- For Study search spinner-->
     <string-array name="comp_ss_spinner_array">

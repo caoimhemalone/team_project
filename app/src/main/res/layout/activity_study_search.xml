@@ -18,7 +18,7 @@
         android:weightSum="1">
 
         <TextView
-            android:text="Study Search"
+            android:text="@string/study_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/ss_text_view"
@@ -35,16 +35,17 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/ss_spinner_bus"
                 android:layout_weight="0.51"
-                style="@style/spinner_style"
                 android:text="School of Business"/>
+            <!--style="@style/spinner_style" -->
 
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/ss_spinner_comp"
                 android:layout_weight="0.51"
-                style="@style/spinner_style"
-                android:text="School of Computing"/>
+                android:entries="@array/comp_ss_spinner_array"
+                />
+            <!--  style="@style/spinner_style" -->
         </LinearLayout>
 
     </LinearLayout>
