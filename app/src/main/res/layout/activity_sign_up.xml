@@ -59,7 +59,7 @@
             android:layout_below="@+id/lastNameET"
             android:layout_alignLeft="@+id/lastNameET"
             android:layout_alignStart="@+id/lastNameET"
-            android:id="@+id/firstNameET"
+            android:id="@+id/studentNumET"
             android:hint="@string/studentNumber"
             android:textAlignment="center"
             android:layout_marginTop="20dp" />
