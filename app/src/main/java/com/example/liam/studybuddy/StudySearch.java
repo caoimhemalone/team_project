@@ -14,9 +14,9 @@ import android.view.View;
 public class StudySearch extends AppCompatActivity {
 
     Spinner spin_comp;
-   // Spinner spin_bus;
+            //spin_school, spin_bus;
     ArrayAdapter<CharSequence> adapter_comp;
-   // ArrayAdapter<CharSequence> adapter_bus;
+    //ArrayAdapter<CharSequence> adapter_bus;
 
 
     @Override
@@ -24,31 +24,76 @@ public class StudySearch extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_search);
 
-          /**
-         * @reference https://www.youtube.com/watch?v=28jA5-mO8K8&index=8&list=LL9QnUxf2Pctj2wyWa4GABCw YouTube: PRABEESH R K
+        /**
+         * @reference http://stackoverflow.com/questions/9262871/android-two-spinner-onitemselected
          */
 
-        spin_comp = (Spinner)findViewById(R.id.ss_spinner_comp);
-       // spin_bus = (Spinner)findViewById(R.id.ss_spinner_bus);
+      /*   // Select school spinner
+        spin_school = (Spinner) findViewById(R.id.ss_spinner_school);
+        ArrayAdapter<CharSequence> adapter_school = ArrayAdapter.createFromResource(this, R.array.school_ss_spinner_array, android.R.layout.simple_spinner_item);
+        adapter_school.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin_school.setAdapter(adapter_school);
+        spin_school.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+
+        // Select course, year, module
+        spin_comp = (Spinner) findViewById(R.id.ss_spinner_comp);
+        ArrayAdapter<CharSequence> adapter_comp = ArrayAdapter.createFromResource(this, R.array.comp_ss_spinner_array, android.R.layout.simple_spinner_item);
+        adapter_comp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin_comp.setAdapter(adapter_comp);
+        spin_comp.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+
+        spin_bus = (Spinner) findViewById(R.id.ss_spinner_bus);
+        ArrayAdapter<CharSequence> adapter_bus = ArrayAdapter.createFromResource(this, R.array.bus_ss_spinner_array, android.R.layout.simple_spinner_item);
+        adapter_comp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin_bus.setAdapter(adapter_comp);
+        spin_bus.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+
+    } */
+
+
+      /*  public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
+
+        Spinner spinner = (Spinner) parent;
+        if(spinner.getId() == R.id.school_ss_spinner_array){
+
+        }
+        else if(spinner.getId() == R.id.comp_ss_spinner_array){
+
+        }
+        else {
+
+        }
+
+    } */
+
+
+        /**
+         * @reference https://www.youtube.com/watch?v=28jA5-mO8K8&index=8&list=LL9QnUxf2Pctj2wyWa4GABCw YouTube: PRABEESH R K
+         */
+/*
+        spin_comp = (Spinner) findViewById(R.id.ss_spinner_comp);
         adapter_comp = ArrayAdapter.createFromResource(this, R.array.comp_ss_spinner_array, android.R.layout.simple_spinner_item);
         adapter_comp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-       // adapter_bus = ArrayAdapter.createFromResource(this, R.array.bus_ss_spinner_array, android.R.layout.simple_spinner_item);
-       // adapter_bus.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin_comp.setAdapter(adapter_comp);
-       // spin_bus.setAdapter(adapter_bus);
-        spin_comp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+        spin_comp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                 Toast.makeText(getBaseContext(), parent.getItemAtPosition(position)+ " selected", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selected", Toast.LENGTH_LONG).show();
             }
-                @Override
-                 public void onNothingSelected(AdapterView<?> parent){
 
-                 }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
-        });
+            }
 
+        }); */
+
+
+        // spin_bus.setAdapter(adapter_bus);
+        // adapter_bus = ArrayAdapter.createFromResource(this, R.array.bus_ss_spinner_array, android.R.layout.simple_spinner_item);
+        // adapter_bus.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // spin_bus = (Spinner)findViewById(R.id.ss_spinner_bus);
        /* spin_bus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
@@ -82,6 +127,5 @@ public class StudySearch extends AppCompatActivity {
 
         spin_bus.setAdapter(adapter_2);
         */
-
     }
 }
