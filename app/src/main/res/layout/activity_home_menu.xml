@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,45 +10,76 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.liam.studybuddy.HomeMenu">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="My Home"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:allowUndo="true"
+        android:textSize="35dp"
+        android:layout_marginLeft="100dp" />
+
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/linearLayout">
+        android:weightSum="1">
 
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="162dp"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout"
+            android:layout_weight="0.50">
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:id="@+id/imageButton"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/linearLayout"
+                android:layout_alignEnd="@+id/linearLayout"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="25dp" />
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:id="@+id/imageButton2"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="50dp" />
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:id="@+id/imageButton3"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="50dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="My Home"
-            android:id="@+id/textView2"
-            android:layout_gravity="center_horizontal"
-            android:allowUndo="true"
-            android:textSize="35dp" />
+            android:layout_height="420dp"
+            android:weightSum="1">
 
-        <ImageButton
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:id="@+id/imageButton"
-            android:layout_alignParentTop="true"
-            android:layout_alignRight="@+id/linearLayout"
-            android:layout_alignEnd="@+id/linearLayout"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="25dp" />
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:id="@+id/imageButton6"
+                android:layout_marginTop="50dp" />
 
-        <ImageButton
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:id="@+id/imageButton2"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="50dp" />
-
-        <ImageButton
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:id="@+id/imageButton3"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="50dp" />
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:id="@+id/imageButton7"
+                android:layout_marginTop="50dp" />
+        </LinearLayout>
 
     </LinearLayout>
 
