@@ -33,18 +33,23 @@ public class SignUp extends AppCompatActivity {
         signupBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(firstNameET.getText().toString().isEmpty() ||
+                if (firstNameET.getText().toString().isEmpty() ||
                         lastNameET.getText().toString().isEmpty() ||
                         studentNumET.getText().toString().isEmpty() ||
                         !emailET.getText().toString().matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+") ||
                         !repeatEmailET.getText().toString().matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+") ||
                         passwordET.getText().toString().isEmpty() ||
-                        repeatPasswordET.getText().toString().isEmpty())
-                {
+                        repeatPasswordET.getText().toString().isEmpty()) {
                     ShowMessage("Fill in all details!");
-                }
-                else{
-
+                } else {
+                    new signUp().execute();
+                    firstNameET.setText(null);
+                    lastNameET.setText(null);
+                    studentNumET.setText(null);
+                    emailET.setText(null);
+                    repeatEmailET.setText(null);
+                    passwordET.setText(null);
+                    repeatPasswordET.setText(null);
                 }
             }
         });
