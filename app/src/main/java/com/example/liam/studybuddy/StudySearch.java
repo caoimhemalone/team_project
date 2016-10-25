@@ -4,19 +4,25 @@ package com.example.liam.studybuddy;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.Toast;
 import android.view.View;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ExpandableListView.OnGroupClickListener;
+import android.widget.ExpandableListView.OnGroupCollapseListener;
+import android.widget.ExpandableListView.OnGroupExpandListener;
+
 
 
 public class StudySearch extends AppCompatActivity {
 
-    Spinner spin_comp;
-            //spin_school, spin_bus;
-    ArrayAdapter<CharSequence> adapter_comp;
-    //ArrayAdapter<CharSequence> adapter_bus;
+    ExpandableListAdapter listAdapter;
+    ExpandableListView expListView;
+    List<String> listDataHeader;
+    HashMap<String, List<String>> listDataChild;
 
 
     @Override
@@ -24,108 +30,87 @@ public class StudySearch extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_search);
 
-        /**
-         * @reference http://stackoverflow.com/questions/9262871/android-two-spinner-onitemselected
-         */
+        // get the list view
+        expListView = (ExpandableListView) findViewById(R.id.lvExp);
 
-      /*   // Select school spinner
-        spin_school = (Spinner) findViewById(R.id.ss_spinner_school);
-        ArrayAdapter<CharSequence> adapter_school = ArrayAdapter.createFromResource(this, R.array.school_ss_spinner_array, android.R.layout.simple_spinner_item);
-        adapter_school.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spin_school.setAdapter(adapter_school);
-        spin_school.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+        //preparing list data
+        prepareListData();
 
-        // Select course, year, module
-        spin_comp = (Spinner) findViewById(R.id.ss_spinner_comp);
-        ArrayAdapter<CharSequence> adapter_comp = ArrayAdapter.createFromResource(this, R.array.comp_ss_spinner_array, android.R.layout.simple_spinner_item);
-        adapter_comp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spin_comp.setAdapter(adapter_comp);
-        spin_comp.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 
-        spin_bus = (Spinner) findViewById(R.id.ss_spinner_bus);
-        ArrayAdapter<CharSequence> adapter_bus = ArrayAdapter.createFromResource(this, R.array.bus_ss_spinner_array, android.R.layout.simple_spinner_item);
-        adapter_comp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spin_bus.setAdapter(adapter_comp);
-        spin_bus.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+        //setting list adapter
+        expListView.setAdapter(listAdapter);
 
-    } */
-
-
-      /*  public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
-
-        Spinner spinner = (Spinner) parent;
-        if(spinner.getId() == R.id.school_ss_spinner_array){
-
-        }
-        else if(spinner.getId() == R.id.comp_ss_spinner_array){
-
-        }
-        else {
-
-        }
-
-    } */
-
-
-        /**
-         * @reference https://www.youtube.com/watch?v=28jA5-mO8K8&index=8&list=LL9QnUxf2Pctj2wyWa4GABCw YouTube: PRABEESH R K
-         */
-/*
-        spin_comp = (Spinner) findViewById(R.id.ss_spinner_comp);
-        adapter_comp = ArrayAdapter.createFromResource(this, R.array.comp_ss_spinner_array, android.R.layout.simple_spinner_item);
-        adapter_comp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spin_comp.setAdapter(adapter_comp);
-        spin_comp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        // ListView Group click listener
+        expListView.setOnGroupClickListener(new OnGroupClickListener(){
 
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selected", Toast.LENGTH_LONG).show();
+                public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id){
+                // Toast.makeText(getApplicationContext(),
+                // "Group Clicked" + listDataHeader.get(groupPosition),
+                //Toast.LENGTH_SHORT).show();
+                return false;
             }
+        });
+
+        // Listview Group expanded listener
+        expListView.setOnGroupExpandListener(new OnGroupExpandListener() {
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition) + " Expanded", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //Listview Group collapsed listener
+        expListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+                Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition)+" Collapsed", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //Listview on child click listener
+
+        expListView.setOnChildClickListener(new OnChildClickListener() {
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+            public boolean onChildClick(ExpandableListView parent, View v,int groupPosition, int childPosition, long id){
+                Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition)+" : "+ listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
+                return false;
             }
+        });
 
-        }); */
-
-
-        // spin_bus.setAdapter(adapter_bus);
-        // adapter_bus = ArrayAdapter.createFromResource(this, R.array.bus_ss_spinner_array, android.R.layout.simple_spinner_item);
-        // adapter_bus.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // spin_bus = (Spinner)findViewById(R.id.ss_spinner_bus);
-       /* spin_bus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
-                Toast.makeText(getBaseContext(), parent.getItemIdAtPosition(position)+" selected", Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent){
-
-            }
-
-        });    */
-
-
-
-        /*  BASIC SPINNER
-        // this.arraySpinner = new String[]{
-               // "School of Computing", "Course", "Year", "Module"
-
-        //Spinner for school of computing
-        final Spinner spin_comp = (Spinner) findViewById(R.id.ss_spinner_comp);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.comp_ss_spinner_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spin_comp.setAdapter(adapter);
-
-        // Spinner for school of business
-       Spinner spin_bus  = (Spinner) findViewById(R.id.ss_spinner_bus);
-        ArrayAdapter<CharSequence> adapter_2 = ArrayAdapter.createFromResource(this, R.array.bus_ss_spinner_array, android.R.layout.simple_spinner_item);
-        adapter_2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-
-        spin_bus.setAdapter(adapter_2);
-        */
     }
+
+    //PREPARING THE LIST DATA
+
+    private void prepareListData() {
+        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<String, List<String>>();
+
+        // Adding child data
+        listDataHeader.add("School of Business");
+        listDataHeader.add("School of Computing");
+
+        // Adding child data
+        List<String> school_bus = new ArrayList<String>();
+        school_bus.add("Course");
+        school_bus.add("Year");
+        school_bus.add("Module");
+
+        List<String> school_comp = new ArrayList<String>();
+        school_comp.add("Course");
+        school_comp.add("Year");
+        school_comp.add("Module");
+
+      // List<String> bus_course = new ArrayList<String>();
+        //bus_course.add("course 1");
+        //bus_course.add("course 2");
+        //bus_course.add("course 3");
+
+        listDataChild.put(listDataHeader.get(0), school_bus); //Header, Child data
+        listDataChild.put(listDataHeader.get(1), school_comp);
+
+    }
+
 }

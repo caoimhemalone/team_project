@@ -44,44 +44,19 @@
             <ExpandableListView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/ExpLV"
+                android:id="@+id/lvExp"
               />
-          <!--   <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/ss_spinner_bus"
-                android:layout_weight="0.51"
-                android:text="School of Business"/> -->
 
-
-          <!--  <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:id="@+id/ss_spinner_comp"
-                android:entries="@array/comp_ss_spinner_array"
-                android:paddingLeft="70dp"
-                android:paddingTop="10dp"
-               android:paddingRight="70dp" /> -->
-
-          <!--   <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:id="@+id/ss_spinner_school"
-                android:entries="@array/school_ss_spinner_array"
-                android:paddingLeft="70dp"
-                android:paddingTop="10dp" /> -->
-
-            <!--  style="@style/spinner_style" -->
         </LinearLayout>
 
-       <!--  <LinearLayout
+       <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/LL_HOR_FOOTER"> -->
+            android:id="@+id/LL_HOR_FOOTER">
 
 
-       <!--   </LinearLayout> -->
+       </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>
