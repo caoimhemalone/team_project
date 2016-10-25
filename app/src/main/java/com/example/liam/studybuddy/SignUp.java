@@ -1,6 +1,7 @@
 package com.example.liam.studybuddy;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -95,6 +96,10 @@ public class SignUp extends AppCompatActivity {
             if (result == false) {
                 //result added
                 ShowMessage("Sign Up complete!");
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), LogIn.class);
+                startActivity(i);
+                finish();
             } else {
                 //details weren't added
                 ShowMessage("Details not added!");
