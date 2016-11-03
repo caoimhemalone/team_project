@@ -44,7 +44,7 @@ public class DBHelper {
         boolean result = false;
 
         try {
-            PreparedStatement st = conn.prepareStatement("INSERT INTO " + AppConfig.TABLE_NAME + " (fName, lNAme, studentNum, email, repeatEmail, password, repeatPassword) VALUES(?,?,?,?,?,?,?)");
+            PreparedStatement st = conn.prepareStatement("INSERT INTO " + AppConfig.TABLE_NAME + " (fName, lName, studentNum, email, repeatEmail, password, repeatPassword) VALUES(?,?,?,?,?,?,?)");
             st.setString(1, fName);
             st.setString(2, lName);
             st.setString(3, studentNum);
