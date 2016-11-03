@@ -9,11 +9,23 @@ import android.widget.EditText;
 
 public class LogIn extends AppCompatActivity {
 
+    private Button signupBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        signupBTN = (Button)findViewById(R.id.signupBTN);
+        signupBTN.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), SignUp.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
     }
 

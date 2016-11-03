@@ -17,7 +17,7 @@ public class DBHelper {
     private Connection conn;
     private String TAG = DBHelper.class.getSimpleName();
 
-    private DBHelper(){
+    public DBHelper(){
         conn = null;
         try {
             Class.forName(AppConfig.DRIVER);
@@ -31,7 +31,7 @@ public class DBHelper {
     }
 
     public void createTable() {
-        String query = "CREATE TABLE IF NOT EXISTS " + AppConfig.TABLE_NAME + "(id int PRIMARY KEY auto_increment, " + "fName varchar(50)not null, " + "lName varchar(50)not null, " + "email varchar(50) not null, " + "repeatEmail varchar(50) not null, " + "password varchar(50) not null, " + "repeatPassword varchar(50) not null, );";
+        String query = "CREATE TABLE IF NOT EXISTS " + AppConfig.TABLE_NAME + "(id int PRIMARY KEY auto_increment, " + "fName varchar(50)not null, " + "lName varchar(50)not null, " + "studentNum varchar(50) not null, " + "email varchar(50) not null, " + "repeatEmail varchar(50) not null, " + "password varchar(50) not null, " + "repeatPassword varchar(50) not null);";
         try {
             Statement st = conn.createStatement();
             st.executeUpdate(query);
@@ -40,17 +40,18 @@ public class DBHelper {
         }
     }
 
-    public boolean addDetails(String fName, String lName, String email, String repeatEmail, int password, int repeatPassword) {
+    public boolean signup(String fName, String lName, String studentNum, String email, String repeatEmail, String password, String repeatPassword) {
         boolean result = false;
 
         try {
-            PreparedStatement st = conn.prepareStatement("INSERT INTO " + AppConfig.TABLE_NAME + " (fName, lNAme, email, repeatEmail, password, reapeatPassword) VALUES(?,?,?,?,?,?)");
+            PreparedStatement st = conn.prepareStatement("INSERT INTO " + AppConfig.TABLE_NAME + " (fName, lNAme, studentNum, email, repeatEmail, password, repeatPassword) VALUES(?,?,?,?,?,?,?)");
             st.setString(1, fName);
             st.setString(2, lName);
-            st.setString(3, email);
-            st.setString(4, repeatEmail);
-            st.setInt(5, password);
-            st.setInt(5, repeatPassword);
+            st.setString(3, studentNum);
+            st.setString(4, email);
+            st.setString(5, repeatEmail);
+            st.setString(6, password);
+            st.setString(7, repeatPassword);
 
             result = st.execute();
             st.close();

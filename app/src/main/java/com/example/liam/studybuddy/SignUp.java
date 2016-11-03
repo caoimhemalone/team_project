@@ -61,14 +61,14 @@ public class SignUp extends AppCompatActivity {
     }
 
     private class signUp extends AsyncTask<Void, Void, Void> {
-        String firstName, lastName, studentNum, email, repeatEmail, password, repeatPassword;
+        String fName, lName, studentNum, email, repeatEmail, password, repeatPassword;
         private ProgressDialog pDialog;
         private boolean result;
 
         @Override
         protected void onPreExecute() {
-            firstName = firstNameET.getText().toString();
-            lastName = lastNameET.getText().toString();
+            fName = firstNameET.getText().toString();
+            lName = lastNameET.getText().toString();
             studentNum = studentNumET.getText().toString();
             email = emailET.getText().toString();
             repeatEmail = repeatEmailET.getText().toString();
@@ -86,7 +86,7 @@ public class SignUp extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
 
             DBHelper db = new DBHelper();
-            //result = db.signUp(firstName, lastName, studentNum, email, repeatEmail, password, repeatPassword);
+            result = db.signup(fName, lName, studentNum, email, repeatEmail, password, repeatPassword);
             return null;
         }
 
