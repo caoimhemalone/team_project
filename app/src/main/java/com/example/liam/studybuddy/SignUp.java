@@ -14,6 +14,8 @@ import android.widget.Toast;
 public class SignUp extends AppCompatActivity {
     private EditText firstNameET, lastNameET, studentNumET, emailET, repeatEmailET, passwordET, repeatPasswordET;
     private Button signupBTN;
+    String fName, lName, studentNum, email, repeatEmail, password, repeatPassword;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,46 +36,53 @@ public class SignUp extends AppCompatActivity {
         signupBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(firstNameET.getText().toString().isEmpty() ||
-                        lastNameET.getText().toString().isEmpty() ||
-                        studentNumET.getText().toString().isEmpty() ||
-                        !emailET.getText().toString().matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+") ||
-                        !repeatEmailET.getText().toString().matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+") ||
-                        passwordET.getText().toString().isEmpty() ||
-                        repeatPasswordET.getText().toString().isEmpty()){
-                            if(firstNameET.getText().toString().isEmpty()){
+                fName = firstNameET.getText().toString();
+                lName = lastNameET.getText().toString();
+                studentNum = studentNumET.getText().toString();
+                email = emailET.getText().toString();
+                repeatEmail = repeatEmailET.getText().toString();
+                password = passwordET.getText().toString();
+                repeatPassword = repeatPasswordET.getText().toString();
+                if(fName.isEmpty() ||
+                        lName.isEmpty() ||
+                        studentNum.isEmpty() ||
+                        !email.matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+") ||
+                        !repeatEmail.matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+") ||
+                        password.isEmpty() ||
+                        repeatPassword.isEmpty()){
+                            if(fName.isEmpty()){
                                 ShowMessage("First Name field is empty!");
                             }
-                            else if(lastNameET.getText().toString().isEmpty()){
+                            else if(lName.isEmpty()){
                                 ShowMessage("Last Name field is empty!");
                             }
-                            else if(studentNumET.getText().toString().isEmpty()){
+                            else if(studentNum.isEmpty()){
                                 ShowMessage("Student Number field is empty!");
                             }
-                            else if(emailET.getText().toString().isEmpty()){
+                            else if(email.isEmpty()){
                                 ShowMessage("Email field is empty!");
                             }
-                            else if(!emailET.getText().toString().matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")){
+                            else if(!email.matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")){
                                 ShowMessage("Email field is invalid!");
                             }
-                            else if(repeatEmailET.getText().toString().isEmpty()){
+                            else if(repeatEmail.isEmpty()){
                                 ShowMessage("Repeat Email field is empty!");
                             }
-                            else if(!repeatEmailET.getText().toString().matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")){
+                            else if(!repeatEmail.matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")){
                                 ShowMessage("Repeat Email field is invalid!");
                             }
-                            else if(passwordET.getText().toString().isEmpty()){
+                            else if(password.isEmpty()){
                                 ShowMessage("Password field is empty!");
                             }
-                            else if(repeatPasswordET.getText().toString().isEmpty()){
+                            else if(repeatPassword.isEmpty()){
                                 ShowMessage("Repeat Password field is empty!");
                             }
-//                            else if(!(emailET.getText().toString().equals(repeatEmailET.getText().toString()))){
-//                                ShowMessage("Emails must match!");
-//                            }
-//                            else if(!(passwordET.getText().toString().equals(repeatPasswordET.getText().toString()))){
-//                                ShowMessage("Passwords must match!");
-//                            }
+                            else if(!email.equals(repeatEmail)){
+                                ShowMessage("Emails do not match!");
+                            }
+                            else if(!password.equals(repeatPassword)){
+                                ShowMessage("Passwords do not match!");
+                            }
                 }
                 else{
                     new signUp().execute();
@@ -94,7 +103,6 @@ public class SignUp extends AppCompatActivity {
     }
 
     private class signUp extends AsyncTask<Void, Void, Void> {
-        String fName, lName, studentNum, email, repeatEmail, password, repeatPassword;
         private ProgressDialog pDialog;
         private boolean result;
 
