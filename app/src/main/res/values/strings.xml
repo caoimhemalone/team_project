@@ -2,4 +2,53 @@
     <string name="app_name">StudyBuddy</string>
     <string name="userName">User name</string>
     <string name="messageHolderText">Enter message here...</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="studentNumber">StudentNumber</string>
+    <string name="email">E-mail</string>
+    <string name="repeatEmail">Repeat E-mail</string>
+    <string name="password">Password</string>
+    <string name="repeatPassword">Repeat Password</string>
+    <string name="signup">SignUp</string>
+    <string name="study_search">Study Search</string>
+    <string name="school_comp">School of Computing</string>
+    <string name="ss_text"> Nearly There! \n But first you need to select a few things to find content to study</string>
+
+<!-- For Study search spinner-->
+
+    <string-array name="school_ss_spinner_array">
+        <item> School of Business </item>
+        <item> School of Computing</item>
+    </string-array>
+
+    <!-- Computing -->
+    <string-array name="comp_ss_spinner_array">
+        <item> Course </item>
+        <item> Year </item>
+        <item> Module </item>
+    </string-array>
+    <!--  <string-array name="comp_ss_spinner_array_course">
+        <item> BSHC </item>
+        <item> BIS </item>
+    </string-array>
+     <string-array name="comp_ss_spinner_array_year">
+        <item> 1st </item>
+        <item> 2nd </item>
+        <item> 3rd </item>
+        <item> 4th </item>
+    </string-array>
+    <string-array name="comp_ss_spinner_array_module">
+        <item> WN </item>
+        <item> AIT </item>
+        <item> AD </item>
+    </string-array> -->
+
+    <!-- Business  -->
+   <!--  <string-array name="bus_ss_spinner_array">
+        <item> Course </item>
+        <item> Year </item>
+        <item> Module </item>
+    </string-array> -->
+
+
 </resources>
