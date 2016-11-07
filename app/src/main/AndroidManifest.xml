@@ -19,8 +19,22 @@
         <activity android:name=".HomeMenu" />
         <activity android:name=".Timetable" />
         <activity android:name=".Profile" />
-        <activity android:name=".Calender" />
-        <activity android:name=".Messaging" />
+        <activity android:name=".Calender" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".Messaging" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
+            </activity>
         <activity android:name=".StudySearch"></activity>
     </application>
 
