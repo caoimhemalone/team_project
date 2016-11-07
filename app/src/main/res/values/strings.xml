@@ -14,7 +14,7 @@
     <string name="school_comp">School of Computing</string>
     <string name="ss_text"> Nearly There! \n But first you need to select a few things to find content to study</string>
 
-<!-- For Study search spinner-->
+    <!-- For Study search spinner-->
 
     <string-array name="school_ss_spinner_array">
         <item> School of Business </item>
@@ -27,6 +27,12 @@
         <item> Year </item>
         <item> Module </item>
     </string-array>
+    <string name="title_activity_nav">NavActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
     <!--  <string-array name="comp_ss_spinner_array_course">
         <item> BSHC </item>
         <item> BIS </item>
@@ -44,7 +50,7 @@
     </string-array> -->
 
     <!-- Business  -->
-   <!--  <string-array name="bus_ss_spinner_array">
+    <!--  <string-array name="bus_ss_spinner_array">
         <item> Course </item>
         <item> Year </item>
         <item> Module </item>
