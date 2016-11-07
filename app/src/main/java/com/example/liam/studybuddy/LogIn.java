@@ -42,7 +42,7 @@ public class LogIn extends AppCompatActivity {
     }
 
 
-    //ONLY TEMPORARY WHILE CAOIMHE SORTS OUT GUI SO SHE CAN SEE THE SPINNER
+  /*  //ONLY TEMPORARY WHILE CAOIMHE SORTS OUT GUI SO SHE CAN SEE THE SPINNER
     public void openSS (View view){
         Intent intent = new Intent(this, StudySearch.class);
         startActivity(intent);
@@ -54,5 +54,5 @@ public class LogIn extends AppCompatActivity {
         Intent intent = new Intent(this, Timetable.class);
         startActivity(intent);
         finish();
-    }
+    }*/
 }
