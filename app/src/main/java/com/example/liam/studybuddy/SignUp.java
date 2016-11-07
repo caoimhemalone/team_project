@@ -75,18 +75,18 @@ public class SignUp extends AppCompatActivity {
                                 ShowMessage("Password field is empty!");
                             }
                             else if(!password.matches("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})")){
-                                ShowMessage(("Password must be minimum 6 and maximum 20 characters and contain atleast one uppercase and lowercase letter and one digit from 0-9"));
+                                ShowMessage("Password must be minimum 6 and maximum 20 characters and contain atleast one uppercase and lowercase letter and one digit from 0-9");
                             }
                             else if(repeatPassword.isEmpty()){
                                 ShowMessage("Repeat Password field is empty!");
                             }
                             else if(!repeatPassword.matches("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})")){
-                                ShowMessage(("Password must be minimum 6 and maximum 20 characters and contain atleast one uppercase and lowercase letter and one digit from 0-9"));
+                                ShowMessage("Password must be minimum 6 and maximum 20 characters and contain atleast one uppercase and lowercase letter and one digit from 0-9");
                             }
-                            else if(!email.equals(repeatEmail)){
+                            else if(!repeatEmail.equals(email)){
                                 ShowMessage("Emails do not match!");
                             }
-                            else if(!password.equals(repeatPassword)){
+                            else if(!repeatPassword.equals(password)){
                                 ShowMessage("Passwords do not match!");
                             }
                 }

@@ -98,6 +98,8 @@ public class StudySearch extends AppCompatActivity {
         school_bus.add("Year");
         school_bus.add("Module");
 
+        //Need to add if statement to hide current ExpList and show another when course or year or module is selected 
+
         List<String> school_comp = new ArrayList<String>();
         school_comp.add("Course");
         school_comp.add("Year");
