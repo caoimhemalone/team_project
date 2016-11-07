@@ -18,6 +18,7 @@ public class Messaging extends AppCompatActivity {
     private EditText chatText;
     private ImageButton send;
     private boolean side = false;
+    private String responseString = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,25 @@ public class Messaging extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View arg0){
-                sendChatMessage();
+                responseString= chatText.getText().toString();
+                if(responseString.toString().equalsIgnoreCase("Hello")){
+                    sendChatMessage();
+                    chatText.setText("Hi How are you");
+                    send.performClick();
+                }
+                else if(responseString.toString().equalsIgnoreCase("Im good thanks, How are you")){
+                    sendChatMessage();
+                    chatText.setText("Fine thank you");
+                    send.performClick();
+                }
+                else if(responseString.toString().equalsIgnoreCase("I have a presentation ttyl")){
+                    sendChatMessage();
+                    chatText.setText("Ok good luck ttyl");
+                    send.performClick();
+                }
+                else{
+                    sendChatMessage();
+                }
             }
         });
         list.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
