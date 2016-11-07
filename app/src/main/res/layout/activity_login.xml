@@ -70,8 +70,9 @@
             android:id="@+id/signupBTN"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="25dp" />
+<!--
 
-        <!-- ONLY TEMPORARY WHILE CAOIMHE SORTS OUT GUI SO SHE CAN SEE THE SPINNER -->
+         ONLY TEMPORARY WHILE CAOIMHE SORTS OUT GUI SO SHE CAN SEE THE SPINNER
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -95,7 +96,8 @@
                 android:onClick="openSS"/>
         </LinearLayout>
 
-        <!-- ONLY TEMPORARY WHILE CAOIMHE SORTS OUT GUI SO SHE CAN SEE THE TIMETABLE -->
+         ONLY TEMPORARY WHILE CAOIMHE SORTS OUT GUI SO SHE CAN SEE THE TIMETABLE
+-->
 
     </LinearLayout>
 
