@@ -13,48 +13,45 @@
     <string name="study_search">Study Search</string>
     <string name="school_comp">School of Computing</string>
     <string name="ss_text"> Nearly There! \n But first you need to select a few things to find content to study</string>
+    <string name="room_select"> Select a Room and Day </string>
+    <string name="timeSlot1"> 9am - 10am </string>
+    <string name="timeSlot2"> 10am - 11am </string>
+    <string name="timeSlot3"> 11am - 12pm </string>
+    <string name="timeSlot4"> 12pm - 1pm </string>
+    <string name="timeSlot5"> 1pm - 2pm </string>
+    <string name="timeSlot6"> 2pm - 3pm </string>
+    <string name="timeSlot7"> 3pm - 4pm </string>
+    <string name="timeSlot8"> 4pm - 5pm </string>
+    <string name="day_TT"> Day </string>
+    <string name="time_TT"> Time </string>
+    <string name="class_TT"> Class </string>
+    <string name="monday"> Monday </string>
+    <string name="class_1">BSHC3B: \nWireless Networking</string>
+
 
     <!-- For Study search spinner-->
 
-    <string-array name="school_ss_spinner_array">
-        <item> School of Business </item>
-        <item> School of Computing</item>
+    <string-array name="TT_spinner_array">
+        <item> SCR1 </item>
+        <item> SCR2 </item>
+        <item> SCR3 </item>
+        <item> Oriel Suite </item>
     </string-array>
 
-    <!-- Computing -->
-    <string-array name="comp_ss_spinner_array">
-        <item> Course </item>
-        <item> Year </item>
-        <item> Module </item>
-    </string-array>
+
     <string name="title_activity_nav">NavActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <!--  <string-array name="comp_ss_spinner_array_course">
-        <item> BSHC </item>
-        <item> BIS </item>
-    </string-array>
-     <string-array name="comp_ss_spinner_array_year">
-        <item> 1st </item>
-        <item> 2nd </item>
-        <item> 3rd </item>
-        <item> 4th </item>
-    </string-array>
-    <string-array name="comp_ss_spinner_array_module">
-        <item> WN </item>
-        <item> AIT </item>
-        <item> AD </item>
-    </string-array> -->
 
-    <!-- Business  -->
-    <!--  <string-array name="bus_ss_spinner_array">
-        <item> Course </item>
-        <item> Year </item>
-        <item> Module </item>
-    </string-array> -->
-
+    <string-array name="day_spinner_array">
+        <item> Monday </item>
+        <item> Tuesday </item>
+        <item> Wednesday </item>
+        <item> Thursday </item>
+        <item> Friday </item>
+    </string-array>
 
 </resources>
