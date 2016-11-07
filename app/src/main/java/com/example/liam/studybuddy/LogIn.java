@@ -5,16 +5,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 public class LogIn extends AppCompatActivity {
 
     private Button signupBTN;
+    private Button loginBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        loginBTN = (Button)findViewById(R.id.loginBTN);
+        loginBTN.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), HomeMenu.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         signupBTN = (Button)findViewById(R.id.signupBTN);
         signupBTN.setOnClickListener(new View.OnClickListener(){
@@ -26,6 +37,7 @@ public class LogIn extends AppCompatActivity {
                 finish();
             }
         });
+
 
     }
 
