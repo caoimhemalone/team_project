@@ -1,7 +1,9 @@
 package com.example.liam.studybuddy;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -11,6 +13,7 @@ public class Profile extends AppCompatActivity {
     private TextView fullNameTV, studentNumTV, emailTV, myAccountTV;
     private Button forgotPasswordBTN;
     private ImageButton profileImageBTN;
+    private ImageButton backBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,17 @@ public class Profile extends AppCompatActivity {
 
         forgotPasswordBTN = (Button)findViewById(R.id.forgotPasswordBTN);
         profileImageBTN = (ImageButton)findViewById(R.id.profileImageBTN);
+
+        backBTN = (ImageButton)findViewById(R.id.backBTN);
+        backBTN.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), HomeMenu.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
     }
 }

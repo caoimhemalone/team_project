@@ -10,6 +10,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.liam.studybuddy.Profile">
 
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@android:drawable/arrow_up_float"
+        android:id="@+id/backBTN" />
+
     <Button
         android:text="Forgot Password?"
         android:layout_width="wrap_content"

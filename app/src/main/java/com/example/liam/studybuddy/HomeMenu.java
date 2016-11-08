@@ -15,6 +15,7 @@ public class HomeMenu extends AppCompatActivity {
     private ImageButton imageBTN3;
     private ImageButton imageBTN6;
     private ImageButton imageBTN7;
+    private ImageButton backBTN;
 
 
     @Override
@@ -72,6 +73,7 @@ public class HomeMenu extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 
 

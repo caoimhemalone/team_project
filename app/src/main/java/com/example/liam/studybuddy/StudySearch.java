@@ -2,8 +2,10 @@
 
 package com.example.liam.studybuddy;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import android.view.View;
 import java.util.ArrayList;
@@ -23,12 +25,24 @@ public class StudySearch extends AppCompatActivity {
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+    private ImageButton backBTN;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_search);
+
+        backBTN = (ImageButton)findViewById(R.id.backBTN);
+        backBTN.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), HomeMenu.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         // get the list view
         expListView = (ExpandableListView) findViewById(R.id.lvExp);

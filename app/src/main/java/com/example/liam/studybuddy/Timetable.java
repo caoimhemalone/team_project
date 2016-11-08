@@ -1,14 +1,18 @@
 package com.example.liam.studybuddy;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.view.View;
 
 public class Timetable extends AppCompatActivity {
+
+    private ImageButton backBTN;
 
     Spinner spin_TT;
     ArrayAdapter<CharSequence> adapter_TT;
@@ -19,6 +23,17 @@ public class Timetable extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timetable);
+
+        backBTN = (ImageButton)findViewById(R.id.backBTN);
+        backBTN.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), HomeMenu.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         /**
          * @reference https://www.youtube.com/watch?v=28jA5-mO8K8&index=8&list=LL9QnUxf2Pctj2wyWa4GABCw YouTube: PRABEESH R K

@@ -1,5 +1,6 @@
 package com.example.liam.studybuddy;
 
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ public class Messaging extends AppCompatActivity {
     private ImageButton send;
     private boolean side = false;
     private String responseString = "";
+    private ImageButton backBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,16 @@ public class Messaging extends AppCompatActivity {
             public void OnChanged(){
                 super.onChanged();
                 list.setSelection(adp.getCount()-1);
+            }
+        });
+        backBTN = (ImageButton)findViewById(R.id.backBTN);
+        backBTN.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), HomeMenu.class);
+                startActivity(i);
+                finish();
             }
         });
     }

@@ -1,9 +1,12 @@
 package com.example.liam.studybuddy;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.CalendarView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -14,6 +17,7 @@ public class Calender extends AppCompatActivity {
     CalendarView calendarView;
     TextView displayEventsHeader;
     TextView displayEvents;
+    private ImageButton backBTN;
 
 
     @Override
@@ -50,6 +54,17 @@ public class Calender extends AppCompatActivity {
                 }
             }
 
+        });
+
+        backBTN = (ImageButton)findViewById(R.id.backBTN);
+        backBTN.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), HomeMenu.class);
+                startActivity(i);
+                finish();
+            }
         });
     }
 }
