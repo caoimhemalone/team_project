@@ -13,4 +13,91 @@
     tools:context="com.example.liam.studybuddy.NavActivity"
     tools:showIn="@layout/app_bar_nav">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="My Home"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:allowUndo="true"
+        android:textSize="35dp"
+        android:layout_marginLeft="100dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="20dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="162dp"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout"
+            android:layout_weight="0.50">
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:id="@+id/imageButton"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/linearLayout"
+                android:layout_alignEnd="@+id/linearLayout"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="25dp"
+                app:srcCompat="@drawable/ic_social_person"
+                android:scaleType="centerCrop"
+                android:elevation="24dp" />
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:id="@+id/imageButton2"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="50dp"
+                app:srcCompat="@android:drawable/ic_menu_my_calendar"
+                android:elevation="24dp"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:id="@+id/imageButton3"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="50dp"
+                app:srcCompat="@android:drawable/ic_search_category_default"
+                android:elevation="24dp"
+                android:scaleType="fitCenter" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="420dp"
+            android:weightSum="1">
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/ic_content_send"
+                android:id="@+id/imageButton6"
+                android:layout_marginTop="50dp"
+                android:scaleType="centerCrop"
+                android:elevation="24dp" />
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@android:drawable/ic_menu_recent_history"
+                android:layout_marginTop="50dp"
+                android:id="@+id/imageButton7"
+                android:elevation="24dp"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+
+    </LinearLayout>
 </RelativeLayout>

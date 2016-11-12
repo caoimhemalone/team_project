@@ -1,7 +1,7 @@
 package com.example.liam.studybuddy;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -12,34 +12,87 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageButton;
+
 
 public class NavActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private ImageButton imageBTN;
+    private ImageButton imageBTN2;
+    private ImageButton imageBTN3;
+    private ImageButton imageBTN6;
+    private ImageButton imageBTN7;
+    private ImageButton backBTN;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_menu);
+        setContentView(R.layout.activity_nav);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
+        drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        imageBTN = (ImageButton)findViewById(R.id.imageButton);
+        imageBTN.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), Profile.class);
+                startActivity(i);
+                finish();
+            }
+        });
+        imageBTN2 = (ImageButton)findViewById(R.id.imageButton2);
+        imageBTN2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), Calender.class);
+                startActivity(i);
+                finish();
+            }
+        });
+        imageBTN3 = (ImageButton)findViewById(R.id.imageButton3);
+        imageBTN3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), StudySearch.class);
+                startActivity(i);
+                finish();
+            }
+        });
+        imageBTN6 = (ImageButton)findViewById(R.id.imageButton6);
+        imageBTN6.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), Messaging.class);
+                startActivity(i);
+                finish();
+            }
+        });
+        imageBTN7 = (ImageButton)findViewById(R.id.imageButton7);
+        imageBTN7.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), Timetable.class);
+                startActivity(i);
+                finish();
+            }
+        });
     }
 
     @Override
@@ -98,4 +151,5 @@ public class NavActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

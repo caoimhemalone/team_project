@@ -38,7 +38,7 @@ public class StudySearch extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 Intent i = new Intent();
-                i.setClass(getApplicationContext(), HomeMenu.class);
+                i.setClass(getApplicationContext(), NavActivity.class);
                 startActivity(i);
                 finish();
             }
