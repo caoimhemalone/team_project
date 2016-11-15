@@ -48,8 +48,10 @@ public class SignUp extends AppCompatActivity {
                         studentNum.isEmpty() ||
                         !email.matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+") ||
                         !repeatEmail.matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+") ||
-                        password.isEmpty() ||
-                        repeatPassword.isEmpty()){
+                        !password.matches("(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}") ||
+                        !repeatPassword.matches("(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}") ||
+                        !repeatEmail.equals(email) ||
+                        !repeatPassword.equals(password)){
                             if(fName.isEmpty()){
                                 ShowMessage("First Name field is empty!");
                             }
@@ -75,13 +77,13 @@ public class SignUp extends AppCompatActivity {
                                 ShowMessage("Password field is empty!");
                             }
                             else if(!password.matches("(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}")){
-                                ShowMessage("Password must be minimum 6 and maximum 20 characters and contain atleast one uppercase and lowercase letter and one digit from 0-9");
+                                ShowMessage("Password must be 6-20 characters and contain atleast one uppercase and lowercase letter and one digit from 0-9");
                             }
                             else if(repeatPassword.isEmpty()){
                                 ShowMessage("Repeat Password field is empty!");
                             }
                             else if(!repeatPassword.matches("(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}")){
-                                ShowMessage("Password must be minimum 6 and maximum 20 characters and contain atleast one uppercase and lowercase letter and one digit from 0-9");
+                                ShowMessage("Repeat Password must be 6-20 characters and contain atleast one uppercase and lowercase letter and one digit from 0-9");
                             }
                             else if(!repeatEmail.equals(email)){
                                 ShowMessage("Emails do not match!");
