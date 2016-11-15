@@ -123,17 +123,34 @@ public class Calender extends AppCompatActivity implements NavigationView.OnNavi
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_profile) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Profile.class);
+            startActivity(i);
+            finish();
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_calendar) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Calender.class);
+            startActivity(i);
+            finish();
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_study) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), StudySearch.class);
+            startActivity(i);
+            finish();
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_messaging) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Messaging.class);
+            startActivity(i);
+            finish();
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_timetable) {
+
+        } else if (id == R.id.nav_home) {
 
         }
 
