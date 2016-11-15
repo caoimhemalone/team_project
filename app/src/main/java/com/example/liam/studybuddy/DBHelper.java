@@ -5,6 +5,7 @@ import android.util.Log;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -58,6 +59,27 @@ public class DBHelper {
         } catch (SQLException s) {
             Log.e(TAG, s.getMessage());
         }
+        return result;
+    }
+
+    public boolean checkUser(String studentNum){
+        boolean result = false;
+
+        String query = "SELECT * FROM " + AppConfig.TABLE_NAME + " WHERE studentNum = " + studentNum;
+        try {
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            String checkUser = rs.getString(1);
+            if(checkUser.equals(studentNum)){
+                result = true;
+            }
+            else{
+                result = false;
+            }
+        } catch (SQLException s) {
+            Log.e(TAG, s.getMessage());
+        }
+
         return result;
     }
 }

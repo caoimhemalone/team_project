@@ -93,7 +93,8 @@ public class SignUp extends AppCompatActivity {
                             }
                 }
                 else{
-                    new signUp().execute();
+                    new checkUser().execute();
+//                    new signUp().execute();
 //                    firstNameET.setText(null);
 //                    lastNameET.setText(null);
 //                    studentNumET.setText(null);
@@ -109,6 +110,59 @@ public class SignUp extends AppCompatActivity {
     private void ShowMessage(String msg) {
         Toast.makeText(SignUp.this, msg, Toast.LENGTH_LONG).show();
     }
+
+    private class checkUser extends AsyncTask<Void, Void, Void>{
+        private ProgressDialog pDialog;
+        private boolean result;
+
+        @Override
+        protected void onPreExecute(){
+            studentNum = studentNumET.getText().toString();
+
+            result = false;
+            pDialog = new ProgressDialog(SignUp.this);
+            pDialog.setCancelable(false);
+            pDialog.setMessage("Checking User...");
+            showDialog();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            DBHelper db = new DBHelper();
+            result = db.checkUser(studentNum);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void r) {
+            hideDialog();
+            if (result == true) {
+                //result added
+                ShowMessage("User already exists!");
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), LogIn.class);
+                startActivity(i);
+                finish();
+            } else {
+                //details weren't added
+                new signUp().execute();
+            }
+        }
+
+        private void showDialog() {
+            if (!pDialog.isShowing()) {
+                pDialog.show();
+            }
+        }
+
+        private void hideDialog() {
+            if (pDialog.isShowing()) {
+                pDialog.dismiss();
+            }
+        }
+    }
+
 
     private class signUp extends AsyncTask<Void, Void, Void> {
         private ProgressDialog pDialog;
