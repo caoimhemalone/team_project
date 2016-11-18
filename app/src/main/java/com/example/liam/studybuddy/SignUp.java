@@ -11,10 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.sql.ResultSet;
+
 public class SignUp extends AppCompatActivity {
     private EditText firstNameET, lastNameET, studentNumET, emailET, repeatEmailET, passwordET, repeatPasswordET;
     private Button signupBTN;
     String fName, lName, studentNum, email, repeatEmail, password, repeatPassword;
+    private ResultSet result = null;
+
 
 
     @Override
@@ -113,13 +117,11 @@ public class SignUp extends AppCompatActivity {
 
     private class checkUser extends AsyncTask<Void, Void, Void>{
         private ProgressDialog pDialog;
-        private boolean result;
 
         @Override
         protected void onPreExecute(){
             studentNum = studentNumET.getText().toString();
 
-            result = false;
             pDialog = new ProgressDialog(SignUp.this);
             pDialog.setCancelable(false);
             pDialog.setMessage("Checking User...");
@@ -137,15 +139,15 @@ public class SignUp extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void r) {
             hideDialog();
-            if (result == true) {
-                //result added
+            if (result != null) {
+                //user exists
                 ShowMessage("User already exists, proceeding to login");
                 Intent i = new Intent();
                 i.setClass(getApplicationContext(), LogIn.class);
                 startActivity(i);
                 finish();
             } else {
-                //details weren't added
+                //user doesn't exist, goes to signup method
                 ShowMessage("User does not yet exist");
                 new signUp().execute();
             }
@@ -198,7 +200,7 @@ public class SignUp extends AppCompatActivity {
         protected void onPostExecute(Void r) {
             hideDialog();
             if (result == false) {
-                //result added
+                //signup is true
                 ShowMessage("Sign Up complete!");
                 Intent i = new Intent();
                 i.setClass(getApplicationContext(), LogIn.class);
