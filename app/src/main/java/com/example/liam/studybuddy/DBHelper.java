@@ -65,12 +65,13 @@ public class DBHelper {
     public boolean checkUser(String studentNum){
         boolean result = false;
 
-        String query = "SELECT * FROM " + AppConfig.TABLE_NAME + " WHERE studentNum = " + studentNum;
+        //String query = "SELECT * FROM " + AppConfig.TABLE_NAME + " WHERE studentNum = " + studentNum;
         try {
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(query);
-            String checkUser = rs.getString(1);
-            if(checkUser.equals(studentNum)){
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM " + AppConfig.TABLE_NAME + " WHERE studentNum = " + studentNum);
+            st.setString(1, studentNum);
+            ResultSet rs = st.executeQuery();
+            //String checkUser = rs.getString(1);
+            if(rs.next()){
                 result = true;
             }
             else{
@@ -81,6 +82,25 @@ public class DBHelper {
         }
 
         return result;
+    }
+
+    public boolean login (String studentNum, String password){
+        boolean result = false;
+
+        try{
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM " + AppConfig.TABLE_NAME + " WHERE studentNum = " + studentNum + " AND password = " + password);
+            ResultSet rs = st.executeQuery();
+            String checkNumber, checkPassword;
+            if (rs.next()){
+                checkNumber = rs.getString(studentNum);
+                checkPassword = rs.getString(password);
+                if (checkNumber.equals(studentNum) && checkPassword.equals(password)){
+                    result = true;
+                }
+            }
+        } catch (SQLException s) {
+            Log.e(TAG, s.getMessage());
+        } return result;
     }
 }
 

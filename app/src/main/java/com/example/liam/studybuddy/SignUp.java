@@ -139,13 +139,14 @@ public class SignUp extends AppCompatActivity {
             hideDialog();
             if (result == true) {
                 //result added
-                ShowMessage("User already exists!");
+                ShowMessage("User already exists, proceeding to login");
                 Intent i = new Intent();
                 i.setClass(getApplicationContext(), LogIn.class);
                 startActivity(i);
                 finish();
             } else {
                 //details weren't added
+                ShowMessage("User does not yet exist");
                 new signUp().execute();
             }
         }
