@@ -84,15 +84,16 @@ public class DBHelper {
         ResultSet result = null;
 
         try{
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM " + AppConfig.TABLE_NAME + " WHERE studentNum = " + studentNum + " AND password = " + password);
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM " + AppConfig.TABLE_NAME + " WHERE studentNum =? AND password=?" );
+            st.setString(1, studentNum);
+            st.setString(2, password);
             ResultSet rs = st.executeQuery();
-            String checkNumber, checkPassword;
+
             if (rs.next()){
-                checkNumber = rs.getString(studentNum);
-                checkPassword = rs.getString(password);
-                if (checkNumber.equals(studentNum) && checkPassword.equals(password)){
                     result = rs;
-                }
+            }
+            else{
+                result = null;
             }
         } catch (SQLException s) {
             Log.e(TAG, s.getMessage());

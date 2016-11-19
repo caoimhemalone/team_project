@@ -19,6 +19,7 @@ public class LogIn extends AppCompatActivity {
     private Button loginBTN;
     String studentNum, password;
     private EditText studentNumET, passwordET;
+    private ResultSet result = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +33,7 @@ public class LogIn extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 //new login().execute();
-                Intent i = new Intent();
-                i.setClass(getApplicationContext(), NavActivity.class);
-                startActivity(i);
-                finish();
+                new login().execute();
             }
         });
 
@@ -58,13 +56,12 @@ public class LogIn extends AppCompatActivity {
 
     private class login extends AsyncTask<Void, Void, Void>{
         private ProgressDialog pDialog;
-        private boolean result;
+
 
         @Override
         protected void onPreExecute(){
             studentNum = studentNumET.getText().toString();
             password = passwordET.getText().toString();
-            result = false;
 
             pDialog = new ProgressDialog(LogIn.this);
             pDialog.setCancelable(false);
@@ -77,14 +74,14 @@ public class LogIn extends AppCompatActivity {
         protected Void doInBackground(Void... params){
 
             DBHelper db = new DBHelper();
-            //result = db.login(studentNum, password);
+            result = db.login(studentNum, password);
             return null;
         }
 
         @Override
         protected void onPostExecute(Void r){
             hideDialog();
-            if (result == true){
+            if (result != null){
                 ShowMessage("Logging in...");
                 Intent i = new Intent();
                 i.setClass(getApplicationContext(), NavActivity.class);
