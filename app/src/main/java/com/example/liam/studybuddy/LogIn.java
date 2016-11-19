@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.sql.ResultSet;
+
 public class LogIn extends AppCompatActivity {
 
     private Button signupBTN;
@@ -62,8 +64,8 @@ public class LogIn extends AppCompatActivity {
         protected void onPreExecute(){
             studentNum = studentNumET.getText().toString();
             password = passwordET.getText().toString();
-
             result = false;
+
             pDialog = new ProgressDialog(LogIn.this);
             pDialog.setCancelable(false);
             pDialog.setMessage("Logging in...");
@@ -75,7 +77,7 @@ public class LogIn extends AppCompatActivity {
         protected Void doInBackground(Void... params){
 
             DBHelper db = new DBHelper();
-            result = db.login(studentNum, password);
+            //result = db.login(studentNum, password);
             return null;
         }
 

@@ -80,8 +80,8 @@ public class DBHelper {
         return temp;
     }
 
-    public boolean login (String studentNum, String password){
-        boolean result = false;
+    public ResultSet login (String studentNum, String password){
+        ResultSet result = null;
 
         try{
             PreparedStatement st = conn.prepareStatement("SELECT * FROM " + AppConfig.TABLE_NAME + " WHERE studentNum = " + studentNum + " AND password = " + password);
@@ -91,7 +91,7 @@ public class DBHelper {
                 checkNumber = rs.getString(studentNum);
                 checkPassword = rs.getString(password);
                 if (checkNumber.equals(studentNum) && checkPassword.equals(password)){
-                    result = true;
+                    result = rs;
                 }
             }
         } catch (SQLException s) {
