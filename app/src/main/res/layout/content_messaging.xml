@@ -11,13 +11,6 @@
     tools:context="com.example.liam.studybuddy.Messaging"
     android:layout_marginTop="45dp">
 
-    <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@android:drawable/arrow_up_float"
-        android:id="@+id/backBTN"
-        android:layout_marginLeft="270dp" />
-
     <ImageView
         android:id="@+id/profileIcon"
         android:src="@drawable/ic_social_person"
@@ -26,36 +19,43 @@
         android:layout_alignParentLeft="true"
         android:layout_height="50dp" />
 
-    <ImageButton
-        android:id="@+id/sendIcon"
-        android:src="@drawable/ic_content_send"
-        android:layout_width="50dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_height="50dp" />
-
     <TextView
         android:text="@string/userName"
         android:textSize="40sp"
         android:layout_toRightOf="@+id/profileIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtDisplayName" />
+        android:id="@+id/txtDisplayName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/sendIcon"
         android:layout_width="match_parent"
         android:hint="@string/messageHolderText"
         android:layout_height="wrap_content"
-        android:id="@+id/txtFldEnterMessage" />
+        android:id="@+id/room_name_edittext"
+        android:layout_toLeftOf="@+id/btn_add_room"
+        android:layout_toStartOf="@+id/btn_add_room" />
     <ListView
-        android:id="@+id/messagesContainer"
+        android:id="@+id/roomsContainer"
         android:layout_width="match_parent"
         android:layout_alignParentTop="false"
         android:layout_alignParentLeft="false"
-        android:layout_above="@+id/txtFldEnterMessage"
+        android:layout_above="@+id/room_name_edittext"
         android:layout_below="@+id/profileIcon"
         android:layout_height="match_parent"></ListView>
+
+    <Button
+        android:text="Add Room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/btn_add_room"
+        android:layout_alignLeft="@+id/backBTN"
+        android:layout_alignStart="@+id/backBTN"
+        android:layout_below="@+id/roomsContainer" />
 
 </RelativeLayout>

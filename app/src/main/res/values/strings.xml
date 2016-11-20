@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">StudyBuddy</string>
-    <string name="userName">User name</string>
-    <string name="messageHolderText">Enter message here...</string>
+    <string name="userName">forums/chat</string>
+    <string name="messageHolderText">Search or Create new chat...</string>
     <string name="firstName">First Name</string>
     <string name="lastName">Last Name</string>
     <string name="studentNumber">StudentNumber</string>

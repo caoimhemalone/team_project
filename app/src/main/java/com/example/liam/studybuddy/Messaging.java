@@ -1,11 +1,13 @@
 package com.example.liam.studybuddy;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.DataSetObserver;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -14,20 +16,47 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 public class Messaging extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private static final String TAG = "ChatActivity";
-    private ChatArrayAdapter adp;
-    private ListView list;
-    private EditText chatText;
-    private ImageButton send;
-    private boolean side = false;
-    private String responseString = "";
-    private ImageButton backBTN;
+
+    private Button add_room;
+    private EditText room_name;
+
+    private ListView listView;
+    private ArrayAdapter<String> arrayAdapter;
+    private ArrayList<String> list_of_rooms = new ArrayList<>();
+
+    private String name;
+
+    private DatabaseReference root = FirebaseDatabase.getInstance().getReference().getRoot();
+    //private static final String TAG = "ChatActivity";
+    //private ChatArrayAdapter adp;
+    //private ListView list;
+    //private EditText chatText;
+    //private ImageButton send;
+    //private boolean side = false;
+    //private String responseString = "";
+    //private ImageButton backBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,68 +73,91 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        send = (ImageButton) findViewById(R.id.sendIcon);
-        list = (ListView) findViewById(R.id.messagesContainer);
-        adp = new ChatArrayAdapter(getApplicationContext(), R.layout.chat);
-        list.setAdapter(adp);
-        chatText = (EditText) findViewById(R.id.txtFldEnterMessage);
-        chatText.setOnKeyListener(new View.OnKeyListener(){
-            public boolean onKey(View v, int keyCode, KeyEvent event){
-                if((event.getAction()== KeyEvent.ACTION_DOWN)&&(keyCode== KeyEvent.KEYCODE_ENTER)){
-                    return sendChatMessage();
-                }
-                    return false;
-                }
-        });
-        send.setOnClickListener(new View.OnClickListener(){
 
-            public void onClick(View arg0){
-                responseString= chatText.getText().toString();
-                if(responseString.toString().equalsIgnoreCase("Hello")){
-                    sendChatMessage();
-                    chatText.setText("Hi How are you");
-                    send.performClick();
-                }
-                else if(responseString.toString().equalsIgnoreCase("Im good thanks, How are you")){
-                    sendChatMessage();
-                    chatText.setText("Fine thank you");
-                    send.performClick();
-                }
-                else if(responseString.toString().equalsIgnoreCase("I have a presentation ttyl")){
-                    sendChatMessage();
-                    chatText.setText("Ok good luck ttyl");
-                    send.performClick();
-                }
-                else{
-                    sendChatMessage();
-                }
-            }
-        });
-        list.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
-        list.setAdapter(adp);
-        adp.registerDataSetObserver(new DataSetObserver(){
-            public void OnChanged(){
-                super.onChanged();
-                list.setSelection(adp.getCount()-1);
-            }
-        });
-        backBTN = (ImageButton)findViewById(R.id.backBTN);
-        backBTN.setOnClickListener(new View.OnClickListener(){
+        add_room = (Button) findViewById(R.id.btn_add_room);
+        room_name = (EditText) findViewById(R.id.room_name_edittext);
+        listView = (ListView) findViewById(R.id.roomsContainer);
+
+        arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list_of_rooms);
+
+        listView.setAdapter(arrayAdapter);
+
+        request_user_name();
+
+        add_room.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-                Intent i = new Intent();
-                i.setClass(getApplicationContext(), NavActivity.class);
-                startActivity(i);
-                finish();
+            public void onClick(View view) {
+
+                Map<String, Object> map = new HashMap<String, Object>();
+                map.put(room_name.getText().toString(),"");
+                root.updateChildren(map);
+            }
+        });
+
+        root.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                Set<String> set = new HashSet<String>();
+
+                Iterator i = dataSnapshot.getChildren().iterator();
+
+                while(i.hasNext()){
+                    set.add(((DataSnapshot)i.next()).getKey());
+                }
+                list_of_rooms.clear();
+                list_of_rooms.addAll(set);
+
+                arrayAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(getApplicationContext(),Chat_Room.class);
+                intent.putExtra("room_name",((TextView)view).getText().toString());
+                intent.putExtra("user_name",name);
+                startActivity(intent);
+
             }
         });
     }
-    private boolean sendChatMessage(){
-        adp.add(new ChatMessage(side, chatText.getText().toString()));
-        chatText.setText("");
-        side = !side;
-        return true;
+
+    //Create method that makes user have to enter a name for messaging use
+    //will replace with Username variable saved from sign up
+
+    private void request_user_name() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Enter name:");
+
+        final EditText input_field = new EditText(this);
+
+        builder.setView(input_field);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i){
+                name = input_field.getText().toString();
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+                request_user_name();
+            }
+        });
+
+        builder.show();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
