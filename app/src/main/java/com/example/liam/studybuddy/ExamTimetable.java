@@ -135,8 +135,11 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_logout){
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), LogIn.class);
+            startActivity(i);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

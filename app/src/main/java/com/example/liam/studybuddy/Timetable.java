@@ -46,16 +46,16 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        examBTN = (Button) findViewById(R.id.examBTN);
-        examBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent();
-                i.setClass(getApplicationContext(), ExamTimetable.class);
-                startActivity(i);
-                finish();
-            }
-        });
+//        examBTN = (Button) findViewById(R.id.examBTN);
+//        examBTN.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent();
+//                i.setClass(getApplicationContext(), ExamTimetable.class);
+//                startActivity(i);
+//                finish();
+//            }
+//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
