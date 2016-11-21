@@ -65,14 +65,13 @@
             android:entries="@array/day_spinner_array"
             />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/blank_TV" />
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/blank_TV" />-->
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
             android:id="@+id/timeTableLayout"
             style="@style/timetable_style"
             android:paddingBottom="0dp"
@@ -429,5 +428,13 @@
                     />
             </TableRow>
         </TableLayout>
+
+        <Button
+            android:text="@string/examBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/examBTN"
+            android:textSize="10dp"
+            />
     </LinearLayout>
 </RelativeLayout>

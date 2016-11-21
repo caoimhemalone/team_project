@@ -60,14 +60,14 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/TT_day"
+            android:id="@+id/TT_year"
             android:entries="@array/exam_year_spinner"
             />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/blank_TV" />
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/blank_TV" />-->
 
         <TableLayout
             android:layout_width="match_parent"
@@ -430,10 +430,11 @@
 
         <Button
             android:text="@string/timetableBTN"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/timetable_btn"
+            android:id="@+id/room_btn"
             android:paddingTop="10dp"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="30dp"
+            android:textSize="10dp"/>
     </LinearLayout>
 </RelativeLayout>

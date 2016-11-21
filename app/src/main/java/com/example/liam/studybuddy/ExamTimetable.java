@@ -24,15 +24,15 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-public class Timetable extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ExamTimetable extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ImageButton backBTN;
-    private Button examBTN;
+    private Button roomBTN;
 
     Spinner spin_TT;
     ArrayAdapter<CharSequence> adapter_TT;
-    Spinner spin_day_TT;
-    ArrayAdapter<CharSequence> adapter_day_TT;
+    Spinner spin_year_TT;
+    ArrayAdapter<CharSequence> adapter_year_TT;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -46,12 +46,12 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        examBTN = (Button) findViewById(R.id.examBTN);
-        examBTN.setOnClickListener(new View.OnClickListener() {
+        roomBTN = (Button) findViewById(R.id.room_btn);
+        roomBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent();
-                i.setClass(getApplicationContext(), ExamTimetable.class);
+                i.setClass(getApplicationContext(), Timetable.class);
                 startActivity(i);
                 finish();
             }
@@ -82,13 +82,13 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
          */
 
         spin_TT = (Spinner) findViewById(R.id.TT_spinner);
-        spin_day_TT = (Spinner) findViewById(R.id.TT_day);
+        spin_year_TT = (Spinner) findViewById(R.id.TT_day);
         adapter_TT = ArrayAdapter.createFromResource(this, R.array.TT_spinner_array, android.R.layout.simple_spinner_item);
-        adapter_day_TT = ArrayAdapter.createFromResource(this, R.array.day_spinner_array, android.R.layout.simple_spinner_item);
+        adapter_year_TT = ArrayAdapter.createFromResource(this, R.array.day_spinner_array, android.R.layout.simple_spinner_item);
         adapter_TT.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter_day_TT.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter_year_TT.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin_TT.setAdapter(adapter_TT);
-        spin_day_TT.setAdapter(adapter_day_TT);
+        spin_year_TT.setAdapter(adapter_year_TT);
         spin_TT.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -102,7 +102,7 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
             } // End of public void onNothing......
         }); //End of spin_TT.setOnItem.......
 
-        spin_day_TT.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spin_year_TT.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
