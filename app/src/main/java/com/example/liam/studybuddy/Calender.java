@@ -110,9 +110,12 @@ public class Calender extends AppCompatActivity implements NavigationView.OnNavi
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        //New if statement for logout
+        if (id == R.id.action_logout){
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), LogIn.class);
+            startActivity(i);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
@@ -150,12 +153,20 @@ public class Calender extends AppCompatActivity implements NavigationView.OnNavi
             finish();
 
         } else if (id == R.id.nav_timetable) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Timetable.class);
+            startActivity(i);
+            finish();
 
         } else if (id == R.id.nav_home) {
-
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), NavActivity.class);
+            startActivity(i);
+            finish();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
