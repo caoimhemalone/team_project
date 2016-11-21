@@ -116,6 +116,7 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
+    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
