@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/TT_spinner"
-            android:entries="@array/exam_year_spinner"
+            android:entries="@array/exam_course_spinner"
             />
 
         <Spinner
@@ -91,7 +91,7 @@
                     android:textAllCaps="false"
                     android:paddingLeft="10dp"
                     android:layout_width="wrap_content"
-                    android:paddingRight="80dp"
+                    android:paddingRight="30dp"
                     />
 
                 <TextView
@@ -102,7 +102,7 @@
                     android:textStyle="normal|bold"
                     android:paddingLeft="10dp"
                     android:layout_width="wrap_content"
-                    android:paddingRight="100dp"
+                    android:paddingRight="80dp"
                     />
                 <TextView
                     android:text="@string/date_ETT"
@@ -110,9 +110,9 @@
                     android:id="@+id/date_tv"
                     android:background="@drawable/back"
                     android:textStyle="normal|bold"
-                    android:paddingLeft="10dp"
+                    android:paddingLeft="20dp"
                     android:layout_width="wrap_content"
-                    android:paddingRight="100dp"
+                    android:paddingRight="20dp"
                     />
 
             </TableRow>
@@ -160,7 +160,7 @@
                     android:id="@+id/time1"
                     android:background="@drawable/back"
                     android:textSize="12sp"
-                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
                     />
 
 
@@ -177,12 +177,12 @@
                 <TextView
                     android:text="@string/date_1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@drawable/back"
                     android:id="@+id/date_tv_1"
                     android:textSize="12sp"
-                    android:paddingLeft="10dp"
-                    />
+                    android:textAlignment="center"
+                     />
 
             </TableRow>
 
@@ -198,7 +198,7 @@
                     android:id="@+id/time2"
                     android:textSize="12sp"
                     android:background="@drawable/back"
-                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
 
                     />
 
@@ -214,11 +214,11 @@
                 <TextView
                     android:text="@string/date_1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@drawable/back"
                     android:id="@+id/date_tv_2"
                     android:textSize="12sp"
-                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
                     />
             </TableRow>
 
@@ -234,7 +234,7 @@
                     android:id="@+id/time3"
                     android:textSize="12sp"
                     android:background="@drawable/back"
-                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
 
                     />
 
@@ -252,11 +252,11 @@
                 <TextView
                     android:text="@string/date_1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@drawable/back"
                     android:id="@+id/date_tv_3"
                     android:textSize="12sp"
-                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
                     />
             </TableRow>
 
@@ -272,7 +272,7 @@
                     android:id="@+id/time4"
                     android:textSize="12sp"
                     android:background="@drawable/back"
-                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
 
                     />
 
@@ -290,11 +290,11 @@
                 <TextView
                     android:text="@string/date_1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@drawable/back"
                     android:id="@+id/date_tv_4"
                     android:textSize="12sp"
-                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
                     />
             </TableRow>
 
@@ -310,7 +310,7 @@
                     android:id="@+id/time5"
                     android:textSize="12sp"
                     android:background="@drawable/back"
-                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
 
                     />
 
@@ -328,11 +328,11 @@
                 <TextView
                     android:text="@string/date_1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@drawable/back"
                     android:id="@+id/date_tv_5"
                     android:textSize="12sp"
-                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
                     />
             </TableRow>
 
@@ -348,7 +348,7 @@
                     android:id="@+id/time6"
                     android:textSize="12sp"
                     android:background="@drawable/back"
-                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
 
                     />
 
@@ -365,11 +365,11 @@
                 <TextView
                     android:text="@string/date_1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@drawable/back"
                     android:id="@+id/date_tv_6"
                     android:textSize="12sp"
-                    android:paddingLeft="10dp"
+                    android:textAlignment="center"
                     />
             </TableRow>
         </TableLayout>
