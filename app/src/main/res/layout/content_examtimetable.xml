@@ -32,7 +32,7 @@
             >
 
             <TextView
-                android:text="@string/TT_heading"
+                android:text="@string/Exam_TT_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="53dp"
                 android:id="@+id/headingTV"
@@ -42,7 +42,7 @@
                 android:layout_gravity="center"/>
 
             <TextView
-                android:text="@string/room_select"
+                android:text="@string/exam_select"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView13"
@@ -55,14 +55,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/TT_spinner"
-            android:entries="@array/TT_spinner_array"
+            android:entries="@array/exam_year_spinner"
             />
 
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/TT_day"
-            android:entries="@array/day_spinner_array"
+            android:id="@+id/TT_year"
+            android:entries="@array/exam_year_spinner"
             />
 
 
@@ -146,13 +146,6 @@
                     android:paddingLeft="10dp"
                     />
 
-                <!-- <TextView
-
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:textAlignment="center"
-                     android:textSize="12sp"
-                     android:id="@+id/day_tv_1" />-->
 
                 <TextView
                     android:text="@string/class_1"
@@ -181,14 +174,6 @@
                     android:paddingLeft="10dp"
 
                     />
-
-                <!-- <TextView
-
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:textAlignment="center"
-                     android:textSize="12sp"
-                     android:id="@+id/day_tv_2" />-->
 
                 <TextView
                     android:text="@string/class_1"
@@ -245,6 +230,7 @@
 
                     />
 
+
                 <TextView
                     android:text="@string/class_1"
                     android:layout_width="wrap_content"
@@ -272,6 +258,7 @@
 
                     />
 
+
                 <TextView
                     android:text="@string/class_1"
                     android:layout_width="wrap_content"
@@ -298,7 +285,6 @@
                     android:paddingLeft="10dp"
 
                     />
-
 
                 <TextView
                     android:text="@string/class_1"
@@ -351,9 +337,7 @@
                     android:textSize="12sp"
                     android:background="@drawable/back"
                     android:paddingLeft="10dp"
-
                     />
-
 
                 <TextView
                     android:text="@string/class_1"
@@ -368,11 +352,10 @@
         </TableLayout>
 
         <Button
-            android:text="@string/examBTN"
+            android:text="@string/timetableBTN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/examBTN"
-            android:textSize="10dp"
-            />
+            android:id="@+id/room_btn"
+            android:textSize="10dp"/>
     </LinearLayout>
 </RelativeLayout>

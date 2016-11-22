@@ -17,7 +17,6 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.view.View;
-import android.view.Display;
 import android.widget.Button;
 
 import com.google.android.gms.appindexing.Action;
@@ -25,15 +24,15 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-public class Timetable extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ExamTimetable extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ImageButton backBTN;
-    private Button examBTN;
+    private Button roomBTN;
 
-    Spinner spin_TT;
-    ArrayAdapter<CharSequence> adapter_TT;
-    Spinner spin_day_TT;
-    ArrayAdapter<CharSequence> adapter_day_TT;
+    Spinner spin_course_TT;
+    ArrayAdapter<CharSequence> adapter_course_TT;
+    Spinner spin_year_TT;
+    ArrayAdapter<CharSequence> adapter_year_TT;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -43,11 +42,20 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_timetable);
+        setContentView(R.layout.activity_examtimetable);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        roomBTN = (Button) findViewById(R.id.room_btn);
+        roomBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), Timetable.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -69,31 +77,19 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
             }
         });
 
-
-        examBTN = (Button) findViewById(R.id.examBTN);
-        examBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    Intent i;
-                    i = new Intent(getApplicationContext(), ExamTimetable.class);
-                    startActivity(i);
-                    finish();
-            }
-        });
-
         /**
          * @reference https://www.youtube.com/watch?v=28jA5-mO8K8&index=8&list=LL9QnUxf2Pctj2wyWa4GABCw YouTube: PRABEESH R K
          */
 
-        spin_TT = (Spinner) findViewById(R.id.TT_spinner);
-        spin_day_TT = (Spinner) findViewById(R.id.TT_day);
-        adapter_TT = ArrayAdapter.createFromResource(this, R.array.TT_spinner_array, android.R.layout.simple_spinner_item);
-        adapter_day_TT = ArrayAdapter.createFromResource(this, R.array.day_spinner_array, android.R.layout.simple_spinner_item);
-        adapter_TT.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter_day_TT.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spin_TT.setAdapter(adapter_TT);
-        spin_day_TT.setAdapter(adapter_day_TT);
-        spin_TT.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spin_course_TT = (Spinner) findViewById(R.id.TT_spinner);
+        spin_year_TT = (Spinner) findViewById(R.id.TT_year);
+        adapter_course_TT = ArrayAdapter.createFromResource(this, R.array.exam_course_spinner, android.R.layout.simple_spinner_item);
+        adapter_year_TT = ArrayAdapter.createFromResource(this, R.array.exam_year_spinner, android.R.layout.simple_spinner_item);
+        adapter_course_TT.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter_year_TT.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin_course_TT.setAdapter(adapter_course_TT);
+        spin_year_TT.setAdapter(adapter_year_TT);
+        spin_course_TT.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -104,9 +100,9 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
             public void onNothingSelected(AdapterView<?> parent) {
 
             } // End of public void onNothing......
-        }); //End of spin_TT.setOnItem.......
+        }); //End of spin_course_TT.setOnItem.......
 
-        spin_day_TT.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spin_year_TT.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -117,18 +113,12 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
             public void onNothingSelected(AdapterView<?> parent) {
 
             } // End of public void onNothing......
-        }); //End of spin_TT.setOnItem.......
+        }); //End of spin_course_TT.setOnItem.......
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }//End of protected void onCreate .....
-
-//    public void openExam (View view){
-//        Intent intent = new Intent(this, ExamTimetable.class);
-//        startActivity(intent);
-//        finish();
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -144,7 +134,7 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //New if statement for logout
+        //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout){
             Intent i = new Intent();
             i.setClass(getApplicationContext(), LogIn.class);

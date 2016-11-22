@@ -119,9 +119,12 @@ public class NavActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        //New if statement for logout
+        if (id == R.id.action_logout){
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), LogIn.class);
+            startActivity(i);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
@@ -171,6 +174,8 @@ public class NavActivity extends AppCompatActivity
             finish();
 
         }
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

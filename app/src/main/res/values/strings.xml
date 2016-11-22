@@ -14,19 +14,24 @@
     <string name="school_comp">School of Computing</string>
     <string name="ss_text"> Nearly There! \n But first you need to select a few things to find content to study</string>
     <string name="room_select"> Select a Room and Day </string>
-    <string name="timeSlot1"> 9am - 10am </string>
-    <string name="timeSlot2"> 10am - 11am </string>
-    <string name="timeSlot3"> 11am - 12pm </string>
-    <string name="timeSlot4"> 12pm - 1pm </string>
-    <string name="timeSlot5"> 1pm - 2pm </string>
-    <string name="timeSlot6"> 2pm - 3pm </string>
-    <string name="timeSlot7"> 3pm - 4pm </string>
-    <string name="timeSlot8"> 4pm - 5pm </string>
+    <string name="exam_select"> Select a Course and Year </string>
+    <string name="timeSlot1"> 09:00 </string>
+    <string name="timeSlot2"> 10:00 </string>
+    <string name="timeSlot3"> 11:00 </string>
+    <string name="timeSlot4"> 12:00 </string>
+    <string name="timeSlot5"> 13:00 </string>
+    <string name="timeSlot6"> 14:00 </string>
+    <string name="timeSlot7"> 15:00 </string>
+    <string name="timeSlot8"> 16:00 </string>
     <string name="day_TT"> Day </string>
     <string name="time_TT"> Time </string>
     <string name="class_TT"> Class </string>
     <string name="monday"> Monday </string>
     <string name="class_1">BSHC3B: \nWireless Networking</string>
+    <string name="examBTN"> Exam Timetable </string>
+    <string name="timetableBTN"> Room Timetables </string>
+    <string name="TT_heading"> Room Timetable </string>
+    <string name="Exam_TT_heading"> Exam Timetable </string>
 
 
     <!-- For Study search spinner-->
@@ -37,6 +42,8 @@
         <item> SCR3 </item>
         <item> Oriel Suite </item>
     </string-array>
+
+
 
 
     <string name="title_activity_nav">NavActivity</string>
@@ -52,6 +59,19 @@
         <item> Wednesday </item>
         <item> Thursday </item>
         <item> Friday </item>
+    </string-array>
+
+    <string-array name="exam_year_spinner">
+        <item> Year 1 </item>
+        <item> Year 2 </item>
+        <item> Year 3 </item>
+        <item> Year 4 </item>
+    </string-array>
+
+    <string-array name="exam_course_spinner">
+        <item> BSHC </item>
+        <item> BIC </item>
+        <item> HCC </item>
     </string-array>
 
 </resources>
