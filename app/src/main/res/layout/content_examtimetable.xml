@@ -95,9 +95,19 @@
                     />
 
                 <TextView
-                    android:text="@string/class_TT"
+                    android:text="@string/Subject_ETT"
                     android:layout_height="wrap_content"
-                    android:id="@+id/class_tv"
+                    android:id="@+id/subject_tv"
+                    android:background="@drawable/back"
+                    android:textStyle="normal|bold"
+                    android:paddingLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:paddingRight="100dp"
+                    />
+                <TextView
+                    android:text="@string/date_ETT"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/date_tv"
                     android:background="@drawable/back"
                     android:textStyle="normal|bold"
                     android:paddingLeft="10dp"
@@ -127,6 +137,13 @@
                     android:background="@drawable/back"
                     android:paddingLeft="10dp"
                     />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView22"
+                    android:background="@drawable/back"
+                    android:paddingLeft="10dp"
+                    />
 
             </TableRow>
 
@@ -152,7 +169,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/back"
-                    android:id="@+id/class_tv_1"
+                    android:id="@+id/subject_tv_1"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    />
+
+                <TextView
+                    android:text="@string/date_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back"
+                    android:id="@+id/date_tv_1"
                     android:textSize="12sp"
                     android:paddingLeft="10dp"
                     />
@@ -180,7 +207,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/back"
-                    android:id="@+id/class_tv_2"
+                    android:id="@+id/subject_tv_2"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    />
+                <TextView
+                    android:text="@string/date_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back"
+                    android:id="@+id/date_tv_2"
                     android:textSize="12sp"
                     android:paddingLeft="10dp"
                     />
@@ -208,7 +244,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/back"
-                    android:id="@+id/class_tv_3"
+                    android:id="@+id/subject_tv_3"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    />
+
+                <TextView
+                    android:text="@string/date_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back"
+                    android:id="@+id/date_tv_3"
                     android:textSize="12sp"
                     android:paddingLeft="10dp"
                     />
@@ -236,7 +282,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/back"
-                    android:id="@+id/class_tv_4"
+                    android:id="@+id/subject_tv_4"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    />
+
+                <TextView
+                    android:text="@string/date_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back"
+                    android:id="@+id/date_tv_4"
                     android:textSize="12sp"
                     android:paddingLeft="10dp"
                     />
@@ -264,7 +320,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/back"
-                    android:id="@+id/class_tv_5"
+                    android:id="@+id/subject_tv_5"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    />
+
+                <TextView
+                    android:text="@string/date_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back"
+                    android:id="@+id/date_tv_5"
                     android:textSize="12sp"
                     android:paddingLeft="10dp"
                     />
@@ -291,60 +357,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/back"
-                    android:id="@+id/class_tv_6"
+                    android:id="@+id/subject_tv_6"
                     android:textSize="12sp"
                     android:paddingLeft="10dp"
                     />
-            </TableRow>
-
-            <TableRow
-                android:layout_height="match_parent"
-                android:id="@+id/row_07">
 
                 <TextView
-                    android:text="@string/timeSlot7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/time7"
-                    android:textSize="12sp"
-                    android:background="@drawable/back"
-                    android:paddingLeft="10dp"
-
-                    />
-
-
-                <TextView
-                    android:text="@string/class_1"
+                    android:text="@string/date_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/back"
-                    android:id="@+id/class_tv_7"
-                    android:textSize="12sp"
-                    android:paddingLeft="10dp"
-                    />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="322dp"
-                android:layout_height="match_parent"
-                android:id="@+id/row_08">
-
-                <TextView
-                    android:text="@string/timeSlot8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/time8"
-                    android:textSize="12sp"
-                    android:background="@drawable/back"
-                    android:paddingLeft="10dp"
-                    />
-
-                <TextView
-                    android:text="@string/class_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/back"
-                    android:id="@+id/class_tv_8"
+                    android:id="@+id/date_tv_6"
                     android:textSize="12sp"
                     android:paddingLeft="10dp"
                     />
