@@ -14,6 +14,7 @@
     <string name="school_comp">School of Computing</string>
     <string name="ss_text"> Nearly There! \n But first you need to select a few things to find content to study</string>
     <string name="room_select"> Select a Room and Day </string>
+    <string name="exam_select"> Select a Course and Year </string>
     <string name="timeSlot1"> 09:00 </string>
     <string name="timeSlot2"> 10:00 </string>
     <string name="timeSlot3"> 11:00 </string>
@@ -29,6 +30,8 @@
     <string name="class_1">BSHC3B: \nWireless Networking</string>
     <string name="examBTN"> Exam Timetable </string>
     <string name="timetableBTN"> Room Timetables </string>
+    <string name="TT_heading"> Room Timetable </string>
+    <string name="Exam_TT_heading"> Exam Timetable </string>
 
 
     <!-- For Study search spinner-->
@@ -63,6 +66,12 @@
         <item> Year 2 </item>
         <item> Year 3 </item>
         <item> Year 4 </item>
+    </string-array>
+
+    <string-array name="exam_course_spinner">
+        <item> BSHC </item>
+        <item> BIC </item>
+        <item> HCC </item>
     </string-array>
 
 </resources>

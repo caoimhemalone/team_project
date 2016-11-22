@@ -29,8 +29,8 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
     private ImageButton backBTN;
     private Button roomBTN;
 
-    Spinner spin_TT;
-    ArrayAdapter<CharSequence> adapter_TT;
+    Spinner spin_course_TT;
+    ArrayAdapter<CharSequence> adapter_course_TT;
     Spinner spin_year_TT;
     ArrayAdapter<CharSequence> adapter_year_TT;
     /**
@@ -42,7 +42,7 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_timetable);
+        setContentView(R.layout.activity_examtimetable);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -81,15 +81,15 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
          * @reference https://www.youtube.com/watch?v=28jA5-mO8K8&index=8&list=LL9QnUxf2Pctj2wyWa4GABCw YouTube: PRABEESH R K
          */
 
-        spin_TT = (Spinner) findViewById(R.id.TT_spinner);
-        spin_year_TT = (Spinner) findViewById(R.id.TT_day);
-        adapter_TT = ArrayAdapter.createFromResource(this, R.array.TT_spinner_array, android.R.layout.simple_spinner_item);
-        adapter_year_TT = ArrayAdapter.createFromResource(this, R.array.day_spinner_array, android.R.layout.simple_spinner_item);
-        adapter_TT.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin_course_TT = (Spinner) findViewById(R.id.TT_spinner);
+        spin_year_TT = (Spinner) findViewById(R.id.TT_year);
+        adapter_course_TT = ArrayAdapter.createFromResource(this, R.array.exam_course_spinner, android.R.layout.simple_spinner_item);
+        adapter_year_TT = ArrayAdapter.createFromResource(this, R.array.exam_year_spinner, android.R.layout.simple_spinner_item);
+        adapter_course_TT.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter_year_TT.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spin_TT.setAdapter(adapter_TT);
+        spin_course_TT.setAdapter(adapter_course_TT);
         spin_year_TT.setAdapter(adapter_year_TT);
-        spin_TT.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spin_course_TT.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -100,7 +100,7 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
             public void onNothingSelected(AdapterView<?> parent) {
 
             } // End of public void onNothing......
-        }); //End of spin_TT.setOnItem.......
+        }); //End of spin_course_TT.setOnItem.......
 
         spin_year_TT.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -113,7 +113,7 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
             public void onNothingSelected(AdapterView<?> parent) {
 
             } // End of public void onNothing......
-        }); //End of spin_TT.setOnItem.......
+        }); //End of spin_course_TT.setOnItem.......
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.

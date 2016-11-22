@@ -32,7 +32,7 @@
             >
 
             <TextView
-                android:text="Timetable"
+                android:text="@string/TT_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="53dp"
                 android:id="@+id/headingTV"
@@ -65,10 +65,6 @@
             android:entries="@array/day_spinner_array"
             />
 
-        <!--<TextView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/blank_TV" />-->
 
         <TableLayout
             android:layout_width="match_parent"
@@ -97,13 +93,6 @@
                     android:layout_width="wrap_content"
                     android:paddingRight="80dp"
                     />
-
-                <!-- <TextView
-                     android:text="@string/day_TT"
-                     android:layout_height="wrap_content"
-                     android:id="@+id/date_tv"
-                     android:textAlignment="center"
-                     android:layout_width="100dp" />-->
 
                 <TextView
                     android:text="@string/class_TT"
@@ -139,13 +128,6 @@
                     android:paddingLeft="10dp"
                     />
 
-                <!--<TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/day_second_row"
-                    android:textAlignment="center"
-                    android:textSize="12sp"
-                    android:text="@string/monday"/>-->
             </TableRow>
 
             <TableRow
@@ -235,13 +217,6 @@
 
                     />
 
-                <!-- <TextView
-                     android:text="@string/monday"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:textAlignment="center"
-                     android:textSize="12sp"
-                     android:id="@+id/day_tv_3" />-->
 
                 <TextView
                     android:text="@string/class_1"
@@ -270,14 +245,6 @@
 
                     />
 
-                <!--<TextView
-                    android:text="@string/monday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textSize="12sp"
-                    android:id="@+id/day_tv_4" />-->
-
                 <TextView
                     android:text="@string/class_1"
                     android:layout_width="wrap_content"
@@ -304,14 +271,6 @@
                     android:paddingLeft="10dp"
 
                     />
-
-                <!--<TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textSize="12sp"
-                    android:id="@+id/day_tv_5" />-->
 
                 <TextView
                     android:text="@string/class_1"
@@ -340,13 +299,6 @@
 
                     />
 
-                <!-- <TextView
-
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:textAlignment="center"
-                     android:textSize="12sp"
-                     android:id="@+id/day_tv_6" />-->
 
                 <TextView
                     android:text="@string/class_1"
@@ -374,13 +326,6 @@
 
                     />
 
-                <!-- <TextView
-
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:textAlignment="center"
-                     android:textSize="12sp"
-                     android:id="@+id/day_tv_6" />-->
 
                 <TextView
                     android:text="@string/class_1"
@@ -409,13 +354,6 @@
 
                     />
 
-                <!-- <TextView
-
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:textAlignment="center"
-                     android:textSize="12sp"
-                     android:id="@+id/day_tv_6" />-->
 
                 <TextView
                     android:text="@string/class_1"

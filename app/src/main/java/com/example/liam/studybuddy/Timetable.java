@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.view.View;
+import android.view.Display;
 import android.widget.Button;
 
 import com.google.android.gms.appindexing.Action;
@@ -46,16 +47,7 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        examBTN = (Button) findViewById(R.id.examBTN);
-//        examBTN.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent i = new Intent();
-//                i.setClass(getApplicationContext(), ExamTimetable.class);
-//                startActivity(i);
-//                finish();
-//            }
-//        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -74,6 +66,18 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
                 i.setClass(getApplicationContext(), NavActivity.class);
                 startActivity(i);
                 finish();
+            }
+        });
+
+
+        examBTN = (Button) findViewById(R.id.examBTN);
+        examBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent i;
+                    i = new Intent(getApplicationContext(), ExamTimetable.class);
+                    startActivity(i);
+                    finish();
             }
         });
 
@@ -119,6 +123,12 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }//End of protected void onCreate .....
+
+//    public void openExam (View view){
+//        Intent intent = new Intent(this, ExamTimetable.class);
+//        startActivity(intent);
+//        finish();
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
