@@ -26,6 +26,9 @@
     <string name="day_TT"> Day </string>
     <string name="time_TT"> Time </string>
     <string name="class_TT"> Class </string>
+    <string name="Subject_ETT"> Subject</string>
+    <string name="date_ETT"> Date </string>
+    <string name="date_1"> 00/00/00 </string>
     <string name="monday"> Monday </string>
     <string name="class_1">BSHC3B: \nWireless Networking</string>
     <string name="examBTN"> Exam Timetable </string>
@@ -70,8 +73,13 @@
 
     <string-array name="exam_course_spinner">
         <item> BSHC </item>
-        <item> BIC </item>
-        <item> HCC </item>
+        <item> BSHCBIS </item>
+        <item> BSHTM ERP </item>
+        <item> BSHTM Business Intellegence </item>
+        <item> BAMTB </item>
+        <item> BA(HONS) in Business - Dissertation Stream </item>
+        <item> BA(HONS) in HRM - E Business and Organisation Development </item>
+        <item> BA(HONS) in Marketing Practice </item>
     </string-array>
 
 </resources>
