@@ -20,7 +20,6 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
     private TextView fullNameTV, studentNumTV, emailTV, myAccountTV;
     private Button forgotPasswordBTN;
     private ImageButton profileImageBTN;
-    private ImageButton backBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,16 +45,6 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
         forgotPasswordBTN = (Button)findViewById(R.id.forgotPasswordBTN);
         profileImageBTN = (ImageButton)findViewById(R.id.profileImageBTN);
 
-        backBTN = (ImageButton)findViewById(R.id.backBTN);
-        backBTN.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent i = new Intent();
-                i.setClass(getApplicationContext(), NavActivity.class);
-                startActivity(i);
-                finish();
-            }
-        });
 
     }
 
