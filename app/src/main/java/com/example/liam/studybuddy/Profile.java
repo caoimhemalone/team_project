@@ -42,7 +42,13 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
         emailTV = (TextView)findViewById(R.id.emailTV);
         myAccountTV = (TextView)findViewById(R.id.myAccountTV);
 
-        forgotPasswordBTN = (Button)findViewById(R.id.forgotPasswordBTN);
+        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+
+        fullNameTV.setText(globalVariable.getUserName());
+        studentNumTV.setText(globalVariable.getStudentNum());
+        emailTV.setText(globalVariable.getEmail());
+
+        //forgotPasswordBTN = (Button)findViewById(R.id.forgotPasswordBTN);
         profileImageBTN = (ImageButton)findViewById(R.id.profileImageBTN);
 
 

@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 
 /**
  * @reference https://www.youtube.com/user/BowToKingBen
@@ -80,8 +81,9 @@ public class DBHelper {
         return temp;
     }
 
-    public ResultSet login (String studentNum, String password){
-        ResultSet result = null;
+    public HashMap<String,String> login (String studentNum, String password){
+        HashMap<String, String> details = new HashMap<String, String>();
+
 
         try{
             PreparedStatement st = conn.prepareStatement("SELECT * FROM " + AppConfig.TABLE_NAME + " WHERE studentNum =? AND password=?" );
@@ -90,14 +92,17 @@ public class DBHelper {
             ResultSet rs = st.executeQuery();
 
             if (rs.next()){
-                    result = rs;
+                details.put("fName", rs.getString("fName"));
+                details.put("lName", rs.getString("lName"));
+                details.put("studentNum", rs.getString("studentNum"));
+                details.put("email", rs.getString("email"));
             }
-            else{
-                result = null;
-            }
+//            else{
+//                result = null;
+//            }
         } catch (SQLException s) {
             Log.e(TAG, s.getMessage());
-        } return result;
+        } return details;
     }
 }
 

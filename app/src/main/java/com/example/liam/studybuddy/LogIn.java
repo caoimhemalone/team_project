@@ -12,19 +12,28 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.sql.ResultSet;
+import java.util.HashMap;
 
 public class LogIn extends AppCompatActivity {
 
     private Button signupBTN;
     private Button loginBTN;
-    String studentNum, password;
+    String userName, email, studentNum, password;
     private EditText studentNumET, passwordET;
-    private ResultSet result = null;
+    //private ResultSet result, details = null;
+    private HashMap<String, String> details;
+    GlobalClass globalVariable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        details = new HashMap<>();
+
+        globalVariable = (GlobalClass) getApplicationContext();
+
+
         studentNumET = (EditText) findViewById(R.id.studentNumET);
         passwordET = (EditText) findViewById(R.id.passwordET);
 
@@ -74,14 +83,17 @@ public class LogIn extends AppCompatActivity {
         protected Void doInBackground(Void... params){
 
             DBHelper db = new DBHelper();
-            result = db.login(studentNum, password);
+            details = db.login(studentNum, password);
             return null;
         }
 
         @Override
         protected void onPostExecute(Void r){
             hideDialog();
-            if (result != null){
+            if (details != null){
+                globalVariable.setUserName(details.get("fName"+" "+"lName"));
+                globalVariable.setStudentNum(details.get("studentNum"));
+                globalVariable.setEmail(details.get("email"));
                 ShowMessage("Logging in...");
                 Intent i = new Intent();
                 i.setClass(getApplicationContext(), NavActivity.class);
