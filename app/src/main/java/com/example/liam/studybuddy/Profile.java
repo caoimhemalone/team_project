@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Profile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private TextView fullNameTV, studentNumTV, emailTV, myAccountTV;
+    private TextView fullNameTV, studentNumTV, emailTV, myAccountTV, userNameHeader, emailHeader ;
     private Button forgotPasswordBTN;
     private ImageButton profileImageBTN;
 
@@ -36,17 +36,24 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View header = navigationView.getHeaderView(0);
+
 
         fullNameTV = (TextView)findViewById(R.id.fullNameTV);
         studentNumTV = (TextView)findViewById(R.id.studentNumTV);
         emailTV = (TextView)findViewById(R.id.emailTV);
         myAccountTV = (TextView)findViewById(R.id.myAccountTV);
+        userNameHeader = (TextView)header.findViewById(R.id.userName);
+        emailHeader = (TextView)header.findViewById(R.id.emailHeader);
 
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
 
         fullNameTV.setText(globalVariable.getUserName());
         studentNumTV.setText(globalVariable.getStudentNum());
         emailTV.setText(globalVariable.getEmail());
+        userNameHeader.setText(globalVariable.getUserName());
+        emailHeader.setText(globalVariable.getEmail());
+
 
         //forgotPasswordBTN = (Button)findViewById(R.id.forgotPasswordBTN);
         profileImageBTN = (ImageButton)findViewById(R.id.profileImageBTN);
@@ -133,6 +140,7 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
             finish();
 
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

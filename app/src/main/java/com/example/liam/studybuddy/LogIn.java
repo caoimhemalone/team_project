@@ -91,7 +91,7 @@ public class LogIn extends AppCompatActivity {
         protected void onPostExecute(Void r){
             hideDialog();
             if (details != null){
-                globalVariable.setUserName(details.get("fName"+" "+"lName"));
+                globalVariable.setUserName(details.get("fName")+ " " +details.get("lName"));
                 globalVariable.setStudentNum(details.get("studentNum"));
                 globalVariable.setEmail(details.get("email"));
                 ShowMessage("Logging in...");

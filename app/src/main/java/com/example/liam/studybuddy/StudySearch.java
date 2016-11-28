@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View;
 import java.util.ArrayList;
@@ -34,6 +35,8 @@ public class StudySearch extends AppCompatActivity implements NavigationView.OnN
     HashMap<String, List<String>> listDataChild;
     private ImageButton backBTN;
 
+    private TextView userNameHeader, emailHeader;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +54,27 @@ public class StudySearch extends AppCompatActivity implements NavigationView.OnN
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        backBTN = (ImageButton)findViewById(R.id.backBTN);
-        backBTN.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent i = new Intent();
-                i.setClass(getApplicationContext(), NavActivity.class);
-                startActivity(i);
-                finish();
-            }
-        });
+        View header = navigationView.getHeaderView(0);
+
+
+        userNameHeader = (TextView)header.findViewById(R.id.userName);
+        emailHeader = (TextView)header.findViewById(R.id.emailHeader);
+
+        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+
+        userNameHeader.setText(globalVariable.getUserName());
+        emailHeader.setText(globalVariable.getEmail());
+
+//        backBTN = (ImageButton)findViewById(R.id.backBTN);
+//        backBTN.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view){
+//                Intent i = new Intent();
+//                i.setClass(getApplicationContext(), NavActivity.class);
+//                startActivity(i);
+//                finish();
+//            }
+//        });
 
         // get the list view
         expListView = (ExpandableListView) findViewById(R.id.lvExp);

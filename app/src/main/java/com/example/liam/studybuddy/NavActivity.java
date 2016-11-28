@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 
 public class NavActivity extends AppCompatActivity
@@ -24,6 +25,8 @@ public class NavActivity extends AppCompatActivity
     private ImageButton imageBTN6;
     private ImageButton imageBTN7;
     private ImageButton backBTN;
+
+    private TextView userNameHeader, emailHeader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,16 @@ public class NavActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View header = navigationView.getHeaderView(0);
+
+
+        userNameHeader = (TextView)header.findViewById(R.id.userName);
+        emailHeader = (TextView)header.findViewById(R.id.emailHeader);
+
+        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+
+        userNameHeader.setText(globalVariable.getUserName());
+        emailHeader.setText(globalVariable.getEmail());
 
 
         imageBTN = (ImageButton)findViewById(R.id.imageButton);

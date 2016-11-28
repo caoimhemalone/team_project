@@ -25,6 +25,7 @@ public class Calender extends AppCompatActivity implements NavigationView.OnNavi
     TextView displayEventsHeader;
     TextView displayEvents;
     private ImageButton backBTN;
+    private TextView userNameHeader, emailHeader;
 
 
     @Override
@@ -42,6 +43,17 @@ public class Calender extends AppCompatActivity implements NavigationView.OnNavi
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View header = navigationView.getHeaderView(0);
+
+
+        userNameHeader = (TextView)header.findViewById(R.id.userName);
+        emailHeader = (TextView)header.findViewById(R.id.emailHeader);
+
+        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+
+        userNameHeader.setText(globalVariable.getUserName());
+        emailHeader.setText(globalVariable.getEmail());
 
         //get instance of Calendar
         Calendar currentDate = Calendar.getInstance();
