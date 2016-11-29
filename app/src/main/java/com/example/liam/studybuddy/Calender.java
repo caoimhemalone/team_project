@@ -13,18 +13,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CalendarView;
-import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Calender extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    CalendarView calendarView;
-    TextView displayEventsHeader;
-    TextView displayEvents;
-    private ImageButton backBTN;
+    private CalendarView calendarView;
+    private TextView displayEventsHeader;
+    private TextView displayEvents;
+    private String selectedDateInstance;
+    private int month;
+    private int day;
+    private int year;
+
+    private DatabaseReference root = FirebaseDatabase.getInstance().getReference().getRoot();
 
 
     @Override
@@ -58,8 +65,11 @@ public class Calender extends AppCompatActivity implements NavigationView.OnNavi
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
             @Override
             public void onSelectedDayChange(CalendarView calendarView, int i, int i1, int i2){
-                int month = i1+1;
-                displayEventsHeader.setText("Selected date: " + i2+"/"+month+"/"+i);
+                day = i2;
+                month = i1+1;
+                year = i;
+
+                displayEventsHeader.setText("Selected date: " + day+"/"+month+"/"+year);
                 //displayEvents.setText("You Have Events Scheduled Today");
                 if(displayEventsHeader.getText().toString().equals("Selected date: 8/11/2016")){
                     displayEvents.setText("Extra Programming Classes");
@@ -75,16 +85,9 @@ public class Calender extends AppCompatActivity implements NavigationView.OnNavi
 
         });
 
-        backBTN = (ImageButton)findViewById(R.id.backBTN);
-        backBTN.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent i = new Intent();
-                i.setClass(getApplicationContext(), NavActivity.class);
-                startActivity(i);
-                finish();
-            }
-        });
+        selectedDateInstance = Integer.toString(day)+"/"+Integer.toString(month)+"/"+Integer.toString(year);
+
+
     }
     @Override
     public void onBackPressed() {

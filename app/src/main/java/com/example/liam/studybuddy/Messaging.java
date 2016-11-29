@@ -49,14 +49,7 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
     private String name;
 
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference().getRoot();
-    //private static final String TAG = "ChatActivity";
-    //private ChatArrayAdapter adp;
-    //private ListView list;
-    //private EditText chatText;
-    //private ImageButton send;
-    //private boolean side = false;
-    //private String responseString = "";
-    //private ImageButton backBTN;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +77,7 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
 
         request_user_name();
 
+        //when add room button is clicked take the value entered and store it in HashMap and use the HashMap to update FireBase
         add_room.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,6 +88,7 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
             }
         });
 
+        //when the root of the FireBase is changed take the values from it and store them to a HashSet and add them individually to listView
         root.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -117,6 +112,7 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
             }
         });
 
+        //when list item is clicked open up the chat class and save the room name and user name for use there
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
