@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,7 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
 
     private ImageButton backBTN;
     private Button roomBTN;
+    private TextView userNameHeader, emailHeader;
 
     Spinner spin_course_TT;
     ArrayAdapter<CharSequence> adapter_course_TT;
@@ -65,17 +67,27 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View header = navigationView.getHeaderView(0);
 
-        backBTN = (ImageButton) findViewById(R.id.backBTN);
-        backBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent();
-                i.setClass(getApplicationContext(), NavActivity.class);
-                startActivity(i);
-                finish();
-            }
-        });
+
+        userNameHeader = (TextView)header.findViewById(R.id.userName);
+        emailHeader = (TextView)header.findViewById(R.id.emailHeader);
+
+        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+
+        userNameHeader.setText(globalVariable.getUserName());
+        emailHeader.setText(globalVariable.getEmail());
+
+//        backBTN = (ImageButton) findViewById(R.id.backBTN);
+//        backBTN.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent();
+//                i.setClass(getApplicationContext(), NavActivity.class);
+//                startActivity(i);
+//                finish();
+//            }
+//        });
 
         /**
          * @reference https://www.youtube.com/watch?v=28jA5-mO8K8&index=8&list=LL9QnUxf2Pctj2wyWa4GABCw YouTube: PRABEESH R K
@@ -185,6 +197,13 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
         } else if (id == R.id.nav_home) {
             Intent i = new Intent();
             i.setClass(getApplicationContext(), NavActivity.class);
+            startActivity(i);
+            finish();
+
+        }
+        else if (id == R.id.nav_info) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Info.class);
             startActivity(i);
             finish();
 

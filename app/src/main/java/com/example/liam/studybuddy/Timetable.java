@@ -15,11 +15,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View;
 import android.view.Display;
 import android.widget.Button;
-
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -29,6 +29,7 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
 
     private ImageButton backBTN;
     private Button examBTN;
+    private TextView userNameHeader, emailHeader;
 
     Spinner spin_TT;
     ArrayAdapter<CharSequence> adapter_TT;
@@ -39,6 +40,7 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,16 +60,27 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        backBTN = (ImageButton) findViewById(R.id.backBTN);
-        backBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent();
-                i.setClass(getApplicationContext(), NavActivity.class);
-                startActivity(i);
-                finish();
-            }
-        });
+        View header = navigationView.getHeaderView(0);
+
+
+        userNameHeader = (TextView)header.findViewById(R.id.userName);
+        emailHeader = (TextView)header.findViewById(R.id.emailHeader);
+
+        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+
+        userNameHeader.setText(globalVariable.getUserName());
+        emailHeader.setText(globalVariable.getEmail());
+
+//        backBTN = (ImageButton) findViewById(R.id.backBTN);
+//        backBTN.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent();
+//                i.setClass(getApplicationContext(), NavActivity.class);
+//                startActivity(i);
+//                finish();
+//            }
+//        });
 
 
         examBTN = (Button) findViewById(R.id.examBTN);
@@ -195,6 +208,13 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         } else if (id == R.id.nav_home) {
             Intent i = new Intent();
             i.setClass(getApplicationContext(), NavActivity.class);
+            startActivity(i);
+            finish();
+
+        }
+        else if (id == R.id.nav_info) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Info.class);
             startActivity(i);
             finish();
 

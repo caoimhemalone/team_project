@@ -46,6 +46,8 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
     private ArrayAdapter<String> arrayAdapter;
     private ArrayList<String> list_of_rooms = new ArrayList<>();
 
+    private TextView userNameHeader, emailHeader;
+
     private String name;
 
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference().getRoot();
@@ -66,6 +68,17 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View header = navigationView.getHeaderView(0);
+
+
+        userNameHeader = (TextView)header.findViewById(R.id.userName);
+        emailHeader = (TextView)header.findViewById(R.id.emailHeader);
+
+        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+
+        userNameHeader.setText(globalVariable.getUserName());
+        emailHeader.setText(globalVariable.getEmail());
 
         add_room = (Button) findViewById(R.id.btn_add_room);
         room_name = (EditText) findViewById(R.id.room_name_edittext);
@@ -220,6 +233,13 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
         } else if (id == R.id.nav_home) {
             Intent i = new Intent();
             i.setClass(getApplicationContext(), NavActivity.class);
+            startActivity(i);
+            finish();
+
+        }
+        else if (id == R.id.nav_info) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Info.class);
             startActivity(i);
             finish();
 

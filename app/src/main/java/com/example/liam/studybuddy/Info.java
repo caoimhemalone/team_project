@@ -1,32 +1,42 @@
 package com.example.liam.studybuddy;
 
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Profile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private TextView fullNameTV, studentNumTV, emailTV, myAccountTV, userNameHeader, emailHeader ;
-    private Button forgotPasswordBTN;
-    private ImageButton profileImageBTN;
+import static com.example.liam.studybuddy.R.id.emailHeader;
+import static com.example.liam.studybuddy.R.id.moodleBTN;
 
-    @Override
+/**
+ * Created by Liam on 29/11/2016.
+ */
+
+public class Info extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
+
+    private ImageButton moodleBTN;
+    private ImageButton nci360BTN;
+    private ImageButton stuEmailBTN;
+
+    private TextView userNameHeader, emailHeader, message;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_info);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -38,26 +48,43 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
         navigationView.setNavigationItemSelectedListener(this);
         View header = navigationView.getHeaderView(0);
 
-
-        fullNameTV = (TextView)findViewById(R.id.fullNameTV);
-        studentNumTV = (TextView)findViewById(R.id.studentNumTV);
-        emailTV = (TextView)findViewById(R.id.emailTV);
-        myAccountTV = (TextView)findViewById(R.id.myAccountTV);
-        userNameHeader = (TextView)header.findViewById(R.id.userName);
-        emailHeader = (TextView)header.findViewById(R.id.emailHeader);
+        message = (TextView) findViewById(R.id.messageTV);
+        userNameHeader = (TextView) header.findViewById(R.id.userName);
+        emailHeader = (TextView) header.findViewById(R.id.emailHeader);
 
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
 
-        fullNameTV.setText(globalVariable.getUserName());
-        studentNumTV.setText(globalVariable.getStudentNum());
-        emailTV.setText(globalVariable.getEmail());
+        message.setText("Hi " + globalVariable.getUserName()+",");
         userNameHeader.setText(globalVariable.getUserName());
         emailHeader.setText(globalVariable.getEmail());
 
-
-        //forgotPasswordBTN = (Button)findViewById(R.id.forgotPasswordBTN);
-        profileImageBTN = (ImageButton)findViewById(R.id.profileImageBTN);
-
+        moodleBTN = (ImageButton)findViewById(R.id.moodleBTN);
+        moodleBTN.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Uri uri = Uri.parse("http://www.moodle.ncirl.ie"); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+        nci360BTN = (ImageButton)findViewById(R.id.nci360BTN);
+        nci360BTN.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Uri uri = Uri.parse("https://nci360.ncirl.ie"); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+        stuEmailBTN = (ImageButton)findViewById(R.id.stuEmailBTN);
+        stuEmailBTN.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Uri uri = Uri.parse("https://outlook.office.com/"); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -147,6 +174,7 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
             finish();
 
         }
+
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

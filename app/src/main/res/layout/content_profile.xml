@@ -10,25 +10,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.liam.studybuddy.Profile">
 
-    <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@android:drawable/arrow_up_float"
-        android:id="@+id/backBTN"
-        android:layout_marginTop="45dp" />
-
-    <Button
-        android:text="Forgot Password?"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/forgotPasswordBTN"
-        android:textAlignment="center"
-        android:layout_alignParentRight="false"
-        android:layout_centerInParent="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerVertical="false"
-        android:layout_centerHorizontal="false"
-        android:layout_marginBottom="40dp" />
+    <!--<Button-->
+        <!--android:text="Forgot Password?"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/forgotPasswordBTN"-->
+        <!--android:textAlignment="center"-->
+        <!--android:layout_alignParentRight="false"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerVertical="false"-->
+        <!--android:layout_centerHorizontal="false"-->
+        <!--android:layout_marginBottom="40dp" />-->
 
     <LinearLayout
         android:orientation="vertical"
@@ -50,7 +43,8 @@
                 android:layout_weight="1"
                 android:textAlignment="center"
                 android:textSize="30sp"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:padding="15dp" />
 
             <ImageButton
                 android:layout_width="wrap_content"
