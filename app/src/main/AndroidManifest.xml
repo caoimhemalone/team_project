@@ -26,6 +26,7 @@
         <activity android:name=".Messaging" />
         <activity android:name=".StudySearch" />
         <activity android:name=".ExamTimetable" />
+        <activity android:name=".Info" />
         <activity
             android:name=".NavActivity"
             android:label="@string/title_activity_nav"

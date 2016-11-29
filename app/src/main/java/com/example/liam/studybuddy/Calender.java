@@ -176,6 +176,13 @@ public class Calender extends AppCompatActivity implements NavigationView.OnNavi
             startActivity(i);
             finish();
         }
+        else if (id == R.id.nav_info) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Info.class);
+            startActivity(i);
+            finish();
+
+        }
 
 
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

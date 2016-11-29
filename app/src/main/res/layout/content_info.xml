@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_nav"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/messageTV"
+        android:layout_gravity="center_horizontal"
+        android:allowUndo="true"
+        android:textSize="24sp"
+        android:layout_marginLeft="100dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="35dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="162dp"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/Moodle"
+                android:id="@+id/moodleBTN" />
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/nci360"
+                android:id="@+id/nci360BTN"
+                android:layout_marginTop="100dp" />
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/outlook"
+                android:id="@+id/stuEmailBTN"
+                android:layout_marginTop="100dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="162dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/messageTV"
+            android:layout_alignEnd="@+id/messageTV"
+            android:layout_marginRight="40dp"
+            android:layout_marginEnd="40dp">
+
+            <TextView
+                android:text="- Moodle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/moodleTV"
+                android:textSize="24sp"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:text="- NCI360"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nci360TV"
+                android:textSize="24sp"
+                android:layout_marginTop="150dp" />
+
+            <TextView
+                android:text="- Student Email"
+                android:layout_height="wrap_content"
+                android:id="@+id/stuemailTV"
+                android:textSize="24sp"
+                android:layout_marginTop="135dp"
+                android:layout_width="300dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

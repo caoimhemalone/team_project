@@ -24,6 +24,7 @@ public class NavActivity extends AppCompatActivity
     private ImageButton imageBTN3;
     private ImageButton imageBTN6;
     private ImageButton imageBTN7;
+    private ImageButton imageBTN8;
     private ImageButton backBTN;
 
     private TextView userNameHeader, emailHeader;
@@ -106,6 +107,16 @@ public class NavActivity extends AppCompatActivity
                 finish();
             }
         });
+        imageBTN8 = (ImageButton)findViewById(R.id.imageButton8);
+        imageBTN8.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), Info.class);
+                startActivity(i);
+                finish();
+            }
+        });
     }
 
     @Override
@@ -183,6 +194,13 @@ public class NavActivity extends AppCompatActivity
         } else if (id == R.id.nav_home) {
             Intent i = new Intent();
             i.setClass(getApplicationContext(), NavActivity.class);
+            startActivity(i);
+            finish();
+
+        }
+        else if (id == R.id.nav_info) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Info.class);
             startActivity(i);
             finish();
 

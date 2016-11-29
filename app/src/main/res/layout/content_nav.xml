@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="My Home"
-        android:id="@+id/textView2"
+        android:id="@+id/messageTV"
         android:layout_gravity="center_horizontal"
         android:allowUndo="true"
         android:textSize="35dp"
@@ -95,6 +95,15 @@
                 app:srcCompat="@android:drawable/ic_menu_recent_history"
                 android:layout_marginTop="50dp"
                 android:id="@+id/imageButton7"
+                android:elevation="24dp"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@android:drawable/ic_menu_info_details"
+                android:layout_marginTop="50dp"
+                android:id="@+id/imageButton8"
                 android:elevation="24dp"
                 android:scaleType="fitCenter" />
         </LinearLayout>

@@ -201,6 +201,13 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
             finish();
 
         }
+        else if (id == R.id.nav_info) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Info.class);
+            startActivity(i);
+            finish();
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
