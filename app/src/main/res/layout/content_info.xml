@@ -35,22 +35,27 @@
             <ImageButton
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                app:srcCompat="@drawable/Moodle"
-                android:id="@+id/moodleBTN" />
+                app:srcCompat="@drawable/moodle"
+                android:id="@+id/moodleBTN"
+                android:background="#fafafa"/>
 
             <ImageButton
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 app:srcCompat="@drawable/nci360"
                 android:id="@+id/nci360BTN"
-                android:layout_marginTop="100dp" />
+                android:layout_marginTop="100dp"
+                android:background="#fafafa"
+                />
 
             <ImageButton
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 app:srcCompat="@drawable/outlook"
                 android:id="@+id/stuEmailBTN"
-                android:layout_marginTop="100dp" />
+                android:layout_marginTop="100dp"
+                android:background="#fafafa"
+               />
         </LinearLayout>
 
         <LinearLayout
