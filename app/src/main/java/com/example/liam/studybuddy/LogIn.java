@@ -20,7 +20,7 @@ public class LogIn extends AppCompatActivity {
     private Button loginBTN;
     String userName, email, studentNum, password;
     private EditText studentNumET, passwordET;
-    //private ResultSet result, details = null;
+    private ResultSet result = null;
     private HashMap<String, String> details;
     GlobalClass globalVariable;
 
@@ -42,7 +42,7 @@ public class LogIn extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 //new login().execute();
-                new login().execute();
+                new checkUserLogin().execute();
             }
         });
 
@@ -63,6 +63,52 @@ public class LogIn extends AppCompatActivity {
         Toast.makeText(LogIn.this, msg, Toast.LENGTH_LONG).show();
     }
 
+    private class checkUserLogin extends AsyncTask<Void, Void, Void>{
+        private ProgressDialog pDialog;
+
+        @Override
+        protected void onPreExecute(){
+            studentNum = studentNumET.getText().toString();
+            password = passwordET.getText().toString();
+
+            pDialog = new ProgressDialog(LogIn.this);
+            pDialog.setCancelable(false);
+            pDialog.setMessage("Checking User...");
+            showDialog();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            DBHelper db = new DBHelper();
+            result = db.checkUserLogin(studentNum,password);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void r) {
+            hideDialog();
+            if (result != null) {
+                //user exists
+                new login().execute();
+            } else {
+                //user doesn't exist, goes to signup method
+                ShowMessage("Username or password incorrect!");
+            }
+        }
+
+        private void showDialog() {
+            if (!pDialog.isShowing()) {
+                pDialog.show();
+            }
+        }
+
+        private void hideDialog() {
+            if (pDialog.isShowing()) {
+                pDialog.dismiss();
+            }
+        }
+    }
     private class login extends AsyncTask<Void, Void, Void>{
         private ProgressDialog pDialog;
 
@@ -94,15 +140,10 @@ public class LogIn extends AppCompatActivity {
                 globalVariable.setUserName(details.get("fName")+ " " +details.get("lName"));
                 globalVariable.setStudentNum(details.get("studentNum"));
                 globalVariable.setEmail(details.get("email"));
-                ShowMessage("Logging in...");
                 Intent i = new Intent();
                 i.setClass(getApplicationContext(), NavActivity.class);
                 startActivity(i);
                 finish();
-            }
-            else {
-                ShowMessage("Username or Password incorrect");
-
             }
         }
 
