@@ -17,6 +17,7 @@
         app:srcCompat="@android:drawable/arrow_up_float"
         android:id="@+id/backBTN" />
 
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -53,6 +54,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/lvExp"
+                />
+            <ExpandableListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/lvExp2"
                 />
 
         </LinearLayout>

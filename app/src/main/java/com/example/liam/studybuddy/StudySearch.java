@@ -33,7 +33,6 @@ public class StudySearch extends AppCompatActivity implements NavigationView.OnN
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
-    private ImageButton backBTN;
 
     private TextView userNameHeader, emailHeader;
 
@@ -65,16 +64,6 @@ public class StudySearch extends AppCompatActivity implements NavigationView.OnN
         userNameHeader.setText(globalVariable.getUserName());
         emailHeader.setText(globalVariable.getEmail());
 
-//        backBTN = (ImageButton)findViewById(R.id.backBTN);
-//        backBTN.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view){
-//                Intent i = new Intent();
-//                i.setClass(getApplicationContext(), NavActivity.class);
-//                startActivity(i);
-//                finish();
-//            }
-//        });
 
         // get the list view
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
@@ -122,6 +111,7 @@ public class StudySearch extends AppCompatActivity implements NavigationView.OnN
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,int groupPosition, int childPosition, long id){
                 Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition)+" : "+ listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
+
                 return false;
             }
         });
