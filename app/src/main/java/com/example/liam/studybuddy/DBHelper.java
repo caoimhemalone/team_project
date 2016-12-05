@@ -63,7 +63,7 @@ public class DBHelper {
         return result;
     }
 
-    public ResultSet checkUser(String studentNum){
+    public ResultSet checkUserSignup(String studentNum){
         ResultSet temp = null;
         try {
             PreparedStatement st = conn.prepareStatement("SELECT * FROM " + AppConfig.TABLE_NAME + " WHERE studentNum = ?");
@@ -81,10 +81,27 @@ public class DBHelper {
         return temp;
     }
 
+    public ResultSet checkUserLogin(String studentNum, String password){
+        ResultSet temp = null;
+        try {
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM " + AppConfig.TABLE_NAME + " WHERE studentNum = ? AND password = ?");
+            st.setString(1, studentNum);
+            st.setString(2, password);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                temp = rs;
+            }
+            else{
+                temp = null;
+            }
+        } catch (SQLException s) {
+            Log.e(TAG, s.getMessage());
+        }
+        return temp;
+    }
+
     public HashMap<String,String> login (String studentNum, String password){
         HashMap<String, String> details = new HashMap<String, String>();
-
-
         try{
             PreparedStatement st = conn.prepareStatement("SELECT * FROM " + AppConfig.TABLE_NAME + " WHERE studentNum =? AND password=?" );
             st.setString(1, studentNum);
@@ -97,9 +114,6 @@ public class DBHelper {
                 details.put("studentNum", rs.getString("studentNum"));
                 details.put("email", rs.getString("email"));
             }
-//            else{
-//                result = null;
-//            }
         } catch (SQLException s) {
             Log.e(TAG, s.getMessage());
         } return details;

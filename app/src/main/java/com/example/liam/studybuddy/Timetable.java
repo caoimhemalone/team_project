@@ -71,16 +71,6 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         userNameHeader.setText(globalVariable.getUserName());
         emailHeader.setText(globalVariable.getEmail());
 
-//        backBTN = (ImageButton) findViewById(R.id.backBTN);
-//        backBTN.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent i = new Intent();
-//                i.setClass(getApplicationContext(), NavActivity.class);
-//                startActivity(i);
-//                finish();
-//            }
-//        });
 
 
         examBTN = (Button) findViewById(R.id.examBTN);
@@ -260,5 +250,7 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
+
+
 } // End of public class .....
 

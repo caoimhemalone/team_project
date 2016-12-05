@@ -97,7 +97,7 @@ public class SignUp extends AppCompatActivity {
                             }
                 }
                 else{
-                    new checkUser().execute();
+                    new checkUserSignup().execute();
 //                    new signUp().execute();
 //                    firstNameET.setText(null);
 //                    lastNameET.setText(null);
@@ -115,7 +115,7 @@ public class SignUp extends AppCompatActivity {
         Toast.makeText(SignUp.this, msg, Toast.LENGTH_LONG).show();
     }
 
-    private class checkUser extends AsyncTask<Void, Void, Void>{
+    private class checkUserSignup extends AsyncTask<Void, Void, Void>{
         private ProgressDialog pDialog;
 
         @Override
@@ -132,7 +132,7 @@ public class SignUp extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
 
             DBHelper db = new DBHelper();
-            result = db.checkUser(studentNum);
+            result = db.checkUserSignup(studentNum);
             return null;
         }
 
