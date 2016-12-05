@@ -73,11 +73,11 @@
     </string-array>
 
     <string-array name="exam_course_spinner">
+        <item> BSHC </item>
         <item> BAHBME </item>
         <item> BAHHRD </item>
         <item> BAHMRP </item>
         <item> BAMTB </item>
-        <item> BSHC </item>
         <item> BSHCBIS </item>
         <item> BSHTM </item>
     </string-array>

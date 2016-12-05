@@ -148,8 +148,9 @@ public class DBHelper {
             ResultSet rs = st.executeQuery();
 
             if (rs.next()) {
-                details.put("course", rs.getString("course"));
-                details.put("year", rs.getString("year"));
+                details.put("time", rs.getString("time"));
+                details.put("subject", rs.getString("subject"));
+                details.put("date", rs.getString("date"));
             }
         }catch(SQLException s){
             Log.e(TAG, s.getMessage());

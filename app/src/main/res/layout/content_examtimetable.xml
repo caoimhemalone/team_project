@@ -101,36 +101,34 @@
                     android:text="@string/time_ETT"
                     android:layout_height="wrap_content"
                     android:id="@+id/time_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1" />
-                <!--android:background="@drawable/back"-->
-                <!--android:textStyle="normal|bold"-->
-                <!--android:textAllCaps="false"-->
-                <!--android:paddingLeft="10dp"-->
-                <!--android:paddingRight="30dp" -->
-                <!--android:background="@drawable/back"-->
+                    android:layout_width="60dp"
+                    android:layout_weight="1"
+                android:textStyle="normal|bold"
+                android:textAllCaps="false"
+                android:paddingLeft="10dp"
+                android:paddingRight="30dp"
+                android:background="@drawable/back"/>
 
                 <TextView
                     android:text="@string/Subject_ETT"
                     android:layout_height="wrap_content"
                     android:id="@+id/subject_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1" />
-                <!--android:background="@drawable/back"-->
-                <!--android:textStyle="normal|bold"-->
-                <!--android:paddingLeft="10dp"-->
-                <!--android:paddingRight="80dp"-->
-
+                    android:layout_width="100dp"
+                    android:layout_weight="1"
+                android:textStyle="normal|bold"
+                android:paddingLeft="10dp"
+                android:paddingRight="60dp"
+                android:background="@drawable/back"/>
                 <TextView
                     android:text="@string/date_ETT"
                     android:layout_height="wrap_content"
                     android:id="@+id/date_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1" />
-                <!--android:background="@drawable/back"-->
-                <!--android:textStyle="normal|bold"-->
-                <!--android:paddingLeft="20dp"-->
-                <!--android:paddingRight="20dp"-->
+                    android:layout_width="60dp"
+                    android:layout_weight="1"
+                android:textStyle="normal|bold"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                    android:background="@drawable/back"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -148,35 +146,114 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!--Layout 6-->
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+
+            <!--Layout 7-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="60dp"
+                    android:layout_height="fill_parent"
                     android:id="@+id/ETTtime"
                     android:layout_weight="1"
                 android:background="@drawable/back"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp"
+                    android:paddingTop="20dp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="100dp"
+                    android:layout_height="fill_parent"
                     android:id="@+id/ETTsubject"
                     android:layout_weight="1"
                 android:background="@drawable/back"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="20dp"
+                    android:paddingTop="5dp"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="60dp"
+                    android:layout_height="fill_parent"
                     android:id="@+id/ETTdate"
                     android:layout_weight="1"
                 android:background="@drawable/back"
-                android:paddingLeft="10dp" />
+                android:paddingLeft="10dp"
+                    android:paddingTop="20dp" />
+                </LinearLayout>
+
+                <!--Layout 8-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/ETTtime2"
+                        android:layout_weight="1"
+                        android:background="@drawable/back"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="20dp"
+                        android:text="example" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/ETTsubject2"
+                        android:layout_weight="1"
+                        android:background="@drawable/back"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:text="example example example example example" />
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/ETTdate2"
+                        android:layout_weight="1"
+                        android:background="@drawable/back"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="20dp"
+                        android:text="example" />
+                </LinearLayout>
+
+                <!--Layout 9-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/ETTtime3"
+                        android:layout_weight="1"
+                        android:background="@drawable/back"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="20dp"
+                        android:text="example" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/ETTsubject3"
+                        android:layout_weight="1"
+                        android:background="@drawable/back"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:text="example example example example example" />
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/ETTdate3"
+                        android:layout_weight="1"
+                        android:background="@drawable/back"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="20dp"
+                        android:text="example" />
             </LinearLayout>
         </LinearLayout>
 
