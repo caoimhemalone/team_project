@@ -17,6 +17,7 @@
         app:srcCompat="@android:drawable/arrow_up_float"
         android:id="@+id/backBTN" />
 
+    <!--Layout 1-->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -24,6 +25,7 @@
         android:layout_alignParentTop="false"
         android:id="@+id/bodyLayout">
 
+        <!--Layout 2-->
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -66,319 +68,316 @@
             />
 
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:id="@+id/timeTableLayout"
-            style="@style/timetable_style"
-            android:paddingBottom="0dp"
-            android:paddingLeft="0dp"
-            android:paddingRight="0dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+        <!--<TableLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:id="@+id/timeTableLayout"-->
+            <!--style="@style/timetable_style"-->
+            <!--android:paddingBottom="0dp"-->
+            <!--android:paddingLeft="0dp"-->
+            <!--android:paddingRight="0dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp">-->
 
-            <TableRow
-                android:layout_height="match_parent"
-                android:id="@+id/top_row"
-                android:layout_width="match_parent">
+            <!--<TableRow-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:id="@+id/top_row"-->
+                <!--android:layout_width="match_parent">-->
+
+
+        <!--Layout 3-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Layout 4-->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
 
                 <TextView
-                    android:text="@string/time_TT"
+                    android:text="@string/time_ETT"
                     android:layout_height="wrap_content"
                     android:id="@+id/time_tv"
-                    android:background="@drawable/back"
-                    android:textStyle="normal|bold"
-                    android:textAllCaps="false"
-                    android:paddingLeft="10dp"
                     android:layout_width="wrap_content"
-                    android:paddingRight="30dp"
-                    />
+                    android:layout_weight="1" />
+                <!--android:background="@drawable/back"-->
+                <!--android:textStyle="normal|bold"-->
+                <!--android:textAllCaps="false"-->
+                <!--android:paddingLeft="10dp"-->
+                <!--android:paddingRight="30dp" -->
+                <!--android:background="@drawable/back"-->
 
                 <TextView
                     android:text="@string/Subject_ETT"
                     android:layout_height="wrap_content"
                     android:id="@+id/subject_tv"
-                    android:background="@drawable/back"
-                    android:textStyle="normal|bold"
-                    android:paddingLeft="10dp"
                     android:layout_width="wrap_content"
-                    android:paddingRight="80dp"
-                    />
+                    android:layout_weight="1" />
+                <!--android:background="@drawable/back"-->
+                <!--android:textStyle="normal|bold"-->
+                <!--android:paddingLeft="10dp"-->
+                <!--android:paddingRight="80dp"-->
+
                 <TextView
                     android:text="@string/date_ETT"
                     android:layout_height="wrap_content"
                     android:id="@+id/date_tv"
-                    android:background="@drawable/back"
-                    android:textStyle="normal|bold"
-                    android:paddingLeft="20dp"
                     android:layout_width="wrap_content"
-                    android:paddingRight="20dp"
-                    />
+                    android:layout_weight="1" />
+                <!--android:background="@drawable/back"-->
+                <!--android:textStyle="normal|bold"-->
+                <!--android:paddingLeft="20dp"-->
+                <!--android:paddingRight="20dp"-->
 
-            </TableRow>
+            </LinearLayout>
+        </LinearLayout>
 
-            <TableRow
-                android:layout_height="match_parent"
-                android:id="@+id/second_row"
-                android:layout_width="match_parent">
+        <!--</TableRow>-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView9"
-                    android:background="@drawable/back"
-                    android:paddingLeft="10dp"
-                    />
+            <!--<TableRow-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:id="@+id/second_row"-->
+                <!--android:layout_width="match_parent">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView21"
-                    android:background="@drawable/back"
-                    android:paddingLeft="10dp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView22"
-                    android:background="@drawable/back"
-                    android:paddingLeft="10dp"
-                    />
+        <!--Layout 5-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            </TableRow>
-
-            <TableRow
+            <!--Layout 6-->
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/row_01"
-                android:text="@string/monday">
+                android:layout_height="match_parent">
 
                 <TextView
-                    android:text="@string/timeSlot1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/time1"
-                    android:background="@drawable/back"
-                    android:textSize="12sp"
-                    android:textAlignment="center"
-                    />
-
-
-                <TextView
-                    android:text="@string/class_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/back"
-                    android:id="@+id/subject_tv_1"
-                    android:textSize="12sp"
-                    android:paddingLeft="10dp"
-                    />
+                    android:id="@+id/ETTtime"
+                    android:layout_weight="1"
+                android:background="@drawable/back"
+                android:paddingLeft="10dp"/>
 
                 <TextView
-                    android:text="@string/date_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/back"
-                    android:id="@+id/date_tv_1"
-                    android:textSize="12sp"
-                    android:textAlignment="center"
-                     />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_height="match_parent"
-                android:id="@+id/row_02"
-                android:layout_width="match_parent">
-
-                <TextView
-                    android:text="@string/timeSlot2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/time2"
-                    android:textSize="12sp"
-                    android:background="@drawable/back"
-                    android:textAlignment="center"
-
-                    />
-
-                <TextView
-                    android:text="@string/class_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/back"
-                    android:id="@+id/subject_tv_2"
-                    android:textSize="12sp"
-                    android:paddingLeft="10dp"
-                    />
-                <TextView
-                    android:text="@string/date_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/back"
-                    android:id="@+id/date_tv_2"
-                    android:textSize="12sp"
-                    android:textAlignment="center"
-                    />
-            </TableRow>
-
-            <TableRow
-                android:layout_height="match_parent"
-                android:id="@+id/row_03"
-                android:layout_width="match_parent">
+                    android:id="@+id/ETTsubject"
+                    android:layout_weight="1"
+                android:background="@drawable/back"
+                android:paddingLeft="10dp"/>
 
                 <TextView
-                    android:text="@string/timeSlot3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/time3"
-                    android:textSize="12sp"
-                    android:background="@drawable/back"
-                    android:textAlignment="center"
-
-                    />
-
-
-                <TextView
-                    android:text="@string/class_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/back"
-                    android:id="@+id/subject_tv_3"
-                    android:textSize="12sp"
-                    android:paddingLeft="10dp"
-                    />
+                    android:id="@+id/ETTdate"
+                    android:layout_weight="1"
+                android:background="@drawable/back"
+                android:paddingLeft="10dp" />
+            </LinearLayout>
+        </LinearLayout>
 
-                <TextView
-                    android:text="@string/date_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/back"
-                    android:id="@+id/date_tv_3"
-                    android:textSize="12sp"
-                    android:textAlignment="center"
-                    />
-            </TableRow>
-
-            <TableRow
-                android:layout_height="match_parent"
-                android:id="@+id/row_04"
-                android:layout_width="match_parent">
-
-                <TextView
-                    android:text="@string/timeSlot4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/time4"
-                    android:textSize="12sp"
-                    android:background="@drawable/back"
-                    android:textAlignment="center"
-
-                    />
-
-
-                <TextView
-                    android:text="@string/class_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/back"
-                    android:id="@+id/subject_tv_4"
-                    android:textSize="12sp"
-                    android:paddingLeft="10dp"
-                    />
-
-                <TextView
-                    android:text="@string/date_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/back"
-                    android:id="@+id/date_tv_4"
-                    android:textSize="12sp"
-                    android:textAlignment="center"
-                    />
-            </TableRow>
-
-            <TableRow
-                android:layout_height="match_parent"
-                android:id="@+id/row_05"
-                android:layout_width="match_parent">
-
-                <TextView
-                    android:text="@string/timeSlot5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/time5"
-                    android:textSize="12sp"
-                    android:background="@drawable/back"
-                    android:textAlignment="center"
-
-                    />
-
-
-                <TextView
-                    android:text="@string/class_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/back"
-                    android:id="@+id/subject_tv_5"
-                    android:textSize="12sp"
-                    android:paddingLeft="10dp"
-                    />
-
-                <TextView
-                    android:text="@string/date_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/back"
-                    android:id="@+id/date_tv_5"
-                    android:textSize="12sp"
-                    android:textAlignment="center"
-                    />
-            </TableRow>
-
-            <TableRow
-                android:layout_height="match_parent"
-                android:id="@+id/row_06"
-                android:layout_width="match_parent">
-
-                <TextView
-                    android:text="@string/timeSlot6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/time6"
-                    android:textSize="12sp"
-                    android:background="@drawable/back"
-                    android:textAlignment="center"
-
-                    />
-
-                <TextView
-                    android:text="@string/class_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/back"
-                    android:id="@+id/subject_tv_6"
-                    android:textSize="12sp"
-                    android:paddingLeft="10dp"
-                    />
-
-                <TextView
-                    android:text="@string/date_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/back"
-                    android:id="@+id/date_tv_6"
-                    android:textSize="12sp"
-                    android:textAlignment="center"
-                    />
-            </TableRow>
-        </TableLayout>
 
         <Button
             android:text="@string/timetableBTN"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/room_btn"
             android:textSize="10dp"/>
-    </LinearLayout>
+
+
+        <!--</TableRow>-->
+
+            <!--<TableRow-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:id="@+id/row_02"-->
+                <!--android:layout_width="match_parent">-->
+
+                <!--<TextView-->
+                    <!--android:text="@string/timeSlot2"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:id="@+id/time2"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:background="@drawable/back"-->
+                    <!--android:textAlignment="center"-->
+
+                    <!--/>-->
+
+                <!--<TextView-->
+                    <!--android:text="@string/class_1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@drawable/back"-->
+                    <!--android:id="@+id/subject_tv_2"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:paddingLeft="10dp"-->
+                    <!--/>-->
+                <!--<TextView-->
+                    <!--android:text="@string/date_1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@drawable/back"-->
+                    <!--android:id="@+id/date_tv_2"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:textAlignment="center"-->
+                    <!--/>-->
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:id="@+id/row_03"-->
+                <!--android:layout_width="match_parent">-->
+
+                <!--<TextView-->
+                    <!--android:text="@string/timeSlot3"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:id="@+id/time3"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:background="@drawable/back"-->
+                    <!--android:textAlignment="center"-->
+
+                    <!--/>-->
+
+
+                <!--<TextView-->
+                    <!--android:text="@string/class_1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@drawable/back"-->
+                    <!--android:id="@+id/subject_tv_3"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:paddingLeft="10dp"-->
+                    <!--/>-->
+
+                <!--<TextView-->
+                    <!--android:text="@string/date_1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@drawable/back"-->
+                    <!--android:id="@+id/date_tv_3"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:textAlignment="center"-->
+                    <!--/>-->
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:id="@+id/row_04"-->
+                <!--android:layout_width="match_parent">-->
+
+                <!--<TextView-->
+                    <!--android:text="@string/timeSlot4"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:id="@+id/time4"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:background="@drawable/back"-->
+                    <!--android:textAlignment="center"-->
+
+                    <!--/>-->
+
+
+                <!--<TextView-->
+                    <!--android:text="@string/class_1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@drawable/back"-->
+                    <!--android:id="@+id/subject_tv_4"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:paddingLeft="10dp"-->
+                    <!--/>-->
+
+                <!--<TextView-->
+                    <!--android:text="@string/date_1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@drawable/back"-->
+                    <!--android:id="@+id/date_tv_4"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:textAlignment="center"-->
+                    <!--/>-->
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:id="@+id/row_05"-->
+                <!--android:layout_width="match_parent">-->
+
+                <!--<TextView-->
+                    <!--android:text="@string/timeSlot5"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:id="@+id/time5"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:background="@drawable/back"-->
+                    <!--android:textAlignment="center"-->
+
+                    <!--/>-->
+
+
+                <!--<TextView-->
+                    <!--android:text="@string/class_1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@drawable/back"-->
+                    <!--android:id="@+id/subject_tv_5"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:paddingLeft="10dp"-->
+                    <!--/>-->
+
+                <!--<TextView-->
+                    <!--android:text="@string/date_1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@drawable/back"-->
+                    <!--android:id="@+id/date_tv_5"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:textAlignment="center"-->
+                    <!--/>-->
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:id="@+id/row_06"-->
+                <!--android:layout_width="match_parent">-->
+
+                <!--<TextView-->
+                    <!--android:text="@string/timeSlot6"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:id="@+id/time6"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:background="@drawable/back"-->
+                    <!--android:textAlignment="center"-->
+
+                    <!--/>-->
+
+                <!--<TextView-->
+                    <!--android:text="@string/class_1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@drawable/back"-->
+                    <!--android:id="@+id/subject_tv_6"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:paddingLeft="10dp"-->
+                    <!--/>-->
+
+                <!--<TextView-->
+                    <!--android:text="@string/date_1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@drawable/back"-->
+                    <!--android:id="@+id/date_tv_6"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:textAlignment="center"-->
+                    <!--/>-->
+            <!--</TableRow>-->
+        <!--</TableLayout>-->
+
+</LinearLayout>
 </RelativeLayout>

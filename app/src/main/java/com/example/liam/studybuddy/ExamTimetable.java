@@ -1,7 +1,9 @@
 package com.example.liam.studybuddy;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -25,12 +27,15 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.HashMap;
+
 public class ExamTimetable extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ImageButton backBTN;
     private Button roomBTN;
-    private TextView userNameHeader, emailHeader;
-
+    private TextView userNameHeader, emailHeader, ETTdate, ETTsubject, ETTtime;
+    String course, time, date, subject, year;
+    private HashMap<String, String> details;
     Spinner spin_course_TT;
     ArrayAdapter<CharSequence> adapter_course_TT;
     Spinner spin_year_TT;
@@ -47,6 +52,8 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
         setContentView(R.layout.activity_examtimetable);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        details = new HashMap<>();
 
         roomBTN = (Button) findViewById(R.id.room_btn);
         roomBTN.setOnClickListener(new View.OnClickListener() {
@@ -73,21 +80,15 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
         userNameHeader = (TextView)header.findViewById(R.id.userName);
         emailHeader = (TextView)header.findViewById(R.id.emailHeader);
 
+       ETTtime = (TextView) findViewById(R.id.ETTtime);
+        ETTsubject = (TextView) findViewById(R.id.ETTsubject);
+        ETTdate = (TextView) findViewById(R.id.ETTdate);
+
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
 
         userNameHeader.setText(globalVariable.getUserName());
         emailHeader.setText(globalVariable.getEmail());
 
-//        backBTN = (ImageButton) findViewById(R.id.backBTN);
-//        backBTN.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent i = new Intent();
-//                i.setClass(getApplicationContext(), NavActivity.class);
-//                startActivity(i);
-//                finish();
-//            }
-//        });
 
         /**
          * @reference https://www.youtube.com/watch?v=28jA5-mO8K8&index=8&list=LL9QnUxf2Pctj2wyWa4GABCw YouTube: PRABEESH R K
@@ -106,6 +107,8 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selected", Toast.LENGTH_LONG).show();
+            course = parent.getItemAtPosition(position).toString();
+           new examtimetable().execute();
             } // End of public void onItem........
 
             @Override
@@ -119,6 +122,8 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selected", Toast.LENGTH_LONG).show();
+            year = parent.getItemAtPosition(position).toString();
+           new examtimetable().execute();
             } // End of public void onItem........
 
             @Override
@@ -214,6 +219,12 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
         return true;
     }
 
+    public void display(String time, String subject, String date){
+        ETTtime.setText(time);
+        ETTsubject.setText(subject);
+        ETTdate.setText(date);
+    }
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -249,5 +260,44 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
+
+    private class examtimetable extends AsyncTask<Void, Void, Void>{
+        private ProgressDialog pDialog;
+
+        @Override
+        protected void onPreExecute(){
+            pDialog = new ProgressDialog(ExamTimetable.this);
+            pDialog.setCancelable(false);
+            showDialog();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params){
+            DBHelper db = new DBHelper();
+            details = db.examtimetable(course, year);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void r){
+            hideDialog();
+            if(details != null){
+                display(details.get("time"), details.get("subject"), details.get("date"));
+            }
+        }
+
+        private void showDialog() {
+            if (!pDialog.isShowing()) {
+                pDialog.show();
+            }
+        }
+
+        private void hideDialog() {
+            if (pDialog.isShowing()) {
+                pDialog.dismiss();
+            }
+        }
+    }
+
 } // End of public class .....
 

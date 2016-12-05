@@ -24,6 +24,7 @@
     <string name="timeSlot7"> 15:00 </string>
     <string name="timeSlot8"> 16:00 </string>
     <string name="day_TT"> Day </string>
+    <string name="time_ETT"> Time </string>
     <string name="time_TT"> Time </string>
     <string name="class_TT"> Class </string>
     <string name="Subject_ETT"> Subject</string>
@@ -65,21 +66,20 @@
     </string-array>
 
     <string-array name="exam_year_spinner">
-        <item> Year 1 </item>
-        <item> Year 2 </item>
-        <item> Year 3 </item>
-        <item> Year 4 </item>
+        <item> 1 </item>
+        <item> 2 </item>
+        <item> 3 </item>
+        <item> 4 </item>
     </string-array>
 
     <string-array name="exam_course_spinner">
+        <item> BAHBME </item>
+        <item> BAHHRD </item>
+        <item> BAHMRP </item>
+        <item> BAMTB </item>
         <item> BSHC </item>
         <item> BSHCBIS </item>
-        <item> BSHTM ERP </item>
-        <item> BSHTM Business Intellegence </item>
-        <item> BAMTB </item>
-        <item> BA(HONS) in Business - Dissertation Stream </item>
-        <item> BA(HONS) in HRM - E Business and Organisation Development </item>
-        <item> BA(HONS) in Marketing Practice </item>
+        <item> BSHTM </item>
     </string-array>
 
 </resources>

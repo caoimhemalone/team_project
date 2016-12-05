@@ -119,6 +119,7 @@ public class DBHelper {
         } return details;
     }
 
+    // Fpr room timetable
     public HashMap<String, String> timetable (String day, String room) {
         HashMap<String, String> details = new HashMap<String, String>();
         try {
@@ -137,6 +138,24 @@ public class DBHelper {
             return details;
         }
 
+    // For exam timetable
+    public HashMap<String, String> examtimetable (String course, String year) {
+        HashMap<String, String> details = new HashMap<String, String>();
+        try {
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM exam_timetable WHERE course =? AND year =?");
+            st.setString(1, course);
+            st.setString(2, year);
+            ResultSet rs = st.executeQuery();
+
+            if (rs.next()) {
+                details.put("course", rs.getString("course"));
+                details.put("year", rs.getString("year"));
+            }
+        }catch(SQLException s){
+            Log.e(TAG, s.getMessage());
+        }
+        return details;
+    }
 }
 
 
