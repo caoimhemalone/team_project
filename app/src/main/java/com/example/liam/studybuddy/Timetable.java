@@ -1,7 +1,9 @@
 package com.example.liam.studybuddy;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -25,16 +28,21 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.HashMap;
+
 public class Timetable extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ImageButton backBTN;
     private Button examBTN;
-    private TextView userNameHeader, emailHeader;
-
+    private TextView userNameHeader, emailHeader, TT_course, TTtime;
+    String day, course, time, room;
+    private HashMap<String, String> details;
     Spinner spin_TT;
     ArrayAdapter<CharSequence> adapter_TT;
     Spinner spin_day_TT;
     ArrayAdapter<CharSequence> adapter_day_TT;
+
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -49,7 +57,7 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        details = new HashMap<>();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -65,6 +73,9 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
 
         userNameHeader = (TextView)header.findViewById(R.id.userName);
         emailHeader = (TextView)header.findViewById(R.id.emailHeader);
+
+        TT_course = (TextView) findViewById(R.id.TT_course);
+        TTtime = (TextView) findViewById(R.id.TTtime);
 
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
 
@@ -84,6 +95,7 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
             }
         });
 
+
         /**
          * @reference https://www.youtube.com/watch?v=28jA5-mO8K8&index=8&list=LL9QnUxf2Pctj2wyWa4GABCw YouTube: PRABEESH R K
          */
@@ -101,6 +113,8 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selected", Toast.LENGTH_LONG).show();
+                room = parent.getItemAtPosition(position).toString();
+                new timetable().execute();
             } // End of public void onItem........
 
             @Override
@@ -114,6 +128,8 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selected", Toast.LENGTH_LONG).show();
+                day = parent.getItemAtPosition(position).toString();
+                new timetable().execute();
             } // End of public void onItem........
 
             @Override
@@ -215,6 +231,11 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         return true;
     }
 
+    public void display(String time, String course){
+        TTtime.setText(time);
+        TT_course.setText(course);
+    }
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -251,6 +272,43 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         client.disconnect();
     }
 
+    private class timetable extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog pDialog;
 
+        @Override
+        protected void onPreExecute() {
+
+            pDialog = new ProgressDialog(Timetable.this);
+            pDialog.setCancelable(false);
+            showDialog();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            DBHelper db = new DBHelper();
+            details = db.timetable(day, room);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void r) {
+            hideDialog();
+            if (details != null) {
+                display(details.get("time"), details.get("course"));
+            }
+        }
+
+        private void showDialog() {
+            if (!pDialog.isShowing()) {
+                pDialog.show();
+            }
+        }
+
+        private void hideDialog() {
+            if (pDialog.isShowing()) {
+                pDialog.dismiss();
+            }
+        }
+    }
 } // End of public class .....
 

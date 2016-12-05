@@ -118,6 +118,25 @@ public class DBHelper {
             Log.e(TAG, s.getMessage());
         } return details;
     }
+
+    public HashMap<String, String> timetable (String day, String room) {
+        HashMap<String, String> details = new HashMap<String, String>();
+        try {
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM room_timetable WHERE day =? AND room =?");
+            st.setString(1, day);
+            st.setString(2, room);
+            ResultSet rs = st.executeQuery();
+
+            if (rs.next()) {
+                details.put("time", rs.getString("time"));
+                details.put("course", rs.getString("course"));
+            }
+        }catch(SQLException s){
+                Log.e(TAG, s.getMessage());
+            }
+            return details;
+        }
+
 }
 
 
