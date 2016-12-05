@@ -1,6 +1,7 @@
 package com.example.liam.studybuddy;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,28 +13,35 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Calender extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private CalendarView calendarView;
     private TextView displayEventsHeader;
-    private TextView displayEvents;
-    private String selectedDateInstance;
+    private Button checkEvents;
+    private String selectedDateInstance, temp_key_events,fireBaseDateIns;
     private int month;
     private int day;
     private int year;
 
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference().getRoot();
 
-
+    private DatabaseReference root;
+    private DatabaseReference dateRef ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,8 +67,21 @@ public class Calender extends AppCompatActivity implements NavigationView.OnNavi
         //test date
         Log.d("current date is", date);
         calendarView = (CalendarView) findViewById(R.id.calendar);
-        displayEvents = (TextView) findViewById(R.id.txtDisplayEvents);
+        checkEvents = (Button) findViewById(R.id.btn_check_events);
         displayEventsHeader = (TextView) findViewById(R.id.txtEventsHeader);
+
+
+        root = FirebaseDatabase.getInstance().getReferenceFromUrl("https://team-project-studybuddy.firebaseio.com/Events");
+        //dateRef = FirebaseDatabase.getInstance().getReference("https://team-project-studybuddy.firebaseio.com/Events").child(selectedDateInstance);
+
+        /*checkEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),Calendar_Events.class);
+                startActivity(intent);
+
+            }
+        });*/
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
             @Override
@@ -69,9 +90,12 @@ public class Calender extends AppCompatActivity implements NavigationView.OnNavi
                 month = i1+1;
                 year = i;
 
-                displayEventsHeader.setText("Selected date: " + day+"/"+month+"/"+year);
+                displayEventsHeader.setText(day+"-"+month+"-"+year);
+
+                /*Intent intent = new Intent(getApplicationContext(),Profile.class);
+                startActivity(intent);*/
                 //displayEvents.setText("You Have Events Scheduled Today");
-                if(displayEventsHeader.getText().toString().equals("Selected date: 8/11/2016")){
+                /*if(displayEventsHeader.getText().toString().equals("Selected date: 8/11/2016")){
                     displayEvents.setText("Extra Programming Classes");
 
                 }
@@ -80,12 +104,63 @@ public class Calender extends AppCompatActivity implements NavigationView.OnNavi
                 }
                 else{
                     displayEvents.setText("No Events Scheduled Today");
-                }
+                }*/
+                selectedDateInstance = displayEventsHeader.getText().toString();
             }
 
         });
 
-        selectedDateInstance = Integer.toString(day)+"/"+Integer.toString(month)+"/"+Integer.toString(year);
+
+        //selectedDateInstance = Integer.toString(day)+"/"+Integer.toString(month)+"/"+Integer.toString(year);
+
+
+        checkEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (displayEventsHeader.getText().toString()==""){
+
+                }else{
+                    Map<String, Object> map_events = new HashMap<String, Object>();
+                    map_events.put(selectedDateInstance, "");
+                    root.updateChildren(map_events);
+
+                    Intent intent = new Intent(getApplicationContext(),Calendar_Events.class);
+                    intent.putExtra("date_selected",selectedDateInstance);
+                    startActivity(intent);
+
+                }
+
+
+            }
+        });
+
+        root.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
     }

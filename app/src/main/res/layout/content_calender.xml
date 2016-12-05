@@ -29,7 +29,6 @@
         android:layout_marginTop="30dp" />
 
     <TextView
-        android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtEventsHeader"
@@ -38,35 +37,13 @@
         android:layout_alignStart="@+id/txtCollegeNameHeader"
         android:textAlignment="center" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtDisplayEvents"
-        android:layout_below="@+id/txtEventsHeader"
-        android:layout_alignLeft="@+id/txtEventsHeader"
-        android:layout_alignStart="@+id/txtEventsHeader"
-        android:textAlignment="center" />
-
     <Button
-        android:text="Add Event"
+        android:text="Check Events"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/calendar"
-        android:layout_alignEnd="@+id/calendar"
-        android:id="@+id/btn_add_event" />
+        android:layout_below="@+id/txtEventsHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:id="@+id/btn_check_events" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Type here.."
-        android:ems="10"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/add_event_input"
-        android:layout_toLeftOf="@+id/btn_add_event"
-        android:layout_toStartOf="@+id/btn_add_event" />
 </RelativeLayout>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,13 +50,14 @@ public class Chat_Room extends AppCompatActivity{
         room_name = getIntent().getExtras().get("room_name").toString();
         setTitle(" Room- " + room_name);
 
-        root = FirebaseDatabase.getInstance().getReference().child(room_name);
+        root = FirebaseDatabase.getInstance().getReference().child("Chat").child(room_name);
 
         btn_Back_To_Forums.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),Messaging.class);
                 startActivity(intent);
+
             }
         });
 
@@ -63,20 +65,25 @@ public class Chat_Room extends AppCompatActivity{
             @Override
             public void onClick(View view) {
 
-                //when btn is clicked a key is generated and added as a child of the root in FireBase using a HashMap to move the data
-                Map<String,Object> map = new HashMap<String, Object>();
-                temp_key = root.push().getKey();
-                root.updateChildren(map);
+                if (input_msg.getText().toString()==""){
 
-                //reference to the new child root created above is declared
-                DatabaseReference message_root = root.child(temp_key);
+                }else {
+                    //when btn is clicked a key is generated and added as a child of the root in FireBase using a HashMap to move the data
+                    Map<String,Object> map = new HashMap<String, Object>();
+                    temp_key = root.push().getKey();
+                    root.updateChildren(map);
 
-                //a second HashMap is created to add user name and there message to the FireBase
-                Map<String,Object> map2 = new HashMap<String, Object>();
-                map2.put("name",user_name);
-                map2.put("msg",input_msg.getText().toString());
+                    //reference to the new child root created above is declared
+                    DatabaseReference message_root = root.child(temp_key);
 
-                message_root.updateChildren(map2);
+                    //a second HashMap is created to add user name and there message to the FireBase
+                    Map<String,Object> map2 = new HashMap<String, Object>();
+                    map2.put("name",user_name);
+                    map2.put("msg",input_msg.getText().toString());
+
+                    message_root.updateChildren(map2);
+                }
+                input_msg.setText("");
 
             }
         });

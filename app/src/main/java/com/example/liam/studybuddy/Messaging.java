@@ -50,7 +50,7 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
 
     private String name;
 
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference().getRoot();
+    private DatabaseReference root = FirebaseDatabase.getInstance().getReferenceFromUrl("https://team-project-studybuddy.firebaseio.com/Chat");
 
 
     @Override
@@ -98,6 +98,7 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
                 Map<String, Object> map = new HashMap<String, Object>();
                 map.put(room_name.getText().toString(),"");
                 root.updateChildren(map);
+                room_name.setText("");
             }
         });
 
