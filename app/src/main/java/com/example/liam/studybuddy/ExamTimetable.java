@@ -80,7 +80,7 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
         userNameHeader = (TextView)header.findViewById(R.id.userName);
         emailHeader = (TextView)header.findViewById(R.id.emailHeader);
 
-       ETTtime = (TextView) findViewById(R.id.ETTtime);
+        ETTtime = (TextView) findViewById(R.id.ETTtime);
         ETTsubject = (TextView) findViewById(R.id.ETTsubject);
         ETTdate = (TextView) findViewById(R.id.ETTdate);
 
