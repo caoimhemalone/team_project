@@ -15,13 +15,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View;
-import android.view.Display;
 import android.widget.Button;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -29,7 +27,6 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class Timetable extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,7 +35,7 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
     private Button examBTN;
     private TextView userNameHeader, emailHeader, TT_time1, TT_time2, TT_time3, TT_time4, TT_time5, TT_time6, TT_time7, TT_time8, TT_course1, TT_course2, TT_course3, TT_course4, TT_course5, TT_course6, TT_course7, TT_course8;
     String day, course, time, room;
-    private List<RoomTimetable> details;
+    private List<RoomTimetableInfo> details;
     Spinner spin_TT;
     ArrayAdapter<CharSequence> adapter_TT;
     Spinner spin_day_TT;

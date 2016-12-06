@@ -156,7 +156,7 @@
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="fill_parent"
-                    android:id="@+id/ETTtime"
+                    android:id="@+id/ETTtime1"
                     android:layout_weight="1"
                 android:background="@drawable/back"
                 android:paddingLeft="10dp"
@@ -165,7 +165,7 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="fill_parent"
-                    android:id="@+id/ETTsubject"
+                    android:id="@+id/ETTsubject1"
                     android:layout_weight="1"
                 android:background="@drawable/back"
                 android:paddingLeft="20dp"
@@ -174,7 +174,7 @@
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="fill_parent"
-                    android:id="@+id/ETTdate"
+                    android:id="@+id/ETTdate1"
                     android:layout_weight="1"
                 android:background="@drawable/back"
                 android:paddingLeft="10dp"
@@ -195,8 +195,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/back"
                         android:paddingLeft="10dp"
-                        android:paddingTop="20dp"
-                        android:text="example" />
+                        android:paddingTop="20dp"/>
 
                     <TextView
                         android:layout_width="100dp"
@@ -205,8 +204,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/back"
                         android:paddingLeft="20dp"
-                        android:paddingTop="5dp"
-                        android:text="example example example example example" />
+                        android:paddingTop="5dp"/>
 
                     <TextView
                         android:layout_width="60dp"
@@ -215,8 +213,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/back"
                         android:paddingLeft="10dp"
-                        android:paddingTop="20dp"
-                        android:text="example" />
+                        android:paddingTop="20dp"/>
                 </LinearLayout>
 
                 <!--Layout 9-->
@@ -232,8 +229,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/back"
                         android:paddingLeft="10dp"
-                        android:paddingTop="20dp"
-                        android:text="example" />
+                        android:paddingTop="20dp"/>
 
                     <TextView
                         android:layout_width="100dp"
@@ -242,8 +238,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/back"
                         android:paddingLeft="20dp"
-                        android:paddingTop="5dp"
-                        android:text="example example example example example" />
+                        android:paddingTop="5dp"/>
 
                     <TextView
                         android:layout_width="60dp"
@@ -252,8 +247,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/back"
                         android:paddingLeft="10dp"
-                        android:paddingTop="20dp"
-                        android:text="example" />
+                        android:paddingTop="20dp"/>
             </LinearLayout>
         </LinearLayout>
 

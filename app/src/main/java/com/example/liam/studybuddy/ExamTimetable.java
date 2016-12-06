@@ -27,15 +27,17 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ExamTimetable extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ImageButton backBTN;
     private Button roomBTN;
-    private TextView userNameHeader, emailHeader, ETTdate, ETTsubject, ETTtime;
+    private TextView userNameHeader, emailHeader, ETTdate1, ETTsubject1, ETTtime1, ETTdate2, ETTsubject2, ETTtime2, ETTdate3, ETTsubject3, ETTtime3;
     String course, time, date, subject, year;
-    private HashMap<String, String> details;
+    private List<ExamTimetableInfo> details;
     Spinner spin_course_TT;
     ArrayAdapter<CharSequence> adapter_course_TT;
     Spinner spin_year_TT;
@@ -53,7 +55,7 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        details = new HashMap<>();
+        details = new ArrayList<>();
 
         roomBTN = (Button) findViewById(R.id.room_btn);
         roomBTN.setOnClickListener(new View.OnClickListener() {
@@ -80,9 +82,17 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
         userNameHeader = (TextView)header.findViewById(R.id.userName);
         emailHeader = (TextView)header.findViewById(R.id.emailHeader);
 
-        ETTtime = (TextView) findViewById(R.id.ETTtime);
-        ETTsubject = (TextView) findViewById(R.id.ETTsubject);
-        ETTdate = (TextView) findViewById(R.id.ETTdate);
+        ETTtime1 = (TextView) findViewById(R.id.ETTtime1);
+        ETTsubject1 = (TextView) findViewById(R.id.ETTsubject1);
+        ETTdate1 = (TextView) findViewById(R.id.ETTdate1);
+
+        ETTtime2 = (TextView) findViewById(R.id.ETTtime2);
+        ETTsubject2 = (TextView) findViewById(R.id.ETTsubject2);
+        ETTdate2 = (TextView) findViewById(R.id.ETTdate2);
+
+        ETTtime3 = (TextView) findViewById(R.id.ETTtime3);
+        ETTsubject3 = (TextView) findViewById(R.id.ETTsubject3);
+        ETTdate3 = (TextView) findViewById(R.id.ETTdate3);
 
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
 
@@ -219,10 +229,18 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
         return true;
     }
 
-    public void display(String time, String subject, String date){
-        ETTtime.setText(time);
-        ETTsubject.setText(subject);
-        ETTdate.setText(date);
+    public void display(String time1, String subject1, String date1, String time2, String subject2, String date2, String time3, String subject3, String date3){
+        ETTtime1.setText(time1);
+        ETTsubject1.setText(subject1);
+        ETTdate1.setText(date1);
+
+        ETTtime2.setText(time2);
+        ETTsubject2.setText(subject2);
+        ETTdate2.setText(date2);
+
+        ETTtime3.setText(time3);
+        ETTsubject3.setText(subject3);
+        ETTdate3.setText(date3);
     }
 
     /**
@@ -260,6 +278,9 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
+    private void ShowMessage(String msg){
+        Toast.makeText(ExamTimetable.this, msg, Toast.LENGTH_LONG).show();
+    }
 
     private class examtimetable extends AsyncTask<Void, Void, Void>{
         private ProgressDialog pDialog;
@@ -281,8 +302,31 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
         @Override
         protected void onPostExecute(Void r){
             hideDialog();
-            if(details != null){
-                display(details.get("time"), details.get("subject"), details.get("date"));
+            if(details != null && details.size()==3){
+                display(
+                        details.get(0).getTime(),
+                        details.get(0).getSubject(),
+                        details.get(0).getDate(),
+                        details.get(1).getTime(),
+                        details.get(1).getSubject(),
+                        details.get(1).getDate(),
+                        details.get(2).getTime(),
+                        details.get(2).getSubject(),
+                        details.get(2).getDate());
+            }
+            else{
+                ETTtime1.setText(null);
+                ETTsubject1.setText(null);
+                ETTdate1.setText(null);
+
+                ETTtime2.setText(null);
+                ETTsubject2.setText(null);
+                ETTdate2.setText(null);
+
+                ETTtime3.setText(null);
+                ETTsubject3.setText(null);
+                ETTdate3.setText(null);
+                ShowMessage("No Exam Timetable found!");
             }
         }
 

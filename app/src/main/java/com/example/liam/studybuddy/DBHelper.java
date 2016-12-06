@@ -1,6 +1,5 @@
 package com.example.liam.studybuddy;
 
-import android.database.Cursor;
 import android.util.Log;
 
 import java.sql.Connection;
@@ -123,8 +122,8 @@ public class DBHelper {
     }
 
     // Fpr room timetable
-    public List<RoomTimetable> timetable (String day, String room) {
-        List<RoomTimetable> details = new ArrayList<>();
+    public List<RoomTimetableInfo> timetable (String day, String room) {
+        List<RoomTimetableInfo> details = new ArrayList<>();
         try {
             PreparedStatement st = conn.prepareStatement("SELECT * FROM room_timetable WHERE day =? AND room =?");
             st.setString(1, day);
@@ -132,7 +131,7 @@ public class DBHelper {
             ResultSet rs = st.executeQuery();
 
             while (rs.next()) {
-                RoomTimetable rt  = new RoomTimetable( rs.getInt("id"),
+                RoomTimetableInfo rt  = new RoomTimetableInfo( rs.getInt("id"),
                         rs.getString("day"),
                         rs.getString("course"),
                         rs.getString("room"),
@@ -146,21 +145,25 @@ public class DBHelper {
         }
 
     // For exam timetable
-    public HashMap<String, String> examtimetable (String course, String year) {
-        HashMap<String, String> details = new HashMap<String, String>();
+    public List<ExamTimetableInfo> examtimetable (String course, String year) {
+        List<ExamTimetableInfo> details = new ArrayList<>();
         try {
             PreparedStatement st = conn.prepareStatement("SELECT * FROM exam_timetable WHERE course =? AND year =?");
             st.setString(1, course);
             st.setString(2, year);
             ResultSet rs = st.executeQuery();
 
-            if (rs.next()) {
-                details.put("time", rs.getString("time"));
-                details.put("subject", rs.getString("subject"));
-                details.put("date", rs.getString("date"));
+            while (rs.next()) {
+                ExamTimetableInfo et  = new ExamTimetableInfo( rs.getInt("id"),
+                        rs.getString("time"),
+                        rs.getInt("year"),
+                        rs.getString("subject"),
+                        rs.getString("date"),
+                        rs.getString("course"));
+                details.add(et);
             }
         }catch(SQLException s){
-            Log.e(TAG, s.getMessage());
+            Log.e(TAG, s.getMessage() + "");
         }
         return details;
     }
