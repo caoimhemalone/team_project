@@ -1,5 +1,6 @@
 package com.example.liam.studybuddy;
 
+import android.database.Cursor;
 import android.util.Log;
 
 import java.sql.Connection;
@@ -8,7 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * @reference https://www.youtube.com/user/BowToKingBen
@@ -120,22 +123,26 @@ public class DBHelper {
     }
 
     // Fpr room timetable
-    public HashMap<String, String> timetable (String day, String room) {
-        HashMap<String, String> details = new HashMap<String, String>();
+    public List<RoomTimetable> timetable (String day, String room) {
+        List<RoomTimetable> details = new ArrayList<>();
         try {
             PreparedStatement st = conn.prepareStatement("SELECT * FROM room_timetable WHERE day =? AND room =?");
             st.setString(1, day);
             st.setString(2, room);
             ResultSet rs = st.executeQuery();
 
-            if (rs.next()) {
-                details.put("time", rs.getString("time"));
-                details.put("course", rs.getString("course"));
+            while (rs.next()) {
+                RoomTimetable rt  = new RoomTimetable( rs.getInt("id"),
+                        rs.getString("day"),
+                        rs.getString("course"),
+                        rs.getString("room"),
+                        rs.getString("time"));
+                details.add(rt);
             }
         }catch(SQLException s){
-                Log.e(TAG, s.getMessage());
+                Log.e(TAG, s.getMessage() + "");
             }
-            return details;
+        return details;
         }
 
     // For exam timetable

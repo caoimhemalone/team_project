@@ -12,13 +12,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.sql.ResultSet;
+import java.util.HashMap;
 
 public class SignUp extends AppCompatActivity {
     private EditText firstNameET, lastNameET, studentNumET, emailET, repeatEmailET, passwordET, repeatPasswordET;
     private Button signupBTN;
     String fName, lName, studentNum, email, repeatEmail, password, repeatPassword;
     private ResultSet result = null;
-
+    private HashMap<String, String> details;
+    GlobalClass globalVariable;
 
 
     @Override
@@ -98,14 +100,6 @@ public class SignUp extends AppCompatActivity {
                 }
                 else{
                     new checkUserSignup().execute();
-//                    new signUp().execute();
-//                    firstNameET.setText(null);
-//                    lastNameET.setText(null);
-//                    studentNumET.setText(null);
-//                    emailET.setText(null);
-//                    repeatEmailET.setText(null);
-//                    passwordET.setText(null);
-//                    repeatPasswordET.setText(null);
                 }
             }
         });
@@ -202,6 +196,9 @@ public class SignUp extends AppCompatActivity {
             if (result == false) {
                 //signup is true
                 ShowMessage("Sign Up complete!");
+//                globalVariable.setUserName(fName + " " + lName);
+//                globalVariable.setStudentNum(studentNum);
+//                globalVariable.setEmail(email);
                 Intent i = new Intent();
                 i.setClass(getApplicationContext(), LogIn.class);
                 startActivity(i);

@@ -68,46 +68,46 @@
             />
 
 
-        <!--<TableLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:id="@+id/timeTableLayout"-->
-            <!--style="@style/timetable_style"-->
-            <!--android:paddingBottom="0dp"-->
-            <!--android:paddingLeft="0dp"-->
-            <!--android:paddingRight="0dp"-->
-            <!--android:layout_marginLeft="20dp"-->
-            <!--android:layout_marginRight="20dp">-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:id="@+id/timeTableLayout"
+            style="@style/timetable_style"
+            android:paddingBottom="0dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
 
-            <!--<TableRow-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:id="@+id/top_row"-->
-                <!--android:layout_width="match_parent">-->
+            <TableRow
+                android:layout_height="match_parent"
+                android:id="@+id/top_row"
+                android:layout_width="match_parent">
 
 
-                <!--<TextView-->
-                    <!--android:text="@string/time_TT"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:id="@+id/time_tv"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:textStyle="normal|bold"-->
-                    <!--android:textAllCaps="false"-->
-                    <!--android:paddingLeft="10dp"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:paddingRight="80dp"-->
-                    <!--/>-->
+                <TextView
+                    android:text="@string/time_TT"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/time_tv"
+                    android:background="@drawable/back"
+                    android:textStyle="normal|bold"
+                    android:textAllCaps="false"
+                    android:paddingLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:paddingRight="80dp"
+                    />
 
-                <!--<TextView-->
-                    <!--android:text="@string/class_TT"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:id="@+id/class_tv"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:textStyle="normal|bold"-->
-                    <!--android:paddingLeft="10dp"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:paddingRight="100dp"-->
-                    <!--/>-->
+                <TextView
+                    android:text="@string/class_TT"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/class_tv"
+                    android:background="@drawable/back"
+                    android:textStyle="normal|bold"
+                    android:paddingLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:paddingRight="100dp"
+                    />
 
-            <!--</TableRow>-->
+            </TableRow>
 
             <!--<TableRow-->
                 <!--android:layout_height="match_parent"-->
@@ -132,60 +132,213 @@
 
             <!--</TableRow>-->
 
-            <!--<TableRow-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:id="@+id/row_01"-->
-                <!--android:text="@string/monday">-->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/row_01">
 
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:id="@+id/TTtime"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:paddingLeft="10dp"-->
-                    <!--/>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/TT_time1"
+                    android:background="@drawable/back"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    />
 
 
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:id="@+id/TT_course"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:paddingLeft="10dp"-->
-                    <!--/>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back"
+                    android:id="@+id/TT_course1"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    />
 
-            <!--</TableRow>-->
+            </TableRow>
 
-            <!--<TableRow-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:id="@+id/row_02"-->
-                <!--android:layout_width="match_parent">-->
+            <TableRow
+                android:layout_height="match_parent"
+                android:id="@+id/row_02"
+                android:layout_width="match_parent">
 
-                <!--<TextView-->
-                    <!--android:text="@string/timeSlot2"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:id="@+id/time2"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:paddingLeft="10dp"-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/TT_time2"
+                    android:textSize="12sp"
+                    android:background="@drawable/back"
+                    android:paddingLeft="10dp"
 
-                    <!--/>-->
-                <!---->
+                    />
 
-                <!--<TextView-->
-                    <!--android:text="@string/class_1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:id="@+id/class_tv_2"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:paddingLeft="10dp"-->
-                    <!--/>-->
-            <!--</TableRow>-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back"
+                    android:id="@+id/TT_course2"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_height="match_parent"
+                android:id="@+id/row_03"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/TT_time3"
+                    android:textSize="12sp"
+                    android:background="@drawable/back"
+                    android:paddingLeft="10dp"
+
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back"
+                    android:id="@+id/TT_course3"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_height="match_parent"
+                android:id="@+id/row_04"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/TT_time4"
+                    android:textSize="12sp"
+                    android:background="@drawable/back"
+                    android:paddingLeft="10dp"
+
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back"
+                    android:id="@+id/TT_course4"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_height="match_parent"
+                android:id="@+id/row_05"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/TT_time5"
+                    android:textSize="12sp"
+                    android:background="@drawable/back"
+                    android:paddingLeft="10dp"
+
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back"
+                    android:id="@+id/TT_course5"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_height="match_parent"
+                android:id="@+id/row_06"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/TT_time6"
+                    android:textSize="12sp"
+                    android:background="@drawable/back"
+                    android:paddingLeft="10dp"
+
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back"
+                    android:id="@+id/TT_course6"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_height="match_parent"
+                android:id="@+id/row_07"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/TT_time7"
+                    android:textSize="12sp"
+                    android:background="@drawable/back"
+                    android:paddingLeft="10dp"
+
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back"
+                    android:id="@+id/TT_course7"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_height="match_parent"
+                android:id="@+id/row_08"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/TT_time8"
+                    android:textSize="12sp"
+                    android:background="@drawable/back"
+                    android:paddingLeft="10dp"
+
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back"
+                    android:id="@+id/TT_course8"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    />
+            </TableRow>
 
             <!--<TableRow-->
                 <!--android:layout_height="match_parent"-->
@@ -351,7 +504,7 @@
                     <!--android:paddingLeft="10dp"-->
                     <!--/>-->
             <!--</TableRow>-->
-        <!--</TableLayout>-->
+        </TableLayout>
 
 
         <!--Layout 3-->
@@ -361,52 +514,52 @@
             android:layout_height="wrap_content">
 
         <!--Layout 4-->
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <!--<LinearLayout-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent">-->
 
-                <TextView
-                    android:text="@string/time_TT"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView12"
-                    android:layout_weight="1" />
+                <!--<TextView-->
+                    <!--android:text="@string/time_TT"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/textView12"-->
+                    <!--android:layout_weight="1" />-->
 
-                <TextView
-                    android:text="@string/class_TT"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView2"
-                    android:layout_weight="1" />
-            </LinearLayout>
-        </LinearLayout>
+                <!--<TextView-->
+                    <!--android:text="@string/class_TT"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/textView2"-->
+                    <!--android:layout_weight="1" />-->
+            <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
 
-        <!--Layout 5-->
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <!--&lt;!&ndash;Layout 5&ndash;&gt;-->
+        <!--<LinearLayout-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
 
-            <!--Layout 6-->
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <!--&lt;!&ndash;Layout 6&ndash;&gt;-->
+            <!--<LinearLayout-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/TTtime"
-                    android:layout_weight="1"
-                    android:textIsSelectable="false" />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/TTtime"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:textIsSelectable="false" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/TT_course"
-                    android:layout_weight="1" />
-            </LinearLayout>
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/TT_course"-->
+                    <!--android:layout_weight="1" />-->
+            <!--</LinearLayout>-->
         </LinearLayout>
 
         <Button

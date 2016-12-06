@@ -28,20 +28,21 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Timetable extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ImageButton backBTN;
     private Button examBTN;
-    private TextView userNameHeader, emailHeader, TT_course, TTtime;
+    private TextView userNameHeader, emailHeader, TT_time1, TT_time2, TT_time3, TT_time4, TT_time5, TT_time6, TT_time7, TT_time8, TT_course1, TT_course2, TT_course3, TT_course4, TT_course5, TT_course6, TT_course7, TT_course8;
     String day, course, time, room;
-    private HashMap<String, String> details;
+    private List<RoomTimetable> details;
     Spinner spin_TT;
     ArrayAdapter<CharSequence> adapter_TT;
     Spinner spin_day_TT;
     ArrayAdapter<CharSequence> adapter_day_TT;
-
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -57,7 +58,7 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        details = new HashMap<>();
+        details = new ArrayList<>();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -74,8 +75,23 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         userNameHeader = (TextView)header.findViewById(R.id.userName);
         emailHeader = (TextView)header.findViewById(R.id.emailHeader);
 
-        TT_course = (TextView) findViewById(R.id.TT_course);
-        TTtime = (TextView) findViewById(R.id.TTtime);
+        TT_time1 = (TextView) findViewById(R.id.TT_time1);
+        TT_time2 = (TextView) findViewById(R.id.TT_time2);
+        TT_time3 = (TextView) findViewById(R.id.TT_time3);
+        TT_time4 = (TextView) findViewById(R.id.TT_time4);
+        TT_time5 = (TextView) findViewById(R.id.TT_time5);
+        TT_time6 = (TextView) findViewById(R.id.TT_time6);
+        TT_time7 = (TextView) findViewById(R.id.TT_time7);
+        TT_time8 = (TextView) findViewById(R.id.TT_time8);
+
+        TT_course1 = (TextView) findViewById(R.id.TT_course1);
+        TT_course2 = (TextView) findViewById(R.id.TT_course2);
+        TT_course3 = (TextView) findViewById(R.id.TT_course3);
+        TT_course4 = (TextView) findViewById(R.id.TT_course4);
+        TT_course5 = (TextView) findViewById(R.id.TT_course5);
+        TT_course6 = (TextView) findViewById(R.id.TT_course6);
+        TT_course7 = (TextView) findViewById(R.id.TT_course7);
+        TT_course8 = (TextView) findViewById(R.id.TT_course8);
 
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
 
@@ -231,9 +247,23 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         return true;
     }
 
-    public void display(String time, String course){
-        TTtime.setText(time);
-        TT_course.setText(course);
+    public void display(String time1, String course1, String time2, String course2, String time3, String course3, String time4, String course4, String time5, String course5, String time6, String course6, String time7, String course7, String time8, String course8){
+        TT_time1.setText(time1);
+        TT_course1.setText(course1);
+        TT_time2.setText(time2);
+        TT_course2.setText(course2);
+        TT_time3.setText(time3);
+        TT_course3.setText(course3);
+        TT_time4.setText(time4);
+        TT_course4.setText(course4);
+        TT_time5.setText(time5);
+        TT_course5.setText(course5);
+        TT_time6.setText(time6);
+        TT_course6.setText(course6);
+        TT_time7.setText(time7);
+        TT_course7.setText(course7);
+        TT_time8.setText(time8);
+        TT_course8.setText(course8);
     }
 
     /**
@@ -275,9 +305,9 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
     private class timetable extends AsyncTask<Void, Void, Void> {
         private ProgressDialog pDialog;
 
+
         @Override
         protected void onPreExecute() {
-
             pDialog = new ProgressDialog(Timetable.this);
             pDialog.setCancelable(false);
             showDialog();
@@ -294,7 +324,23 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         protected void onPostExecute(Void r) {
             hideDialog();
             if (details != null) {
-                display(details.get("time"), details.get("course"));
+                    display(
+                            details.get(0).getTime(),
+                            details.get(0).getCourse(),
+                            details.get(1).getTime(),
+                            details.get(1).getCourse(),
+                            details.get(2).getTime(),
+                            details.get(2).getCourse(),
+                            details.get(3).getTime(),
+                            details.get(3).getCourse(),
+                            details.get(4).getTime(),
+                            details.get(4).getCourse(),
+                            details.get(5).getTime(),
+                            details.get(5).getCourse(),
+                            details.get(6).getTime(),
+                            details.get(6).getCourse(),
+                            details.get(7).getTime(),
+                            details.get(7).getCourse());
             }
         }
 
