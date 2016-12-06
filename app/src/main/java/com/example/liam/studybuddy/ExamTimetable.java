@@ -131,7 +131,7 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selected", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(),"Year "+ parent.getItemAtPosition(position) + " selected", Toast.LENGTH_LONG).show();
             year = parent.getItemAtPosition(position).toString();
            new examtimetable().execute();
             } // End of public void onItem........

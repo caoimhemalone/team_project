@@ -68,27 +68,12 @@
             />
 
 
-        <!--<TableLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:id="@+id/timeTableLayout"-->
-            <!--style="@style/timetable_style"-->
-            <!--android:paddingBottom="0dp"-->
-            <!--android:paddingLeft="0dp"-->
-            <!--android:paddingRight="0dp"-->
-            <!--android:layout_marginLeft="20dp"-->
-            <!--android:layout_marginRight="20dp">-->
-
-            <!--<TableRow-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:id="@+id/top_row"-->
-                <!--android:layout_width="match_parent">-->
-
-
         <!--Layout 3-->
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
 
             <!--Layout 4-->
             <LinearLayout
@@ -160,7 +145,8 @@
                     android:layout_weight="1"
                 android:background="@drawable/back"
                 android:paddingLeft="10dp"
-                    android:paddingTop="20dp" />
+                    android:paddingTop="20dp"
+                    android:paddingBottom="15dp"/>
 
                 <TextView
                     android:layout_width="100dp"
@@ -169,7 +155,8 @@
                     android:layout_weight="1"
                 android:background="@drawable/back"
                 android:paddingLeft="20dp"
-                    android:paddingTop="5dp"/>
+                    android:paddingTop="5dp"
+                    />
 
                 <TextView
                     android:layout_width="60dp"
@@ -178,7 +165,8 @@
                     android:layout_weight="1"
                 android:background="@drawable/back"
                 android:paddingLeft="10dp"
-                    android:paddingTop="20dp" />
+                    android:paddingTop="20dp"
+                    android:paddingBottom="15dp"/>
                 </LinearLayout>
 
                 <!--Layout 8-->
@@ -195,7 +183,8 @@
                         android:layout_weight="1"
                         android:background="@drawable/back"
                         android:paddingLeft="10dp"
-                        android:paddingTop="20dp"/>
+                        android:paddingTop="20dp"
+                        android:paddingBottom="15dp"/>
 
                     <TextView
                         android:layout_width="100dp"
@@ -213,7 +202,8 @@
                         android:layout_weight="1"
                         android:background="@drawable/back"
                         android:paddingLeft="10dp"
-                        android:paddingTop="20dp"/>
+                        android:paddingTop="20dp"
+                        android:paddingBottom="15dp"/>
                 </LinearLayout>
 
                 <!--Layout 9-->
@@ -229,7 +219,8 @@
                         android:layout_weight="1"
                         android:background="@drawable/back"
                         android:paddingLeft="10dp"
-                        android:paddingTop="20dp"/>
+                        android:paddingTop="20dp"
+                        android:paddingBottom="15dp"/>
 
                     <TextView
                         android:layout_width="100dp"
@@ -247,208 +238,20 @@
                         android:layout_weight="1"
                         android:background="@drawable/back"
                         android:paddingLeft="10dp"
-                        android:paddingTop="20dp"/>
+                        android:paddingTop="20dp"
+                        android:paddingBottom="15dp"/>
             </LinearLayout>
-        </LinearLayout>
 
 
         <Button
             android:text="@string/timetableBTN"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/room_btn"
-            android:textSize="10dp"/>
+            android:textSize="10dp"
+            android:layout_marginTop="30dp"/>
 
-
-        <!--</TableRow>-->
-
-            <!--<TableRow-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:id="@+id/row_02"-->
-                <!--android:layout_width="match_parent">-->
-
-                <!--<TextView-->
-                    <!--android:text="@string/timeSlot2"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:id="@+id/time2"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:textAlignment="center"-->
-
-                    <!--/>-->
-
-                <!--<TextView-->
-                    <!--android:text="@string/class_1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:id="@+id/subject_tv_2"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:paddingLeft="10dp"-->
-                    <!--/>-->
-                <!--<TextView-->
-                    <!--android:text="@string/date_1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:id="@+id/date_tv_2"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:textAlignment="center"-->
-                    <!--/>-->
-            <!--</TableRow>-->
-
-            <!--<TableRow-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:id="@+id/row_03"-->
-                <!--android:layout_width="match_parent">-->
-
-                <!--<TextView-->
-                    <!--android:text="@string/timeSlot3"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:id="@+id/time3"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:textAlignment="center"-->
-
-                    <!--/>-->
-
-
-                <!--<TextView-->
-                    <!--android:text="@string/class_1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:id="@+id/subject_tv_3"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:paddingLeft="10dp"-->
-                    <!--/>-->
-
-                <!--<TextView-->
-                    <!--android:text="@string/date_1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:id="@+id/date_tv_3"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:textAlignment="center"-->
-                    <!--/>-->
-            <!--</TableRow>-->
-
-            <!--<TableRow-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:id="@+id/row_04"-->
-                <!--android:layout_width="match_parent">-->
-
-                <!--<TextView-->
-                    <!--android:text="@string/timeSlot4"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:id="@+id/time4"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:textAlignment="center"-->
-
-                    <!--/>-->
-
-
-                <!--<TextView-->
-                    <!--android:text="@string/class_1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:id="@+id/subject_tv_4"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:paddingLeft="10dp"-->
-                    <!--/>-->
-
-                <!--<TextView-->
-                    <!--android:text="@string/date_1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:id="@+id/date_tv_4"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:textAlignment="center"-->
-                    <!--/>-->
-            <!--</TableRow>-->
-
-            <!--<TableRow-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:id="@+id/row_05"-->
-                <!--android:layout_width="match_parent">-->
-
-                <!--<TextView-->
-                    <!--android:text="@string/timeSlot5"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:id="@+id/time5"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:textAlignment="center"-->
-
-                    <!--/>-->
-
-
-                <!--<TextView-->
-                    <!--android:text="@string/class_1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:id="@+id/subject_tv_5"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:paddingLeft="10dp"-->
-                    <!--/>-->
-
-                <!--<TextView-->
-                    <!--android:text="@string/date_1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:id="@+id/date_tv_5"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:textAlignment="center"-->
-                    <!--/>-->
-            <!--</TableRow>-->
-
-            <!--<TableRow-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:id="@+id/row_06"-->
-                <!--android:layout_width="match_parent">-->
-
-                <!--<TextView-->
-                    <!--android:text="@string/timeSlot6"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:id="@+id/time6"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:textAlignment="center"-->
-
-                    <!--/>-->
-
-                <!--<TextView-->
-                    <!--android:text="@string/class_1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:id="@+id/subject_tv_6"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:paddingLeft="10dp"-->
-                    <!--/>-->
-
-                <!--<TextView-->
-                    <!--android:text="@string/date_1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:background="@drawable/back"-->
-                    <!--android:id="@+id/date_tv_6"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:textAlignment="center"-->
-                    <!--/>-->
-            <!--</TableRow>-->
-        <!--</TableLayout>-->
+        </LinearLayout>
 
 </LinearLayout>
 </RelativeLayout>
