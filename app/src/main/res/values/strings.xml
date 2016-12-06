@@ -10,26 +10,17 @@
     <string name="password">Password:</string>
     <string name="repeatPassword">Confirm Password:</string>
     <string name="signup">SignUp</string>
-    <string name="study_search">Study Search</string>
+    <string name="study_search"> Course Information </string>
     <string name="school_comp">School of Computing</string>
     <string name="ss_text"> Nearly There! \n But first you need to select a few things to find content to study</string>
     <string name="room_select"> Select a Room and Day </string>
     <string name="exam_select"> Select a Course and Year </string>
-    <string name="timeSlot1"> 09:00 </string>
-    <string name="timeSlot2"> 10:00 </string>
-    <string name="timeSlot3"> 11:00 </string>
-    <string name="timeSlot4"> 12:00 </string>
-    <string name="timeSlot5"> 13:00 </string>
-    <string name="timeSlot6"> 14:00 </string>
-    <string name="timeSlot7"> 15:00 </string>
-    <string name="timeSlot8"> 16:00 </string>
     <string name="day_TT"> Day </string>
     <string name="time_ETT"> Time </string>
     <string name="time_TT"> Time </string>
     <string name="class_TT"> Class </string>
     <string name="Subject_ETT"> Subject</string>
     <string name="date_ETT"> Date </string>
-    <string name="date_1"> 00/00/00 </string>
     <string name="monday"> Monday </string>
     <string name="class_1">BSHC3B: \nWireless Networking</string>
     <string name="examBTN"> Exam Timetable </string>
@@ -82,4 +73,22 @@
         <item> BSHTM </item>
     </string-array>
 
+    <string name="MP"><a href="http://courses.ncirl.ie/index.cfm/page/course/courseId/1921">BA(HONS) in Marketing Practice</a></string>
+    <string name="HRM"><a href="http://courses.ncirl.ie/index.cfm/page/course/courseId/1921">BA(HONS) in HRM</a></string>
+    <string name="BUS"><a href="http://courses.ncirl.ie/index.cfm/page/course/courseId/1921">BA(HONS) in Business</a></string>
+    <string name="AF"><a href="http://courses.ncirl.ie/index.cfm/page/course/courseId/1921">BA(HONS) in Accounting and Finance</a></string>
+
+    <string name="BIS"><a href="http://courses.ncirl.ie/index.cfm/page/course/courseId/1921">BSc(HONS) in Business Information Systems</a></string>
+    <string name="COMP"><a href="http://courses.ncirl.ie/index.cfm/page/course/courseId/1921">BSc(HONS) in Computing</a></string>
+    <string name="MTB"><a href="http://courses.ncirl.ie/index.cfm/page/course/courseId/1921">BA in Management of Technology in Business</a></string>
+    <string name="TM"><a href="http://courses.ncirl.ie/index.cfm/page/course/courseId/1921">BSc(HONS) in Technology Management</a></string>
+
+
+
+
+
+
+
 </resources>
+
+
