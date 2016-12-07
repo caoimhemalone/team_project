@@ -4,12 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -26,20 +26,21 @@ import java.util.Map;
  */
 public class Chat_Room extends AppCompatActivity{
 
+    //Declaring vriables
+
     private ImageButton btn_send_msg;
     private EditText input_msg;
     private TextView chat_convo;
     private Button btn_Back_To_Forums;
-
-    private String user_name,room_name;
-
+    private String user_name,room_name,temp_key,toastText;
     private DatabaseReference root;
-    private String temp_key;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_room);
+
+        //Initialize and connect them to corresponding values in XML when activity is created
 
         btn_send_msg = (ImageButton) findViewById(R.id.btn_send);
         input_msg = (EditText) findViewById(R.id.msg_input);
@@ -49,9 +50,11 @@ public class Chat_Room extends AppCompatActivity{
         user_name = getIntent().getExtras().get("user_name").toString();
         room_name = getIntent().getExtras().get("room_name").toString();
         setTitle(" Room- " + room_name);
+        toastText = "Can't send a blank message";
 
         root = FirebaseDatabase.getInstance().getReference().child("Chat").child(room_name);
 
+        //Just a back button to navigate back to messaging activity
         btn_Back_To_Forums.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,11 +64,14 @@ public class Chat_Room extends AppCompatActivity{
             }
         });
 
+        //When the send message button is clicked if the edit text is not empty take the value from the edit text and place it in a hash map to be sent to Firebase
         btn_send_msg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 if (input_msg.getText().toString()==""){
+
+                    Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_LONG).show();
 
                 }else {
                     //when btn is clicked a key is generated and added as a child of the root in FireBase using a HashMap to move the data
@@ -88,11 +94,12 @@ public class Chat_Room extends AppCompatActivity{
             }
         });
 
-        //when data is changed in the new child in FireBase update
+        //when data is changed in the new child in FireBase update in the folowing ways
         root.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
+                //Adds the data taking from the Firebase to the View
                 append_chat_convo(dataSnapshot);
             }
 
@@ -134,6 +141,7 @@ public class Chat_Room extends AppCompatActivity{
             chat_user_name = (String) ((DataSnapshot)i.next()).getValue();
 
             chat_convo.append(chat_user_name+" : "+chat_msg+" \n");
+            //could insert if statement if username == logged in username setTextcolor = blue etc..
 
         }
     }

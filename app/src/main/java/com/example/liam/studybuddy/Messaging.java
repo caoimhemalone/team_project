@@ -88,7 +88,7 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
 
         listView.setAdapter(arrayAdapter);
 
-        request_user_name();
+        //request_user_name();
 
         //when add room button is clicked take the value entered and store it in HashMap and use the HashMap to update FireBase
         add_room.setOnClickListener(new View.OnClickListener() {
@@ -131,6 +131,8 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                name = userNameHeader.getText().toString();
+
                 Intent intent = new Intent(getApplicationContext(),Chat_Room.class);
                 intent.putExtra("room_name",((TextView)view).getText().toString());
                 intent.putExtra("user_name",name);
@@ -138,34 +140,6 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
 
             }
         });
-    }
-
-    //Create method that makes user have to enter a name for messaging use
-    //will replace with Username variable saved from sign up
-
-    private void request_user_name() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Enter name:");
-
-        final EditText input_field = new EditText(this);
-
-        builder.setView(input_field);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i){
-                name = input_field.getText().toString();
-            }
-        });
-
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-                request_user_name();
-            }
-        });
-
-        builder.show();
     }
 
 

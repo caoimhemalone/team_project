@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -28,8 +28,9 @@ import java.util.Map;
 
 public class Calendar_Events extends AppCompatActivity {
 
+    //Declare Variables
+
     private Button back_to_calendar,addEventBtn;
-    //private ListView events_listView;
     private TextView event_display,display_date;
     private  EditText addEventInput;
 
@@ -39,7 +40,7 @@ public class Calendar_Events extends AppCompatActivity {
     private DatabaseReference root;
 
 
-    private String dateInstance,temp_key_events;
+    private String dateInstance,temp_key_events,event_text,toastText;
 
 
     @Override
@@ -47,24 +48,29 @@ public class Calendar_Events extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_events);
 
+        //On create initialise the variables with the connected values from the XML if needed
+
         back_to_calendar = (Button)findViewById(R.id.btn_back_calendar);
         addEventBtn = (Button)findViewById(R.id.btn_add_event_input);
         addEventInput = (EditText) findViewById(R.id.text_add_event_input);
-        //events_listView = (ListView)findViewById(R.id.events_listView);
         event_display = (TextView) findViewById(R.id.event_textView);
         display_date = (TextView) findViewById(R.id.txtView_display_date_selected);
 
         dateInstance = getIntent().getExtras().get("date_selected").toString();
         Log.v("Date selected is", dateInstance);//checking to see correct date is passed
         display_date.setText(dateInstance);
+        toastText ="Please enter an event dont leave blank";
 
         root = FirebaseDatabase.getInstance().getReferenceFromUrl("https://team-project-studybuddy.firebaseio.com/Events").child(dateInstance);
 
+        //When add event buton is clicked  if the edit text is not empty Create Hash map and send the info to the Firebase
         addEventBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if (addEventInput.getText().toString()==""){
+
+                    Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_LONG).show();
 
                 }else{
 
@@ -83,9 +89,12 @@ public class Calendar_Events extends AppCompatActivity {
             }
         });
 
+        //Listener for when the data is changed in the Firebase
         root.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+                //Takes the info gotten from Firebase and adds it to the View using the append_events method created below
                 append_events(dataSnapshot);
             }
 
@@ -112,8 +121,8 @@ public class Calendar_Events extends AppCompatActivity {
 
     }
 
-    private String event_text;
 
+    //Method to iterate through the Firebase and retrieve all relevant children
     private void append_events(DataSnapshot dataSnapshot) {
 
         Iterator i = dataSnapshot.getChildren().iterator();
@@ -122,7 +131,7 @@ public class Calendar_Events extends AppCompatActivity {
 
             event_text = (String) ((DataSnapshot)i.next()).getValue();
 
-            event_display.append(event_text+" \n");
+            event_display.append(event_text+"."+" \n\n");
 
         }
     }
