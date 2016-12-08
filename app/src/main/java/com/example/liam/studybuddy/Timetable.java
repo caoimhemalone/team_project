@@ -27,6 +27,8 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Timetable extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -156,11 +158,6 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }//End of protected void onCreate .....
 
-//    public void openExam (View view){
-//        Intent intent = new Intent(this, ExamTimetable.class);
-//        startActivity(intent);
-//        finish();
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -278,6 +275,7 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
                 .setActionStatus(Action.STATUS_TYPE_COMPLETED)
                 .build();
     }
+
 
     @Override
     public void onStart() {

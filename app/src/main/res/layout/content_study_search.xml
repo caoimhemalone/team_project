@@ -11,12 +11,6 @@
     tools:context="com.example.liam.studybuddy.StudySearch"
     android:layout_marginTop="45dp">
 
-    <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@android:drawable/arrow_up_float"
-        android:id="@+id/backBTN" />
-
 
     <LinearLayout
         android:orientation="vertical"
@@ -74,7 +68,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:layout_marginBottom="20dp"
-                android:textColor="#42cbf4"
+                android:textColor="#FF4081"
                 android:focusable="true"/>
 
             <Button
@@ -87,7 +81,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:layout_marginBottom="20dp"
-                android:textColor="#42cbf4"
+                android:textColor="#FF4081"
                 android:focusable="true"/>
 
         </LinearLayout>
