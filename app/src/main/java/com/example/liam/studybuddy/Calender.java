@@ -22,6 +22,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -103,69 +104,35 @@ public class Calender extends AppCompatActivity implements NavigationView.OnNavi
             @Override
             public void onClick(View v) {
 
+                dateRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.hasChild(selectedDateInstance)){
 
-                /*if (displayEventsHeader.getText().toString()==""){//
-                    Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(getApplicationContext(), Calendar_Events.class);
+                            intent.putExtra("date_selected", selectedDateInstance);
+                            startActivity(intent);
 
-                }else{
-                    Map<String, Object> map_events = new HashMap<String, Object>();
-                    map_events.put(selectedDateInstance, "");
-                    root.updateChildren(map_events);
+                        }else{
+                            Map<String, Object> map_events = new HashMap<String, Object>();
+                            map_events.put(selectedDateInstance, "");
+                            root.updateChildren(map_events);
 
-                    Intent intent = new Intent(getApplicationContext(),Calendar_Events.class);
-                    intent.putExtra("date_selected",selectedDateInstance);
-                    startActivity(intent);
+                            Intent intent = new Intent(getApplicationContext(), Calendar_Events.class);
+                            intent.putExtra("date_selected", selectedDateInstance);
+                            startActivity(intent);
 
-                }*/
-                Map<String, Object> map_events = new HashMap<String, Object>();
-                map_events.put(selectedDateInstance, "");
-                root.updateChildren(map_events);
+                        }
+                    }
 
-                Intent intent = new Intent(getApplicationContext(),Calendar_Events.class);
-                intent.putExtra("date_selected",selectedDateInstance);
-                startActivity(intent);
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
-
-        //Data change listener for firebase may be needed for validation
-        root.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-                /*if (dataSnapshot.hasChild(selectedDateInstance)){
-                    //if date exists in database do something
-
-                }else{
-                    //if date does not exist do something else
-
-                }*/
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
 
             }
         });
-
-
-
 
     }
     @Override

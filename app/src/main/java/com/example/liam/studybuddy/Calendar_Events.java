@@ -1,5 +1,6 @@
 package com.example.liam.studybuddy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -62,6 +63,14 @@ public class Calendar_Events extends AppCompatActivity {
         toastText ="Please enter an event dont leave blank";
 
         root = FirebaseDatabase.getInstance().getReferenceFromUrl("https://team-project-studybuddy.firebaseio.com/Events").child(dateInstance);
+
+        back_to_calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),Calender.class);
+                startActivity(intent);
+            }
+        });
 
         //When add event buton is clicked  if the edit text is not empty Create Hash map and send the info to the Firebase
         addEventBtn.setOnClickListener(new View.OnClickListener() {

@@ -23,6 +23,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -48,7 +49,7 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
 
     private TextView userNameHeader, emailHeader;
 
-    private String name;
+    private String name,toastText;
 
     private DatabaseReference root = FirebaseDatabase.getInstance().getReferenceFromUrl("https://team-project-studybuddy.firebaseio.com/Chat");
 
@@ -83,6 +84,7 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
         add_room = (Button) findViewById(R.id.btn_add_room);
         room_name = (EditText) findViewById(R.id.room_name_edittext);
         listView = (ListView) findViewById(R.id.roomsContainer);
+        toastText = "Cannot add duplicate room names";
 
         arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list_of_rooms);
 
@@ -95,10 +97,26 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
             @Override
             public void onClick(View view) {
 
-                Map<String, Object> map = new HashMap<String, Object>();
-                map.put(room_name.getText().toString(),"");
-                root.updateChildren(map);
-                room_name.setText("");
+                root.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.hasChild(room_name.getText().toString())){
+                            Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_LONG).show();
+
+                        }else{
+                            Map<String, Object> map = new HashMap<String, Object>();
+                            map.put(room_name.getText().toString(),"");
+                            root.updateChildren(map);
+                            room_name.setText("");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
             }
         });
 
