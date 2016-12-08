@@ -112,13 +112,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!--</TableRow>-->
-
-            <!--<TableRow-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:id="@+id/second_row"-->
-                <!--android:layout_width="match_parent">-->
-
         <!--Layout 5-->
         <LinearLayout
             android:orientation="vertical"

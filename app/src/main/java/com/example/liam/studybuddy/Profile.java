@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 public class Profile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private TextView fullNameTV, studentNumTV, emailTV, myAccountTV, userNameHeader, emailHeader ;
-    private Button forgotPasswordBTN;
     private ImageButton profileImageBTN;
 
     @Override
@@ -55,7 +54,6 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
         emailHeader.setText(globalVariable.getEmail());
 
 
-        //forgotPasswordBTN = (Button)findViewById(R.id.forgotPasswordBTN);
         profileImageBTN = (ImageButton)findViewById(R.id.profileImageBTN);
 
 

@@ -196,9 +196,6 @@ public class SignUp extends AppCompatActivity {
             if (result == false) {
                 //signup is true
                 ShowMessage("Sign Up complete!");
-//                globalVariable.setUserName(fName + " " + lName);
-//                globalVariable.setStudentNum(studentNum);
-//                globalVariable.setEmail(email);
                 Intent i = new Intent();
                 i.setClass(getApplicationContext(), LogIn.class);
                 startActivity(i);
