@@ -8,15 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.liam.studybuddy.StudySearch"
+    tools:context="com.example.liam.studybuddy.SchoolBusLinks"
     android:layout_marginTop="45dp">
-
-    <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@android:drawable/arrow_up_float"
-        android:id="@+id/backBTN" />
-
 
     <LinearLayout
         android:orientation="vertical"
@@ -28,7 +21,7 @@
         android:id="@+id/LL_VER_HEADER">
 
         <TextView
-            android:text="@string/study_search"
+            android:text="@string/comp_heading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/ss_text_view"
@@ -40,66 +33,79 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/SSTV"
-            android:text="@string/ss_text"
+            android:text="@string/bus_subheading"
             android:textAlignment="center"
             android:paddingTop="30dp"
-            android:paddingBottom="10dp" />
+            android:paddingBottom="20dp" />
+
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/LL_VER_SPINNER"
-            android:layout_marginTop="80dp">
-
-            <!--<ExpandableListView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:id="@+id/lvExp"-->
-                <!--/>-->
-            <!--<ExpandableListView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:id="@+id/lvExp2"-->
-                <!--/>-->
-
-
-            <Button
-                android:text="@string/school_comp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/schcompBTN"
-                android:textSize="15sp"
-                android:background="#F4F5EB"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:layout_marginBottom="20dp"
-                android:textColor="#42cbf4"
-                android:focusable="true"/>
-
-            <Button
-                android:text="@string/school_bus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/schbusBTN"
-                android:textSize="15sp"
-                android:background="#F4F5EB"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:layout_marginBottom="20dp"
-                android:textColor="#42cbf4"
-                android:focusable="true"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/LL_HOR_FOOTER">
+            >
 
+            <Button
+                android:text="@string/MP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/compBTN1"
+                android:textSize="15sp"
+                android:background="#F4F5EB"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginBottom="20dp"
+                android:textColor="#FF4081"/>
+
+            <Button
+                android:text="@string/HRM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/compBTN2"
+                android:textSize="15sp"
+                android:background="#F4F5EB"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginBottom="20dp"
+                android:textColor="#FF4081"/>
+
+            <Button
+                android:text="@string/BUS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/compBTN3"
+                android:textSize="15sp"
+                android:background="#F4F5EB"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginBottom="20dp"
+                android:textColor="#FF4081"/>
+
+            <Button
+                android:text="@string/AF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/compBTN4"
+                android:textSize="15sp"
+                android:background="#F4F5EB"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginBottom="20dp"
+                android:textColor="#FF4081"/>
+
+            <Button
+                android:text="@string/back_school"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/backBTNschool"
+                android:background="#F4F5EB"
+                android:layout_marginBottom="20dp"
+                android:textSize="10sp"
+                />
 
         </LinearLayout>
 
     </LinearLayout>
+
 </RelativeLayout>

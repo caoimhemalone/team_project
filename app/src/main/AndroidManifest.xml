@@ -28,6 +28,7 @@
         <activity android:name=".ExamTimetable" />
         <activity android:name=".Info" />
         <activity android:name=".Calendar_Events"></activity>
+        <activity android:name=".SchoolBusLinks"></activity>
         <activity
             android:name=".NavActivity"
             android:label="@string/title_activity_nav"

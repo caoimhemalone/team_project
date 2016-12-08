@@ -33,16 +33,23 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import static com.example.liam.studybuddy.R.string.AF;
+import static com.example.liam.studybuddy.R.string.BUS;
+import static com.example.liam.studybuddy.R.string.HRM;
+import static com.example.liam.studybuddy.R.string.MP;
+import static com.example.liam.studybuddy.R.string.school_comp;
+
 
 public class StudySearch extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    ExpandableListAdapter listAdapter;
-    ExpandableListView expListView;
-    List<String> listDataHeader;
-    HashMap<String, List<String>> listDataChild;
+//    ExpandableListAdapter listAdapter;
+//    ExpandableListView expListView;
+//    List<String> listDataHeader;
+//    HashMap<String, List<String>> listDataChild;
     String bus1, bus2, bus3, bus4, comp1, comp2, comp3, comp4;
 
     private TextView userNameHeader, emailHeader;
+    private Button schcompBTN, schbusBTN;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -68,10 +75,10 @@ public class StudySearch extends AppCompatActivity implements NavigationView.OnN
 
         View header = navigationView.getHeaderView(0);
 
-        bus1 = getString(R.string.MP);
-        bus2 = getString(R.string.HRM);
-        bus3 = getString(R.string.BUS);
-        bus4 = getString(R.string.AF);
+        bus1 = getString(MP);
+        bus2 = getString(HRM);
+        bus3 = getString(BUS);
+        bus4 = getString(AF);
         comp1 = getString(R.string.BIS);
         comp2 = getString(R.string.COMP);
         comp3 = getString(R.string.MTB);
@@ -90,95 +97,162 @@ public class StudySearch extends AppCompatActivity implements NavigationView.OnN
         emailHeader.setText(globalVariable.getEmail());
 
 
-        // get the list view
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
-
-        //preparing list data
-        prepareListData();
-
-        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
-
-        //setting list adapter
-        expListView.setAdapter(listAdapter);
-
-        // ListView Group click listener
-        expListView.setOnGroupClickListener(new OnGroupClickListener() {
-
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                // Toast.makeText(getApplicationContext(),
-                // "Group Clicked" + listDataHeader.get(groupPosition),
-                //Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
-
-        // Listview Group expanded listener
-        expListView.setOnGroupExpandListener(new OnGroupExpandListener() {
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition) + " Expanded", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        //Listview Group collapsed listener
-        expListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
-            @Override
-            public void onGroupCollapse(int groupPosition) {
-                Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition) + " Collapsed", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        // get the list view
+//        expListView = (ExpandableListView) findViewById(R.id.lvExp);
+//
+//        //preparing list data
+//        prepareListData();
+//
+//        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+//
+//        //setting list adapter
+//        expListView.setAdapter(listAdapter);
+//
+//        // ListView Group click listener
+//        expListView.setOnGroupClickListener(new OnGroupClickListener() {
+//
+//            @Override
+//            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+//                // Toast.makeText(getApplicationContext(),
+//                // "Group Clicked" + listDataHeader.get(groupPosition),
+//                //Toast.LENGTH_SHORT).show();
+//                return false;
+//            }
+//        });
+//
+//        // Listview Group expanded listener
+//        expListView.setOnGroupExpandListener(new OnGroupExpandListener() {
+//            @Override
+//            public void onGroupExpand(int groupPosition) {
+//                Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition) + " Expanded", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//        //Listview Group collapsed listener
+//        expListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
+//            @Override
+//            public void onGroupCollapse(int groupPosition) {
+//                Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition) + " Collapsed", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         //Listview on child click listener
 
-        expListView.setOnChildClickListener(new OnChildClickListener() {
-          //  TextView TV = (TextView) findViewById(R.id.lblListItem);
+      //  expListView.setOnChildClickListener(new OnChildClickListener() {
+                                                //  TextView TV = (TextView) findViewById(R.id.lblListItem);
 
 
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-               // Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition) + " : " + listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
-               // TV.setMovementMethod(LinkMovementMethod.getInstance());
-                return false;
-            }
-        });
+//                                                @Override
+//                                                public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+//                                                   // Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition) + " : " + listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
+//                                                    // TV.setMovementMethod(LinkMovementMethod.getInstance());
+//
+////                if (childPosition == R.string.MP) {
+////                    Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
+////                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+////                    startActivity(intent);
+////
+////                } else if (childPosition == R.string.HRM) {
+////                    Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
+////                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+////                    startActivity(intent);
+////
+////                } else if (childPosition == R.string.BUS) {
+////                    Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
+////                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+////                    startActivity(intent);
+////
+////                } else if (childPosition == R.string.AF) {
+////                    Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
+////                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+////                    startActivity(intent);
+////
+////                }
+////                                                    return false;
+//                                                }
 
+                                          //  });
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
 
+        schcompBTN = (Button)findViewById(R.id.schcompBTN);
+        schcompBTN.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), SchoolBusLinks.class);
+                startActivity(i);
+            }
+        });
+
+        schbusBTN = (Button)findViewById(R.id.schbusBTN);
+        schbusBTN.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent j = new Intent();
+                j.setClass(getApplicationContext(), SchoolBusLinks.class);
+                startActivity(j);
+            }
+        });
     }
 
     //PREPARING THE LIST DATA
 
-    private void prepareListData() {
-        listDataHeader = new ArrayList<String>();
-        listDataChild = new HashMap<String, List<String>>();
+//    private void prepareListData() {
+//        listDataHeader = new ArrayList<String>();
+//        listDataChild = new HashMap<String, List<String>>();
+//
+//        // Adding child data
+//        listDataHeader.add("School of Business");
+//        listDataHeader.add("School of Computing");
+//
+//        // Adding child data
+//        List<String> school_bus = new ArrayList<String>();
+//        school_bus.add(bus1);
+//        school_bus.add(bus2);
+//        school_bus.add(bus3);
+//        school_bus.add(bus4);
+//
+//
+//        List<String> school_comp = new ArrayList<String>();
+//        school_comp.add(comp1);
+//        school_comp.add(comp2);
+//        school_comp.add(comp3);
+//        school_comp.add(comp4);
+//
+//
+//        listDataChild.put(listDataHeader.get(0), school_bus); //Header, Child data
+//        listDataChild.put(listDataHeader.get(1), school_comp);
+//
+//    }
+//
+//    public boolean linkSelected(){
+//        if (.equals(R.string.MP)) {
+//            Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
+//            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//            startActivity(intent);
+//
+//        } else if (listDataChild.equals(R.string.HRM)) {
+//            Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
+//            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//            startActivity(intent);
+//
+//        } else if (listDataChild.equals(R.string.BUS)) {
+//            Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
+//            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//            startActivity(intent);
+//
+//        } else if (listDataChild.equals(R.string.AF)) {
+//            Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
+//            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//            startActivity(intent);
+//
+//        }
+//        return false;
+//    }
 
-        // Adding child data
-        listDataHeader.add("School of Business");
-        listDataHeader.add("School of Computing");
-
-        // Adding child data
-        List<String> school_bus = new ArrayList<String>();
-        school_bus.add(bus1);
-        school_bus.add(bus2);
-        school_bus.add(bus3);
-        school_bus.add(bus4);
-
-
-        List<String> school_comp = new ArrayList<String>();
-        school_comp.add(comp1);
-        school_comp.add(comp2);
-        school_comp.add(comp3);
-        school_comp.add(comp4);
-
-
-        listDataChild.put(listDataHeader.get(0), school_bus); //Header, Child data
-        listDataChild.put(listDataHeader.get(1), school_comp);
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

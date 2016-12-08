@@ -12,6 +12,7 @@
     <string name="signup">SignUp</string>
     <string name="study_search"> Course Information</string>
     <string name="school_comp">School of Computing</string>
+    <string name="school_bus">School of Business</string>
     <string name="ss_text"> Nearly There! \n But first you need to select a few things to find content to study</string>
     <string name="room_select"> Select a Room and Day </string>
     <string name="exam_select"> Select a Course and Year </string>
@@ -27,6 +28,10 @@
     <string name="timetableBTN"> Room Timetables </string>
     <string name="TT_heading"> Room Timetable </string>
     <string name="Exam_TT_heading"> Exam Timetable </string>
+    <string name="bus_heading"> School of Business </string>
+    <string name="bus_subheading"> Choose a module below </string>
+    <string name="comp_heading">School of Computing </string>
+    <string name="back_school">Back to \nSchool selection</string>
 
 
     <!-- For Study search spinner-->
@@ -74,17 +79,15 @@
     </string-array>
 
 
-    <string name="HRM"><a href="http://courses.ncirl.ie/index.cfm/page/course/courseId/2283">  BA(HONS) in HRM</a></string>
-    <string name="MP">
-         <![CDATA[<a href="http://courses.ncirl.ie/index.cfm/page/course/courseId/1921" BA(HONS) in Marketing Practice></a>]]>
-    </string>
-    <string name="BUS"> <a href="http://courses.ncirl.ie/index.cfm/page/course/courseId/2283"> <![CDATA[BA(HONS) in Business]]></a></string>
-    <string name="AF">BA(HONS) in Accounting and Finance</string>
+    <string name="HRM"> BA(HONS) in \nHRM</string>
+    <string name="MP"> BA(HONS) in \n Marketing Practice</string>
+    <string name="BUS"> BA(HONS) in \nBusiness </string>
+    <string name="AF">BA(HONS) in \nAccounting and Finance</string>
 
-    <string name="BIS">BSc(HONS) in Business Information Systems</string>
-    <string name="COMP">BSc(HONS) in Computing</string>
-    <string name="MTB">BA in Management of Technology in Business</string>
-    <string name="TM">BSc(HONS) in Technology Management</string>
+    <string name="BIS">BSc(HONS) in \nBusiness Information Systems</string>
+    <string name="COMP">BSc(HONS) in \nComputing</string>
+    <string name="MTB">BA in \nManagement of Technology in Business</string>
+    <string name="TM">BSc(HONS) in \nTechnology Management</string>
 
 
 
