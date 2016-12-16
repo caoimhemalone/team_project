@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.example.liam.studybuddy.GlobalClass"
+        android:name=".GlobalClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -27,18 +27,24 @@
         <activity android:name=".StudySearch" />
         <activity android:name=".ExamTimetable" />
         <activity android:name=".Info" />
-        <activity android:name=".Calendar_Events"></activity>
-        <activity android:name=".SchoolBusLinks"></activity>
+        <activity android:name=".BottleActivity" />
+        <activity android:name=".Game_Menu" />
+        <activity android:name=".Calendar_Events" />
+        <activity android:name=".SchoolBusLinks" />
         <activity
             android:name=".NavActivity"
             android:label="@string/title_activity_nav"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Chat_Room"/><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Chat_Room" />
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <activity android:name=".XsAndOs"></activity>
     </application>
 
 </manifest>

@@ -44,8 +44,6 @@
     </string-array>
 
 
-
-
     <string name="title_activity_nav">NavActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -88,11 +86,6 @@
     <string name="COMP">BSc(HONS) in \nComputing</string>
     <string name="MTB">BA in \nManagement of Technology in Business</string>
     <string name="TM">BSc(HONS) in \nTechnology Management</string>
-
-
-
-
-
 
 
 </resources>
