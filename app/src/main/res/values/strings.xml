@@ -29,7 +29,7 @@
     <string name="TT_heading"> Room Timetable </string>
     <string name="Exam_TT_heading"> Exam Timetable </string>
     <string name="bus_heading"> School of Business </string>
-    <string name="bus_subheading"> Choose a module below </string>
+    <string name="bus_subheading"> Choose a course below </string>
     <string name="comp_heading">School of Computing </string>
     <string name="back_school">Back to \nSchool selection</string>
 
