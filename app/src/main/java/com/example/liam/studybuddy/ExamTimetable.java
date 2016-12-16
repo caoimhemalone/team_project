@@ -54,6 +54,7 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
         setContentView(R.layout.activity_examtimetable);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Exam Timetables");
 
         details = new ArrayList<>();
 
@@ -222,6 +223,12 @@ public class ExamTimetable extends AppCompatActivity implements NavigationView.O
             startActivity(i);
             finish();
 
+        }
+        else if (id == R.id.nav_gamemenu) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Game_Menu.class);
+            startActivity(i);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

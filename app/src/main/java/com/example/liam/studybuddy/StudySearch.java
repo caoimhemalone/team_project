@@ -63,6 +63,7 @@ public class StudySearch extends AppCompatActivity implements NavigationView.OnN
         setContentView(R.layout.activity_study_search);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Study Search");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -85,9 +86,6 @@ public class StudySearch extends AppCompatActivity implements NavigationView.OnN
         comp4 = getString(R.string.TM);
 
 
-//        TextView TV = (TextView) findViewById(R.id.lblListItem);
-//        TV.setMovementMethod(LinkMovementMethod.getInstance());
-
         userNameHeader = (TextView) header.findViewById(R.id.userName);
         emailHeader = (TextView) header.findViewById(R.id.emailHeader);
 
@@ -96,82 +94,6 @@ public class StudySearch extends AppCompatActivity implements NavigationView.OnN
         userNameHeader.setText(globalVariable.getUserName());
         emailHeader.setText(globalVariable.getEmail());
 
-
-//        // get the list view
-//        expListView = (ExpandableListView) findViewById(R.id.lvExp);
-//
-//        //preparing list data
-//        prepareListData();
-//
-//        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
-//
-//        //setting list adapter
-//        expListView.setAdapter(listAdapter);
-//
-//        // ListView Group click listener
-//        expListView.setOnGroupClickListener(new OnGroupClickListener() {
-//
-//            @Override
-//            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-//                // Toast.makeText(getApplicationContext(),
-//                // "Group Clicked" + listDataHeader.get(groupPosition),
-//                //Toast.LENGTH_SHORT).show();
-//                return false;
-//            }
-//        });
-//
-//        // Listview Group expanded listener
-//        expListView.setOnGroupExpandListener(new OnGroupExpandListener() {
-//            @Override
-//            public void onGroupExpand(int groupPosition) {
-//                Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition) + " Expanded", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        //Listview Group collapsed listener
-//        expListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
-//            @Override
-//            public void onGroupCollapse(int groupPosition) {
-//                Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition) + " Collapsed", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
-        //Listview on child click listener
-
-      //  expListView.setOnChildClickListener(new OnChildClickListener() {
-                                                //  TextView TV = (TextView) findViewById(R.id.lblListItem);
-
-
-//                                                @Override
-//                                                public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-//                                                   // Toast.makeText(getApplicationContext(), listDataHeader.get(groupPosition) + " : " + listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
-//                                                    // TV.setMovementMethod(LinkMovementMethod.getInstance());
-//
-////                if (childPosition == R.string.MP) {
-////                    Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
-////                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-////                    startActivity(intent);
-////
-////                } else if (childPosition == R.string.HRM) {
-////                    Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
-////                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-////                    startActivity(intent);
-////
-////                } else if (childPosition == R.string.BUS) {
-////                    Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
-////                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-////                    startActivity(intent);
-////
-////                } else if (childPosition == R.string.AF) {
-////                    Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
-////                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-////                    startActivity(intent);
-////
-////                }
-////                                                    return false;
-//                                                }
-
-                                          //  });
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -198,60 +120,6 @@ public class StudySearch extends AppCompatActivity implements NavigationView.OnN
         });
     }
 
-    //PREPARING THE LIST DATA
-
-//    private void prepareListData() {
-//        listDataHeader = new ArrayList<String>();
-//        listDataChild = new HashMap<String, List<String>>();
-//
-//        // Adding child data
-//        listDataHeader.add("School of Business");
-//        listDataHeader.add("School of Computing");
-//
-//        // Adding child data
-//        List<String> school_bus = new ArrayList<String>();
-//        school_bus.add(bus1);
-//        school_bus.add(bus2);
-//        school_bus.add(bus3);
-//        school_bus.add(bus4);
-//
-//
-//        List<String> school_comp = new ArrayList<String>();
-//        school_comp.add(comp1);
-//        school_comp.add(comp2);
-//        school_comp.add(comp3);
-//        school_comp.add(comp4);
-//
-//
-//        listDataChild.put(listDataHeader.get(0), school_bus); //Header, Child data
-//        listDataChild.put(listDataHeader.get(1), school_comp);
-//
-//    }
-//
-//    public boolean linkSelected(){
-//        if (.equals(R.string.MP)) {
-//            Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
-//            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-//            startActivity(intent);
-//
-//        } else if (listDataChild.equals(R.string.HRM)) {
-//            Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
-//            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-//            startActivity(intent);
-//
-//        } else if (listDataChild.equals(R.string.BUS)) {
-//            Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
-//            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-//            startActivity(intent);
-//
-//        } else if (listDataChild.equals(R.string.AF)) {
-//            Uri uri = Uri.parse("http://courses.ncirl.ie/index.cfm/page/course/courseId/1701"); // missing 'http://' will cause crashed
-//            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-//            startActivity(intent);
-//
-//        }
-//        return false;
-//    }
 
 
     @Override
@@ -328,6 +196,12 @@ public class StudySearch extends AppCompatActivity implements NavigationView.OnN
             startActivity(i);
             finish();
 
+        }
+        else if (id == R.id.nav_gamemenu) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Game_Menu.class);
+            startActivity(i);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

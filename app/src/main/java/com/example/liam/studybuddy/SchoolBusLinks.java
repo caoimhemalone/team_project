@@ -43,6 +43,7 @@ public class SchoolBusLinks extends AppCompatActivity implements NavigationView.
         setContentView(R.layout.activity_bus);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Study Search");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -199,6 +200,12 @@ public class SchoolBusLinks extends AppCompatActivity implements NavigationView.
             startActivity(i);
             finish();
 
+        }
+        else if (id == R.id.nav_gamemenu) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Game_Menu.class);
+            startActivity(i);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

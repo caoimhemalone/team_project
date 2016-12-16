@@ -50,6 +50,7 @@ public class Calender extends AppCompatActivity implements NavigationView.OnNavi
         setContentView(R.layout.activity_calender);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Calendar");
 
         //Initializing variables and assigning them to there XML functions
 
@@ -210,6 +211,19 @@ public class Calender extends AppCompatActivity implements NavigationView.OnNavi
         } else if (id == R.id.nav_home) {
             Intent i = new Intent();
             i.setClass(getApplicationContext(), NavActivity.class);
+            startActivity(i);
+            finish();
+        }
+        else if (id == R.id.nav_info) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Info.class);
+            startActivity(i);
+            finish();
+
+        }
+        else if (id == R.id.nav_gamemenu) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Game_Menu.class);
             startActivity(i);
             finish();
         }

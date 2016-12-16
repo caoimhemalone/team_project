@@ -72,6 +72,16 @@
                 android:elevation="24dp"
                 android:scaleType="fitCenter" />
 
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@android:drawable/ic_menu_info_details"
+                android:id="@+id/imageButton8"
+                android:layout_marginLeft="115dp"
+                android:scaleType="fitCenter"
+                android:elevation="24dp"
+                android:layout_marginTop="15dp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -101,9 +111,9 @@
             <ImageButton
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                app:srcCompat="@android:drawable/ic_menu_info_details"
+                app:srcCompat="@android:drawable/btn_star_big_on"
                 android:layout_marginTop="50dp"
-                android:id="@+id/imageButton8"
+                android:id="@+id/imageButton9"
                 android:elevation="24dp"
                 android:scaleType="fitCenter" />
         </LinearLayout>

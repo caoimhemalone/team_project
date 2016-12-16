@@ -60,6 +60,7 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
         setContentView(R.layout.activity_messaging);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Messaging");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -236,6 +237,12 @@ public class Messaging extends AppCompatActivity implements NavigationView.OnNav
             startActivity(i);
             finish();
 
+        }
+        else if (id == R.id.nav_gamemenu) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Game_Menu.class);
+            startActivity(i);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

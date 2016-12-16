@@ -26,6 +26,7 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
         setContentView(R.layout.activity_profile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Profile");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -144,6 +145,12 @@ public class Profile extends AppCompatActivity implements NavigationView.OnNavig
             startActivity(i);
             finish();
 
+        }
+        else if (id == R.id.nav_gamemenu) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Game_Menu.class);
+            startActivity(i);
+            finish();
         }
 
 

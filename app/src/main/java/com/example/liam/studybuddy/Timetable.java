@@ -56,6 +56,7 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         setContentView(R.layout.activity_timetable);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Room Timetables");
 
         details = new ArrayList<>();
 
@@ -64,6 +65,7 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -234,6 +236,12 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
             startActivity(i);
             finish();
 
+        }
+        else if (id == R.id.nav_gamemenu) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Game_Menu.class);
+            startActivity(i);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

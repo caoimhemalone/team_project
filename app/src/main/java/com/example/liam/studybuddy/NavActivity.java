@@ -24,7 +24,7 @@ public class NavActivity extends AppCompatActivity
     private ImageButton imageBTN3;
     private ImageButton imageBTN6;
     private ImageButton imageBTN7;
-    private ImageButton imageBTN8;
+    private ImageButton imageBTN8, imageBTN9;
     private ImageButton backBTN;
 
     private TextView userNameHeader, emailHeader;
@@ -35,7 +35,7 @@ public class NavActivity extends AppCompatActivity
         setContentView(R.layout.activity_nav);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setTitle("Home");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -113,6 +113,17 @@ public class NavActivity extends AppCompatActivity
             public void onClick(View view){
                 Intent i = new Intent();
                 i.setClass(getApplicationContext(), Info.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+        imageBTN9 = (ImageButton)findViewById(R.id.imageButton9);
+        imageBTN9.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent();
+                i.setClass(getApplicationContext(), Game_Menu.class);
                 startActivity(i);
                 finish();
             }
@@ -204,6 +215,12 @@ public class NavActivity extends AppCompatActivity
             startActivity(i);
             finish();
 
+        }
+        else if (id == R.id.nav_gamemenu) {
+            Intent i = new Intent();
+            i.setClass(getApplicationContext(), Game_Menu.class);
+            startActivity(i);
+            finish();
         }
 
 
